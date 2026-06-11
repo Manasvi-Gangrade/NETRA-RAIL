@@ -1,40 +1,31 @@
 import { Link } from "@tanstack/react-router";
-import { Train, Bell, Shield } from "lucide-react";
+import { Train, Clock, MapPin, Cloud, Volume2, VolumeX } from "lucide-react";
 import { TrainTrack } from "./TrainTrack";
 import { useEffect, useState } from "react";
-
-const links = [
-  { to: "/", label: "Overview" },
-  { to: "/pillar-a", label: "Pillar A" },
-  { to: "/pillar-b", label: "Pillar B" },
-  { to: "/pillar-c", label: "Pillar C" },
-  { to: "/pillar-d", label: "Pillar D" },
-  { to: "/flywheel", label: "Flywheel" },
-  { to: "/command-center", label: "Command Center" },
-] as const;
-
-const tickerItems = [
-  "🚆 Vande Bharat #VB-12 · Western DFC · ON TIME",
-  "⚓ MV Himalaya · Mundra · ETA 22 min",
-  "🛰 IMU anomaly cleared · Itarsi KM 092",
-  "🤖 Drone GRN-03 · 62% inspection complete",
-  "📈 Section throughput · 94 trains/hr",
-  "💹 ₹2.3 Cr saved today · freight sync",
-];
+import { useTTS, GoogleTranslateWidget } from "@/components/netra/TTSProvider";
 
 export function Nav() {
-  const [time, setTime] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
+  const { ttsEnabled, setTtsEnabled } = useTTS();
+
   useEffect(() => {
-    const u = () => setTime(new Date().toLocaleTimeString("en-IN", { hour12: false }));
-    u();
-    const t = setInterval(u, 1000);
-    return () => clearInterval(t);
+    const update = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleTimeString("en-IN", { hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit" }).toLowerCase());
+      setCurrentDate(now.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" }));
+    };
+    update();
+    const interval = setInterval(update, 1000);
+    return () => clearInterval(interval);
   }, []);
+
   return (
     <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-border">
       <TrainTrack className="h-5" />
-      <div className="mx-auto max-w-7xl px-6 py-3 flex items-center gap-4">
-        <Link to="/" className="flex items-center gap-2 group">
+      <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between gap-4">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 group shrink-0">
           <div className="w-10 h-10 rounded-xl bg-primary/10 grid place-items-center shadow-sm border border-border">
             <Train className="w-5 h-5 text-primary" />
           </div>
@@ -45,36 +36,55 @@ export function Nav() {
             <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">Autonomous Rail-Grid</div>
           </div>
         </Link>
-        <nav className="hidden md:flex items-center gap-0.5 ml-2">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="px-3 py-1.5 text-sm rounded-full text-muted-foreground hover:text-primary hover:bg-cream transition-colors"
-              activeProps={{ className: "px-3 py-1.5 text-sm rounded-full bg-primary text-primary-foreground shadow-sm" }}
-              activeOptions={{ exact: true }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="ml-auto flex items-center gap-2">
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-cream-bg text-[10px] font-semibold tracking-wide text-muted-foreground uppercase">
-            <span>System Status · All Pillars Active</span>
-            <div className="flex items-center gap-1 ml-1">
-              {[0, 1, 2, 3].map((i) => (
-                <span key={i} className="live-dot" style={{ animationDelay: `${i * 0.25}s` }} />
-              ))}
+
+        {/* Dynamic Header Widget */}
+        <div className="flex items-center gap-2 md:gap-3 ml-auto">
+          {/* Capsule */}
+          <div className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-1.5 rounded-full border border-border bg-[#f0f4f9]/85 text-[10px] md:text-xs font-semibold text-slate-700 shadow-sm">
+            {/* Time */}
+            <div className="flex items-center gap-1">
+              <Clock className="w-3.5 h-3.5 text-primary animate-pulse" />
+              <span className="font-mono text-slate-800">{currentTime}</span>
+            </div>
+            <div className="h-3.5 w-px bg-slate-300" />
+            
+            {/* Date */}
+            <div className="text-slate-600 truncate max-w-[80px] md:max-w-none">{currentDate}</div>
+            <div className="h-3.5 w-px bg-slate-300" />
+            
+            {/* Location */}
+            <div className="flex items-center gap-0.5">
+              <MapPin className="w-3.5 h-3.5 text-destructive" />
+              <span className="text-slate-800">New Delhi</span>
+            </div>
+            <div className="h-3.5 w-px bg-slate-300" />
+            
+            {/* Weather */}
+            <div className="flex items-center gap-0.5">
+              <Cloud className="w-3.5 h-3.5 text-sky-500" />
+              <span className="text-slate-800">34.2°C</span>
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-            {time} IST
-          </div>
-          <button className="relative w-9 h-9 grid place-items-center rounded-full border border-border bg-white hover:bg-cream transition">
-            <Bell className="w-4 h-4 text-primary" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-destructive animate-pulse" />
+
+          {/* Speaker Button */}
+          <button
+            onClick={() => setTtsEnabled(!ttsEnabled)}
+            className={`w-9 h-9 rounded-xl grid place-items-center transition border shrink-0 ${
+              ttsEnabled
+                ? "bg-[#e0ebff] text-[#0052cc] border-[#b3d4ff] hover:bg-[#c2dcff]"
+                : "bg-slate-50 text-slate-400 border-slate-200 hover:bg-slate-100"
+            }`}
+            title={ttsEnabled ? "Disable Text-to-Speech Hover Reader" : "Enable Text-to-Speech Hover Reader"}
+          >
+            {ttsEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
           </button>
+          
+          <div className="h-4 w-px bg-border hidden sm:block shrink-0" />
+
+          {/* Google Translate Widget */}
+          <div className="flex items-center shrink-0">
+            <GoogleTranslateWidget />
+          </div>
         </div>
       </div>
     </header>

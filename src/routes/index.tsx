@@ -44,12 +44,12 @@ const health = [{ name: "h", value: 96, fill: "oklch(0.7 0.16 165)" }];
 
 function Landing() {
   const marqueeImages = [
-    "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=400&q=70",
+    "https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?auto=format&fit=crop&w=400&q=80",
     "https://images.unsplash.com/photo-1532103054090-334e6e60ab29?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=70",
+    "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=70",
     "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1515165504669-42354c0eede9?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=70",
+    "https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?auto=format&fit=crop&w=400&q=70",
+    "https://images.unsplash.com/photo-1615433995805-4c07c4273df1?auto=format&fit=crop&w=400&q=80",
   ];
 
   return (
