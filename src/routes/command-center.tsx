@@ -31,7 +31,7 @@ const responses = [
 
 const langs = ["English", "हिन्दी", "தமிழ்", "বাংলা", "मराठी", "ગુજરાતી", "ਪੰਜਾਬੀ", "ଓଡ଼ିଆ", "తెలుగు", "ಕನ್ನಡ", "اردو"];
 
-function CommandCenter() {
+export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
   const [lang, setLang] = useState("English");
   const [msgs, setMsgs] = useState<Msg[]>(seedMsgs);
   const [draft, setDraft] = useState("");
@@ -55,8 +55,8 @@ function CommandCenter() {
     }, 1400);
   }
 
-  return (
-    <Shell>
+  const content = (
+    <>
       <PageHeader
         eyebrow="Command Center"
         title="Voice & Language Command Center"
@@ -140,6 +140,9 @@ function CommandCenter() {
           </div>
         </div>
       </section>
-    </Shell>
+    </>
   );
+
+  if (noShell) return content;
+  return <Shell>{content}</Shell>;
 }

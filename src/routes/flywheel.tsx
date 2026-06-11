@@ -30,7 +30,7 @@ function ts() {
   return new Date().toLocaleTimeString("en-IN", { hour12: false });
 }
 
-function Flywheel() {
+export function Flywheel({ noShell = false }: { noShell?: boolean }) {
   const [mode, setMode] = useState<"auto" | "interactive">("interactive");
   const [activeStep, setActiveStep] = useState<number>(0);
   const [log, setLog] = useState<LogEntry[]>([]);
@@ -142,8 +142,8 @@ function Flywheel() {
     setDiagText("System reset. Awaiting step 1 parameters.");
   };
 
-  return (
-    <Shell>
+  const content = (
+    <>
       <PageHeader
         eyebrow="System Overview"
         title="The Autonomous Flywheel Dashboard"
@@ -377,6 +377,9 @@ function Flywheel() {
           })}
         </div>
       </section>
-    </Shell>
+    </>
   );
+
+  if (noShell) return content;
+  return <Shell>{content}</Shell>;
 }
