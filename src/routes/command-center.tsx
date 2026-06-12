@@ -31,7 +31,7 @@ const responses = [
 
 const langs = ["English", "हिन्दी", "தமிழ்", "বাংলা", "मराठी", "ગુજરાતી", "ਪੰਜਾਬੀ", "ଓଡ଼ିଆ", "తెలుగు", "ಕನ್ನಡ", "اردو"];
 
-export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
+export function CommandCenter({ noShell = false, dark = false }: { noShell?: boolean; dark?: boolean }) {
   const [lang, setLang] = useState("English");
   const [msgs, setMsgs] = useState<Msg[]>(seedMsgs);
   const [draft, setDraft] = useState("");
@@ -62,19 +62,20 @@ export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
         title="Voice & Language Command Center"
         description="Operators in any of 230+ languages talk to NETRA-RAIL directly — text or voice — and receive replies in their native script."
         icon={<Globe className="w-6 h-6" />}
+        dark={dark}
       />
 
       <section className="mx-auto max-w-5xl px-6 grid gap-5">
-        <div className="rounded-2xl border border-border bg-white overflow-hidden">
-          <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-cream-bg">
+        <div className={`rounded-2xl border overflow-hidden ${dark ? "border-white/10 bg-[#121c38]/60" : "border-border bg-white"}`}>
+          <div className={`flex items-center justify-between px-5 py-3 border-b ${dark ? "border-white/10 bg-slate-900" : "border-border bg-cream-bg"}`}>
             <div className="flex items-center gap-2">
-              <Languages className="w-4 h-4 text-primary" />
-              <span className="text-sm font-semibold">NETRA-RAIL · 230+ Languages</span>
+              <Languages className={`w-4 h-4 ${dark ? "text-saffron-foreground" : "text-primary"}`} />
+              <span className={`text-sm font-semibold ${dark ? "text-white" : ""}`}>NETRA-RAIL · 230+ Languages</span>
             </div>
             <select
               value={lang}
               onChange={(e) => setLang(e.target.value)}
-              className="text-sm rounded-full border border-border bg-white px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className={`text-sm rounded-full border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/30 ${dark ? "bg-slate-950 border-white/20 text-white" : "bg-white border-border"}`}
             >
               {langs.map((l) => (
                 <option key={l}>{l}</option>
@@ -82,10 +83,10 @@ export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
             </select>
           </div>
 
-          <div ref={scrollRef} className="h-[480px] overflow-y-auto px-5 py-6 space-y-4 bg-white">
+          <div ref={scrollRef} className={`h-[480px] overflow-y-auto px-5 py-6 space-y-4 ${dark ? "bg-slate-950/20" : "bg-white"}`}>
             {msgs.map((m, i) => (
               <div key={i} className={`flex ${m.who === "user" ? "justify-end" : "justify-start"} animate-slide-up`}>
-                <div className={`max-w-[78%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${m.who === "user" ? "bg-primary text-primary-foreground rounded-br-sm" : "bg-cream-bg text-foreground rounded-bl-sm border border-border"}`}>
+                <div className={`max-w-[78%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${m.who === "user" ? "bg-primary text-primary-foreground rounded-br-sm" : (dark ? "bg-white/10 text-white rounded-bl-sm border border-white/10" : "bg-cream-bg text-foreground rounded-bl-sm border border-border")}`}>
                   <div className="text-[10px] uppercase tracking-wider opacity-70 mb-1">{m.lang}</div>
                   {m.text}
                 </div>
@@ -93,7 +94,7 @@ export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
             ))}
             {typing ? (
               <div className="flex justify-start animate-fade-in">
-                <div className="bg-cream-bg border border-border rounded-2xl rounded-bl-sm px-4 py-3 text-sm flex items-center gap-1.5">
+                <div className={`border rounded-2xl rounded-bl-sm px-4 py-3 text-sm flex items-center gap-1.5 ${dark ? "bg-[#121c38]/60 border-white/10 text-slate-300" : "bg-cream-bg border-border"}`}>
                   <span className="text-[10px] uppercase tracking-wider opacity-70 mr-2">NETRA-RAIL is responding</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-bounce" />
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-bounce" style={{ animationDelay: "120ms" }} />
@@ -103,10 +104,10 @@ export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
             ) : null}
           </div>
 
-          <div className="border-t border-border p-3 flex items-center gap-2 bg-white">
+          <div className={`border-t p-3 flex items-center gap-2 ${dark ? "border-white/10 bg-[#0b1329]/60" : "border-border bg-white"}`}>
             <button
               onClick={() => setMic((x) => !x)}
-              className={`relative w-10 h-10 rounded-full grid place-items-center border ${mic ? "bg-saffron text-saffron-foreground border-saffron" : "bg-white text-primary border-border"}`}
+              className={`relative w-10 h-10 rounded-full grid place-items-center border ${mic ? "bg-saffron text-saffron-foreground border-saffron" : (dark ? "bg-slate-900 text-white border-white/10" : "bg-white text-primary border-border")}`}
               aria-label="Toggle microphone"
             >
               <Mic className="w-4 h-4" />
@@ -117,7 +118,7 @@ export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
               onChange={(e) => setDraft(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && send()}
               placeholder={`Ask in ${lang}…`}
-              className="flex-1 px-4 py-2 rounded-full border border-border bg-cream-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className={`flex-1 px-4 py-2 rounded-full border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 ${dark ? "bg-slate-950 border-white/20 text-white placeholder-slate-500" : "bg-cream-bg border-border"}`}
             />
             <button onClick={send} className="w-10 h-10 rounded-full bg-primary text-primary-foreground grid place-items-center hover:opacity-90 transition">
               <Send className="w-4 h-4" />
@@ -126,16 +127,16 @@ export function CommandCenter({ noShell = false }: { noShell?: boolean }) {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-3">
-          <div className="rounded-2xl border border-border bg-white p-4">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Languages</div>
+          <div className={`rounded-2xl border p-4 ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white"}`}>
+            <div className={`text-xs uppercase tracking-wider ${dark ? "text-slate-400" : "text-muted-foreground"}`}>Languages</div>
             <div className="text-2xl font-display font-bold">230+</div>
           </div>
-          <div className="rounded-2xl border border-border bg-white p-4">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Indian Languages</div>
+          <div className={`rounded-2xl border p-4 ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white"}`}>
+            <div className={`text-xs uppercase tracking-wider ${dark ? "text-slate-400" : "text-muted-foreground"}`}>Indian Languages</div>
             <div className="text-2xl font-display font-bold">22</div>
           </div>
-          <div className="rounded-2xl border border-border bg-white p-4">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Modalities</div>
+          <div className={`rounded-2xl border p-4 ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white"}`}>
+            <div className={`text-xs uppercase tracking-wider ${dark ? "text-slate-400" : "text-muted-foreground"}`}>Modalities</div>
             <div className="text-2xl font-display font-bold">Voice + Text</div>
           </div>
         </div>

@@ -30,7 +30,7 @@ function ts() {
   return new Date().toLocaleTimeString("en-IN", { hour12: false });
 }
 
-export function Flywheel({ noShell = false }: { noShell?: boolean }) {
+export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean; dark?: boolean }) {
   const [mode, setMode] = useState<"auto" | "interactive">("interactive");
   const [activeStep, setActiveStep] = useState<number>(0);
   const [log, setLog] = useState<LogEntry[]>([]);
@@ -149,35 +149,36 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
         title="The Autonomous Flywheel Dashboard"
         description="Four pillars. One closed loop. Interact with the live simulation to demonstrate the self-healing operations logic."
         icon={<Zap className="w-6 h-6 text-primary" />}
+        dark={dark}
       />
 
       {/* Simulator Mode Switcher */}
       <section className="mx-auto max-w-7xl px-6 mb-6">
-        <div className="flex items-center justify-between p-4 rounded-2xl border border-border bg-white shadow-sm">
+        <div className={`flex items-center justify-between p-4 rounded-2xl border ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white shadow-sm"}`}>
           <div>
-            <span className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Simulation Control Mode</span>
+            <span className={`text-xs uppercase tracking-wider font-semibold ${dark ? "text-slate-400" : "text-muted-foreground"}`}>Simulation Control Mode</span>
             <div className="text-sm font-bold mt-0.5">
               {mode === "auto" ? "🤖 Autonomous Playback (Continuous logs)" : "🎮 Interactive Presentation (Step-by-step clickthrough)"}
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex bg-slate-100 p-1 rounded-xl border border-border">
+            <div className={`flex p-1 rounded-xl border ${dark ? "bg-slate-900 border-white/10" : "bg-slate-100 border-border"}`}>
               <button
                 onClick={() => { setMode("auto"); resetSimulation(); }}
-                className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all ${mode === "auto" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground"}`}
+                className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all ${mode === "auto" ? "bg-primary text-primary-foreground shadow-sm" : (dark ? "text-slate-400 hover:text-white" : "text-muted-foreground")}`}
               >
                 Auto-Run
               </button>
               <button
                 onClick={() => { setMode("interactive"); resetSimulation(); }}
-                className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all ${mode === "interactive" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground"}`}
+                className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all ${mode === "interactive" ? "bg-primary text-primary-foreground shadow-sm" : (dark ? "text-slate-400 hover:text-white" : "text-muted-foreground")}`}
               >
                 Interactive
               </button>
             </div>
             {mode === "interactive" && (
-              <button onClick={resetSimulation} className="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition border border-border" title="Reset presentation">
-                <RotateCcw className="w-4 h-4 text-muted-foreground" />
+              <button onClick={resetSimulation} className={`p-2 rounded-xl transition border ${dark ? "bg-slate-900 hover:bg-slate-800 border-white/10 text-white" : "bg-slate-100 hover:bg-slate-200 border-border"}`} title="Reset presentation">
+                <RotateCcw className="w-4 h-4" />
               </button>
             )}
           </div>
@@ -186,7 +187,7 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
 
       <section className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-8 items-start">
         {/* LEFT: Autonomous loop visualization */}
-        <div className="lg:col-span-5 relative aspect-square w-full max-w-[480px] mx-auto bg-white/50 rounded-3xl p-4 border border-border shadow-sm">
+        <div className={`lg:col-span-5 relative aspect-square w-full max-w-[480px] mx-auto rounded-3xl p-4 border ${dark ? "border-white/10 bg-[#121c38]/40" : "border-border bg-white/50 shadow-sm"}`}>
           <svg viewBox="0 0 400 400" className="absolute inset-0 w-full h-full">
             <defs>
               <linearGradient id="ringg" x1="0" x2="1">
@@ -199,11 +200,11 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
                 <path d="M0 0 L10 5 L0 10 z" fill="oklch(0.6 0.2 295)" />
               </marker>
             </defs>
-            <circle cx="200" cy="200" r="160" fill="none" stroke="oklch(0.34 0.08 250 / 0.15)" strokeDasharray="2 6" />
+            <circle cx="200" cy="200" r="160" fill="none" stroke={dark ? "rgba(255,255,255,0.08)" : "oklch(0.34 0.08 250 / 0.15)"} strokeDasharray="2 6" />
             <circle cx="200" cy="200" r="150" fill="none" stroke="url(#ringg)" strokeDasharray="10 10" className="animate-dash" strokeWidth={2.5} markerEnd="url(#arrow2)" />
-            <circle cx="200" cy="200" r="68" fill="white" stroke="oklch(0.34 0.08 250 / 0.3)" strokeWidth={1.5} />
-            <text x="200" y="190" textAnchor="middle" fontSize="13" fontWeight="800" fill="oklch(0.34 0.08 250)">NETRA-RAIL</text>
-            <text x="200" y="206" textAnchor="middle" fontSize="9" fill="oklch(0.5 0.02 250)">AUTONOMOUS CORE</text>
+            <circle cx="200" cy="200" r="68" fill={dark ? "#0b1329" : "white"} stroke={dark ? "rgba(255,255,255,0.15)" : "oklch(0.34 0.08 250 / 0.3)"} strokeWidth={1.5} />
+            <text x="200" y="190" textAnchor="middle" fontSize="13" fontWeight="800" fill={dark ? "#ffffff" : "oklch(0.34 0.08 250)"}>NETRA-RAIL</text>
+            <text x="200" y="206" textAnchor="middle" fontSize="9" fill={dark ? "rgba(255,255,255,0.6)" : "oklch(0.5 0.02 250)"}>AUTONOMOUS CORE</text>
             <text x="200" y="220" textAnchor="middle" fontSize="8" fill="oklch(0.7 0.16 165)" fontWeight="700">● {mode === "auto" ? "AUTO-RUNNING" : "STANDBY"}</text>
             <circle cx="200" cy="200" r="68" fill="none" stroke="oklch(0.7 0.16 165)" strokeWidth="2">
               <animate attributeName="r" from="60" to="90" dur="2.4s" repeatCount="indefinite" />
@@ -214,7 +215,7 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
               const a = (i / 4) * Math.PI * 2 - Math.PI / 2;
               const x = 200 + Math.cos(a) * 150;
               const y = 200 + Math.sin(a) * 150;
-              return <line key={i} x1="200" y1="200" x2={x} y2={y} stroke="oklch(0.34 0.08 250 / 0.15)" strokeDasharray="3 4" />;
+              return <line key={i} x1="200" y1="200" x2={x} y2={y} stroke={dark ? "rgba(255,255,255,0.08)" : "oklch(0.34 0.08 250 / 0.15)"} strokeDasharray="3 4" />;
             })}
           </svg>
           {nodes.map((n, i) => {
@@ -225,12 +226,12 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
             const active = phase === i;
             return (
               <div key={n.id} className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${x}%`, top: `${y}%` }}>
-                <div className={`card-hover w-28 h-28 rounded-2xl bg-white border shadow-md flex flex-col items-center justify-center gap-1 transition-all ${active ? "scale-110 shadow-lg border-primary" : "border-border"}`} style={{ boxShadow: `0 0 0 ${active ? 8 : 4}px ${n.color}25` }}>
+                <div className={`card-hover w-28 h-28 rounded-2xl border flex flex-col items-center justify-center gap-1 transition-all ${dark ? (active ? "bg-[#113a5f] border-saffron text-white shadow-lg scale-115" : "bg-[#121c38] border-white/10 text-white") : (active ? "bg-white border-primary shadow-lg scale-110" : "bg-white border-border shadow-md")}`} style={{ boxShadow: `0 0 0 ${active ? 8 : 4}px ${n.color}25` }}>
                   <div className="w-10 h-10 rounded-xl grid place-items-center" style={{ background: `${n.color}18`, color: n.color }}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="text-[12px] font-display font-bold">{n.label}</div>
-                  <div className="text-[9px] uppercase tracking-wider text-muted-foreground">{n.sub}</div>
+                  <div className="text-[9px] uppercase tracking-wider opacity-80">{n.sub}</div>
                 </div>
               </div>
             );
@@ -240,43 +241,43 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
         {/* RIGHT: presentation walkthrough & logs */}
         <div className="lg:col-span-7 space-y-6">
           {mode === "interactive" ? (
-            <div className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+            <div className={`rounded-2xl border p-5 ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white shadow-sm"}`}>
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-5 h-5 text-saffron-foreground" />
-                <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Interactive Walkthrough</h2>
+                <h2 className={`text-sm font-semibold uppercase tracking-wider ${dark ? "text-slate-300" : "text-muted-foreground"}`}>Interactive Walkthrough</h2>
               </div>
 
               {activeStep < stepsData.length ? (
-                <div className="p-4 rounded-xl bg-cream-bg border border-border/80 space-y-3">
+                <div className={`p-4 rounded-xl border space-y-3 ${dark ? "bg-slate-950/40 border-white/10" : "bg-cream-bg border-border/80"}`}>
                   <div className="flex justify-between items-center">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                    <span className={`text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full ${dark ? "bg-saffron/15 text-saffron" : "bg-primary/10 text-primary"}`}>
                       Step {activeStep + 1} of {stepsData.length}
                     </span>
                     <span className="text-xs font-mono font-bold text-muted-foreground">Pillar {stepsData[activeStep].pillar}</span>
                   </div>
-                  <h3 className="text-base font-bold text-foreground">{stepsData[activeStep].title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{stepsData[activeStep].desc}</p>
+                  <h3 className="text-base font-bold">{stepsData[activeStep].title}</h3>
+                  <p className={`text-xs leading-relaxed ${dark ? "text-slate-300" : "text-muted-foreground"}`}>{stepsData[activeStep].desc}</p>
                   
                   <button
                     onClick={triggerNextStep}
-                    className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:opacity-90 transition shadow-md"
+                    className={`w-full mt-4 flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl hover:opacity-90 transition shadow-md ${dark ? "bg-saffron text-white" : "bg-primary text-primary-foreground"}`}
                   >
                     <Play className="w-4 h-4 fill-white" />
                     {stepsData[activeStep].actionText}
                   </button>
                 </div>
               ) : (
-                <div className="p-6 rounded-xl bg-emerald/5 border border-emerald/20 text-center space-y-3">
+                <div className={`p-6 rounded-xl border text-center space-y-3 ${dark ? "bg-emerald/15 border-emerald/30" : "bg-emerald/5 border-emerald/20"}`}>
                   <div className="w-12 h-12 rounded-full bg-emerald/10 text-emerald grid place-items-center mx-auto">
                     <Zap className="w-6 h-6" />
                   </div>
                   <h3 className="text-base font-bold text-emerald">Causal Flywheel Loop Complete!</h3>
-                  <p className="text-xs text-muted-foreground max-w-sm mx-auto">
+                  <p className={`text-xs max-w-sm mx-auto ${dark ? "text-slate-300" : "text-muted-foreground"}`}>
                     The entire sequence—from vessel arrival to track defect identification, drone auditing, and resolution—completed with zero manual intervention.
                   </p>
                   <button
                     onClick={resetSimulation}
-                    className="mt-4 inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition"
+                    className={`mt-4 inline-flex items-center gap-2 px-6 py-2.5 font-semibold rounded-xl transition ${dark ? "bg-saffron text-white hover:opacity-90" : "bg-slate-900 text-white hover:bg-slate-800"}`}
                   >
                     <RotateCcw className="w-4 h-4" />
                     Restart Walkthrough
@@ -285,15 +286,15 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
               )}
             </div>
           ) : (
-            <div className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+            <div className={`rounded-2xl border p-5 ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white shadow-sm"}`}>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Cpu className="w-5 h-5 text-emerald" />
-                  <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Self-Healing Diagnostic Ingestion</h2>
+                  <h2 className={`text-sm font-semibold uppercase tracking-wider ${dark ? "text-slate-300" : "text-muted-foreground"}`}>Self-Healing Diagnostic Ingestion</h2>
                 </div>
                 <span className="text-xs text-emerald flex items-center gap-1.5 font-bold"><span className="live-dot" /> STREAMING EVENTS</span>
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className={`text-xs leading-relaxed ${dark ? "text-slate-300" : "text-muted-foreground"}`}>
                 The platform is actively listening to dynamic API inputs (vessel ETAs, IMU telemetry streams, drone CV feeds). Hover over logs to view detailed telemetry metrics.
               </p>
             </div>
@@ -314,17 +315,17 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
           {/* Dynamic Event Log */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Flywheel Logs</h2>
+              <h2 className={`text-sm font-semibold uppercase tracking-wider ${dark ? "text-slate-300" : "text-muted-foreground"}`}>Flywheel Logs</h2>
               <span className="text-[10px] text-muted-foreground">Last {log.length} records</span>
             </div>
-            <div className="rounded-2xl border border-border bg-white p-4 max-h-[320px] overflow-y-auto space-y-2">
+            <div className={`rounded-2xl border p-4 max-h-[320px] overflow-y-auto space-y-2 ${dark ? "border-white/10 bg-[#121c38]/60 text-white" : "border-border bg-white"}`}>
               {log.length > 0 ? (
                 log.map((e, i) => (
-                  <div key={i} className="animate-slide-up border-b last:border-0 border-slate-100 py-2.5 flex items-start gap-3 text-xs">
+                  <div key={i} className={`animate-slide-up border-b last:border-0 py-2.5 flex items-start gap-3 text-xs ${dark ? "border-white/5" : "border-slate-100"}`}>
                     <span className="font-mono text-slate-400 w-16 shrink-0">{e.t}</span>
                     <span className="text-[9px] font-bold px-2 py-0.5 rounded text-white shrink-0" style={{ background: e.c }}>{e.p}</span>
                     <div className="flex-1">
-                      <span className="text-foreground/95 font-semibold">{e.s}</span>
+                      <span className={`font-semibold ${dark ? "text-white" : "text-foreground/95"}`}>{e.s}</span>
                       {e.detail && <p className="text-[10px] text-muted-foreground mt-0.5 font-mono">{e.detail}</p>}
                     </div>
                   </div>
@@ -341,14 +342,14 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
 
       {/* Static causation flow */}
       <section className="mx-auto max-w-7xl px-6 mt-10">
-        <div className="text-xs uppercase tracking-[0.22em] text-saffron-foreground font-semibold mb-3">Chain of Causation · Flywheel Lifecycle</div>
+        <div className={`text-xs uppercase tracking-[0.22em] font-semibold mb-3 ${dark ? "text-saffron-foreground" : "text-saffron-foreground"}`}>Chain of Causation · Flywheel Lifecycle</div>
         <div className="grid lg:grid-cols-5 gap-3">
           {[
-            { i: Ship, p: "A", t: "Vessel Arrives", d: "MV Himalaya docks at Mundra · 48.2k T Ore", c: "from-primary/15 to-primary/5", b: "border-primary/30" },
-            { i: TrainTrackIcon, p: "B", t: "Dynamic Schedule", d: "Section precedence & JSSP solved in sub-second", c: "from-saffron/20 to-saffron/5", b: "border-saffron/40" },
-            { i: Smartphone, p: "C", t: "Telemetry Anomaly", d: "Passengars' devices flag vibration at KM 134", c: "from-violet/20 to-violet/5", b: "border-violet/40" },
-            { i: Bot, p: "D", t: "Drone Inspection", d: "GRN-03 confirms defect · slow zone enforced", c: "from-emerald/20 to-emerald/5", b: "border-emerald/40" },
-            { i: Zap, p: "✓", t: "Loop Restored", d: "Slow-zone lifted · throughput capacity normalized", c: "from-rose/20 to-rose/5", b: "border-rose/40" },
+            { i: Ship, p: "A", t: "Vessel Arrives", d: "MV Himalaya docks at Mundra · 48.2k T Ore", c: dark ? "from-primary/20 to-primary/5" : "from-primary/15 to-primary/5", b: dark ? "border-primary/50" : "border-primary/30" },
+            { i: TrainTrackIcon, p: "B", t: "Dynamic Schedule", d: "Section precedence & JSSP solved in sub-second", c: dark ? "from-saffron/30 to-saffron/10" : "from-saffron/20 to-saffron/5", b: dark ? "border-saffron/60" : "border-saffron/40" },
+            { i: Smartphone, p: "C", t: "Telemetry Anomaly", d: "Passengars' devices flag vibration at KM 134", c: dark ? "from-violet/30 to-violet/10" : "from-violet/20 to-violet/5", b: dark ? "border-violet/60" : "border-violet/40" },
+            { i: Bot, p: "D", t: "Drone Inspection", d: "GRN-03 confirms defect · slow zone enforced", c: dark ? "from-emerald/30 to-emerald/10" : "from-emerald/20 to-emerald/5", b: dark ? "border-emerald/60" : "border-emerald/40" },
+            { i: Zap, p: "✓", t: "Loop Restored", d: "Slow-zone lifted · throughput capacity normalized", c: dark ? "from-rose/30 to-rose/10" : "from-rose/20 to-rose/5", b: dark ? "border-rose/60" : "border-rose/40" },
           ].map((x, i) => {
             const isCompleted = activeStep > i;
             const isInProgress = activeStep === i;
@@ -357,20 +358,20 @@ export function Flywheel({ noShell = false }: { noShell?: boolean }) {
                 key={i}
                 className={`relative rounded-2xl border ${x.b} bg-gradient-to-br ${x.c} p-4 transition-all duration-300 ${
                   isCompleted ? "opacity-100 shadow-sm" : isInProgress ? "opacity-100 ring-2 ring-primary ring-offset-2 scale-105" : "opacity-50"
-                }`}
+                } ${dark ? "text-white" : "text-foreground"}`}
               >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-white grid place-items-center shadow-sm">
                     <x.i className="w-4 h-4 text-primary" />
                   </div>
-                  <div className="text-[9px] font-bold tracking-widest text-foreground/60">STEP {i + 1} · PILLAR {x.p}</div>
+                  <div className={`text-[9px] font-bold tracking-widest ${dark ? "text-white/60" : "text-foreground/60"}`}>STEP {i + 1} · PILLAR {x.p}</div>
                 </div>
                 <div className="mt-3 font-display font-semibold text-xs flex items-center gap-1.5">
                   {x.t}
                   {isCompleted && <span className="text-[10px] text-emerald font-bold">✓</span>}
                   {isInProgress && <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />}
                 </div>
-                <div className="text-[11px] text-muted-foreground mt-1 leading-relaxed">{x.d}</div>
+                <div className={`text-[11px] mt-1 leading-relaxed ${dark ? "text-slate-300" : "text-muted-foreground"}`}>{x.d}</div>
                 {i < 4 ? <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" /> : null}
               </div>
             );

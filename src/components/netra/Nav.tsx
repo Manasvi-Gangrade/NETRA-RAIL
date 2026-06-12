@@ -21,7 +21,7 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#113a5f] text-white border-b border-[#113a5f]/20">
+    <header className="sticky top-0 z-40 bg-[#0b1329]/95 backdrop-blur-md text-white border-b border-white/5">
       <TrainTrack className="h-5" />
       <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
@@ -71,7 +71,7 @@ export function Nav() {
             onClick={() => setTtsEnabled(!ttsEnabled)}
             className={`w-9 h-9 rounded-xl grid place-items-center transition border shrink-0 ${
               ttsEnabled
-                ? "bg-white text-[#113a5f] border-white hover:bg-white/90"
+                ? "bg-white text-[#0b1329] border-white hover:bg-white/90"
                 : "bg-white/10 text-white border-white/20 hover:bg-white/25"
             }`}
             title={ttsEnabled ? "Disable Text-to-Speech Hover Reader" : "Enable Text-to-Speech Hover Reader"}

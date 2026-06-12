@@ -128,7 +128,7 @@ function Landing() {
   return (
     <Shell>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0b1329] text-white">
+      <section className="relative overflow-hidden bg-[#0b1329] text-white pb-12">
         <video
           ref={bgVideoRef}
           src={videoBg}
@@ -142,19 +142,17 @@ function Landing() {
         <Particles count={36} />
         <div className="relative mx-auto max-w-7xl px-6 pt-6 pb-4 grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: All Content & Controls */}
-          <div className="lg:col-span-7 space-y-6">
-            <h1 className="mt-2 text-5xl md:text-7xl font-display font-extrabold tracking-tight leading-[1.02] flex items-center gap-3">
-              <span>
-                <span className="text-white">NETRA</span>
-                <span className="text-saffron">-</span>
-                <span className="text-saffron">RAIL</span>
-              </span>
-              <span className="text-4xl md:text-6xl">🚂</span>
-            </h1>
-            <p className="mt-3 max-w-3xl text-lg text-white/80 font-semibold">
-              National Enterprise Traffic, Routing & Autonomous Rail-Grid
-            </p>
-            <p className="mt-2 max-w-3xl text-slate-300">
+          <div className="lg:col-span-7 space-y-5 text-left">
+            <div>
+              <h1 className="mt-2 text-5xl md:text-7xl font-display font-extrabold tracking-tight leading-none text-white">
+                NETRA-RAIL
+              </h1>
+              <div className="text-4xl md:text-5xl mt-2 select-none">🚂</div>
+              <p className="mt-3 max-w-3xl text-lg md:text-xl text-white/90 font-semibold leading-snug">
+                National Enterprise Traffic, Routing & Autonomous Rail-Grid
+              </p>
+            </div>
+            <p className="max-w-3xl text-slate-300 text-sm leading-relaxed">
               India's first closed-loop autonomous intelligence platform for Indian Railways — unifying freight, traffic, telemetry and structural safety into a single self-healing flywheel.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
@@ -195,7 +193,7 @@ function Landing() {
           </div>
 
           {/* Right Column: Video & Stats Tabs below it */}
-          <div className="lg:col-span-5 flex flex-col gap-4 self-start">
+          <div className="lg:col-span-5 flex flex-col gap-5 self-start w-full">
             <div className="relative h-[220px] lg:h-[260px] overflow-hidden rounded-3xl bg-black shadow-2xl border border-border/40">
               <video
                 src={netraVideo}
@@ -231,61 +229,105 @@ function Landing() {
         </div>
       </section>
 
-      {/* Bottom Row: Live Network Ops (Aligned with left column) */}
-      <section className="relative bg-background border-t border-slate-200/60 py-12">
-        <div className="mx-auto max-w-7xl px-6">
-          {/* Live ops globe panel */}
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur p-5 shadow-xl max-w-3xl">
-            <div className="flex items-center justify-between">
-              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Live Network Ops</div>
-              <span className="text-xs flex items-center gap-1.5 text-emerald font-semibold"><span className="live-dot" /> STREAMING</span>
-            </div>
-            <div className="mt-3 grid grid-cols-3 gap-2">
-              <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-primary" />
-              <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" />
-              <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-violet" />
-            </div>
-            <div className="mt-4.5 h-32">
-              <ResponsiveContainer>
-                <AreaChart data={tracker}>
-                  <defs>
-                    <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="oklch(0.34 0.08 250)" stopOpacity={0.55} />
-                      <stop offset="100%" stopColor="oklch(0.34 0.08 250)" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0.6} />
-                      <stop offset="100%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8 }} />
-                  <Area type="monotone" dataKey="throughput" stroke="oklch(0.34 0.08 250)" fill="url(#g1)" strokeWidth={2} />
-                  <Area type="monotone" dataKey="savings" stroke="oklch(0.78 0.16 70)" fill="url(#g2)" strokeWidth={2} />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="mt-3 grid grid-cols-2 gap-3">
-              <div className="rounded-xl border border-border p-3">
-                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Corridor Throughput</div>
-                <div className="h-20">
-                  <ResponsiveContainer>
-                    <BarChart data={corridorBars}>
-                      <Tooltip contentStyle={{ fontSize: 11 }} />
-                      <Bar dataKey="value" radius={[4, 4, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
+      {/* MAIN WORKSPACE: Cream Background (Pillars on Left, Live Ops on Right) */}
+      <section className="relative bg-background border-t border-slate-200/60 py-16">
+        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-8 items-start">
+          {/* Left Side: The Four Pillars (2x2 grid) */}
+          <div className="lg:col-span-7 space-y-5">
+            <div className="flex items-end justify-between">
+              <div>
+                <div className="text-xs uppercase tracking-[0.22em] text-saffron-foreground font-semibold">The Four Pillars</div>
+                <h2 className="mt-1 text-3xl font-display font-bold text-foreground">A unified autonomous flywheel</h2>
+                <p className="mt-1 text-muted-foreground text-sm max-w-xl">
+                  Each pillar is independently world-class. Together they form a self-healing loop that no human dispatcher ever has to trigger.
+                </p>
               </div>
-              <div className="rounded-xl border border-border p-3 grid place-items-center">
-                <div className="text-[10px] uppercase tracking-wider text-muted-foreground self-start">Network Health</div>
-                <div className="relative w-20 h-20">
-                  <ResponsiveContainer>
-                    <RadialBarChart innerRadius="70%" outerRadius="100%" data={health} startAngle={90} endAngle={-270}>
-                      <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                      <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "oklch(0.95 0.02 80)" }} />
-                    </RadialBarChart>
-                  </ResponsiveContainer>
-                  <div className="absolute inset-0 grid place-items-center font-display font-bold text-emerald">96%</div>
+              <Link to="/flywheel" className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-semibold">
+                See the loop <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {pillars.map((p) => (
+                <Link
+                  key={p.to}
+                  to={p.to}
+                  className={`card-hover group relative rounded-2xl border p-5 transition flex flex-col justify-between shadow-sm hover:shadow-md ${p.cardBg}`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`text-[9px] tracking-widest font-extrabold uppercase px-2 py-0.5 rounded-md border ${p.chipBg}`}>
+                        {p.chip}
+                      </span>
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform ${p.iconBg}`}>
+                        <p.icon className="w-4 h-4" />
+                      </div>
+                    </div>
+                    <h3 className={`text-base font-display font-bold transition-colors ${p.textColor}`}>{p.title}</h3>
+                    <p className="mt-1.5 text-xs text-white/85 leading-relaxed">{p.desc}</p>
+                  </div>
+                  
+                  <div className={`mt-4 inline-flex items-center gap-1 text-xs font-bold group-hover:underline ${p.actionColor}`}>
+                    Open dashboard <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Live Network Ops (Clean Light Card) */}
+          <div className="lg:col-span-5 w-full">
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur p-5 shadow-xl w-full">
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Live Network Ops</div>
+                <span className="text-xs flex items-center gap-1.5 text-emerald font-semibold"><span className="live-dot" /> STREAMING</span>
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2">
+                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-primary" />
+                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" />
+                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-violet" />
+              </div>
+              <div className="mt-4.5 h-32">
+                <ResponsiveContainer>
+                  <AreaChart data={tracker}>
+                    <defs>
+                      <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stopColor="oklch(0.34 0.08 250)" stopOpacity={0.55} />
+                        <stop offset="100%" stopColor="oklch(0.34 0.08 250)" strokeOpacity={0} />
+                      </linearGradient>
+                      <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0.6} />
+                        <stop offset="100%" stopColor="oklch(0.78 0.16 70)" strokeOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8 }} />
+                    <Area type="monotone" dataKey="throughput" stroke="oklch(0.34 0.08 250)" fill="url(#g1)" strokeWidth={2} />
+                    <Area type="monotone" dataKey="savings" stroke="oklch(0.78 0.16 70)" fill="url(#g2)" strokeWidth={2} />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-border p-3">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Corridor Throughput</div>
+                  <div className="h-20">
+                    <ResponsiveContainer>
+                      <BarChart data={corridorBars}>
+                        <Tooltip contentStyle={{ fontSize: 11 }} />
+                        <Bar dataKey="value" radius={[4, 4, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-border p-3 grid place-items-center">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground self-start">Network Health</div>
+                  <div className="relative w-20 h-20">
+                    <ResponsiveContainer>
+                      <RadialBarChart innerRadius="70%" outerRadius="100%" data={health} startAngle={90} endAngle={-270}>
+                        <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
+                        <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "oklch(0.95 0.02 80)" }} />
+                      </RadialBarChart>
+                    </ResponsiveContainer>
+                    <div className="absolute inset-0 grid place-items-center font-display font-bold text-emerald">96%</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -293,57 +335,19 @@ function Landing() {
         </div>
       </section>
 
-      {/* PILLARS */}
-      <section className="relative bg-background border-t border-slate-200/60 py-16">
+      {/* Why it matters & Ribbon */}
+      <section className="relative bg-[#0b1329] border-t border-slate-800 text-white py-12">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <div className="text-xs uppercase tracking-[0.22em] text-saffron-foreground font-semibold">The Four Pillars</div>
-              <h2 className="mt-1 text-3xl md:text-4xl font-display font-bold">A unified autonomous flywheel</h2>
-              <p className="mt-1 text-muted-foreground max-w-2xl text-sm">Each pillar is independently world-class. Together they form a self-healing loop that no human dispatcher ever has to trigger.</p>
-            </div>
-            <Link to="/flywheel" className="hidden md:inline-flex items-center gap-1 text-sm text-primary hover:underline">
-              See the loop <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
-            {pillars.map((p) => (
-              <Link
-                key={p.to}
-                to={p.to}
-                className={`card-hover group relative rounded-2xl border p-6 transition flex flex-col justify-between shadow-sm hover:shadow-md ${p.cardBg}`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-[10px] tracking-widest font-extrabold uppercase px-2.5 py-1 rounded-md border ${p.chipBg}`}>
-                      {p.chip}
-                    </span>
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${p.iconBg}`}>
-                      <p.icon className="w-5 h-5" />
-                    </div>
-                  </div>
-                  <h3 className={`text-lg font-display font-bold transition-colors ${p.textColor}`}>{p.title}</h3>
-                  <p className="mt-2 text-sm text-white/80 leading-relaxed">{p.desc}</p>
-                </div>
-                
-                <div className={`mt-6 inline-flex items-center gap-1 text-sm font-bold group-hover:underline ${p.actionColor}`}>
-                  Open dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Why it matters */}
-          <div className="mt-14 grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             {[
               { i: Zap, t: "Sub-second decisions", d: "Edge inference and JSSP heuristics resolve precedence in under 800 ms.", c: "from-saffron/20 to-saffron/5", ic: "text-saffron-foreground" },
               { i: Shield, t: "Zero-touch safety", d: "IMU anomalies trigger drone audits and slow zones without a human in the loop.", c: "from-emerald/20 to-emerald/5", ic: "text-emerald" },
               { i: Brain, t: "Self-improving", d: "Evolutionary heuristics + AKNN vector indexing learn from every run.", c: "from-violet/20 to-violet/5", ic: "text-violet" },
             ].map((x) => (
-              <div key={x.t} className={`rounded-2xl border border-border bg-gradient-to-br ${x.c} p-5`}>
-                <div className={`w-10 h-10 rounded-xl bg-white grid place-items-center mb-3 ${x.ic} shadow-sm`}><x.i className="w-5 h-5" /></div>
-                <div className="font-display font-bold">{x.t}</div>
-                <p className="text-sm text-muted-foreground mt-1">{x.d}</p>
+              <div key={x.t} className="rounded-2xl border border-white/10 bg-[#121c38]/60 p-5 shadow-lg">
+                <div className={`w-10 h-10 rounded-xl bg-white/10 grid place-items-center mb-3 ${x.ic} shadow-sm`}><x.i className="w-5 h-5" /></div>
+                <div className="font-display font-bold text-white">{x.t}</div>
+                <p className="text-sm text-slate-300 mt-1">{x.d}</p>
               </div>
             ))}
           </div>
@@ -368,7 +372,7 @@ function Landing() {
               </defs>
               {[100, 400, 700, 1000].map((x, i) => (
                 <g key={i}>
-                  <circle cx={x} cy={40} r={11} fill="white" stroke="oklch(0.78 0.16 70)" strokeWidth={2} />
+                  <circle cx={x} cy={40} r={11} fill="#0b1329" stroke="oklch(0.78 0.16 70)" strokeWidth={2} />
                   <circle cx={x} cy={40} r={4} fill="oklch(0.78 0.16 70)" />
                 </g>
               ))}
@@ -378,22 +382,22 @@ function Landing() {
       </section>
 
       {/* FLYWHEEL SIMULATION */}
-      <section className="border-t border-border bg-white/40 py-16">
-        <Flywheel noShell />
+      <section className="border-t border-slate-200/60 bg-background py-16">
+        <Flywheel noShell dark={false} />
       </section>
 
       {/* COMMAND CENTER */}
-      <section className="border-t border-border py-16">
-        <CommandCenter noShell />
+      <section className="border-t border-slate-800 bg-[#0b1329] text-white py-16">
+        <CommandCenter noShell dark={true} />
       </section>
     </Shell>
   );
 }
 
-function MiniMetric({ label, v, color }: { label: string; v: string; color: string }) {
+function MiniMetric({ label, v, color, dark }: { label: string; v: string; color: string; dark?: boolean }) {
   return (
-    <div className="rounded-xl border border-border bg-white p-2.5">
-      <div className="text-[9px] uppercase tracking-wider text-muted-foreground">{label}</div>
+    <div className={`rounded-xl border p-2.5 ${dark ? "bg-white/5 border-white/10" : "bg-white border-border"}`}>
+      <div className={`text-[9px] uppercase tracking-wider ${dark ? "text-slate-400" : "text-muted-foreground"}`}>{label}</div>
       <div className={`text-lg font-display font-bold ${color}`}>{v}</div>
     </div>
   );
