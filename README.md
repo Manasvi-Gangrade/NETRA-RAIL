@@ -1,7 +1,6 @@
-# NETRA-RAIL
-### National Enterprise Traffic, Routing & Autonomous Rail-Grid
+![NETRA-RAIL](https://img.shields.io/badge/NETRA--RAIL-National%20Enterprise%20Traffic%2C%20Routing%20%26%20Autonomous%20Rail--Grid-1a3a5c?style=for-the-badge&logoColor=white)
 
-**India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
+![Tagline](https://img.shields.io/badge/India's%20First-Closed--Loop%20Autonomous%20Multi--Agent%20Intelligence%20Platform%20for%20Indian%20Railways-F59E0B?style=for-the-badge)
 
 ---
 
@@ -32,7 +31,7 @@
 
 ---
 
-## Table of Contents
+![TOC](https://img.shields.io/badge/Table%20of%20Contents-1a3a5c?style=for-the-badge)
 
 - [Overview](#overview)
 - [The Problem](#the-problem)
@@ -49,7 +48,7 @@
 
 ---
 
-## Overview
+![Overview](https://img.shields.io/badge/Overview-What%20is%20NETRA--RAIL%3F-10B981?style=for-the-badge)
 
 Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains daily**, and transports **1.4 billion tonnes of freight annually** — yet its operational intelligence remains fragmented, reactive, and dangerously manual.
 
@@ -66,7 +65,7 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 ---
 
-## The Problem
+![Problem](https://img.shields.io/badge/The%20Problem-Indian%20Railways%20Running%20Blind-DC2626?style=for-the-badge)
 
 ```
 +------------------+----------------------------------------------+
@@ -88,10 +87,10 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 ---
 
-## Architecture — The 4-Pillar System
+![Architecture](https://img.shields.io/badge/Architecture-The%204--Pillar%20System-1a3a5c?style=for-the-badge)
 
-### Pillar A — Intermodal Supply-Chain Synchroniser
-> *Solving SIH25209 — Ministry of Steel*
+![PillarA](https://img.shields.io/badge/PILLAR%20A-Intermodal%20Supply--Chain%20Synchroniser-1a3a5c?style=for-the-badge)
+![SIH](https://img.shields.io/badge/Solving-SIH25209%20%7C%20Ministry%20of%20Steel-64748b?style=flat-square)
 
 ```
 [Vessel ETA Feed] --> [RL Routing Optimizer] --> [Wagon Dispatch Queue]
@@ -112,8 +111,8 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 ---
 
-### Pillar B — Real-Time Section Throughput Maximiser
-> *Solving SIH25022 — Ministry of Railways*
+![PillarB](https://img.shields.io/badge/PILLAR%20B-Real--Time%20Section%20Throughput%20Maximiser-F59E0B?style=for-the-badge)
+![SIH](https://img.shields.io/badge/Solving-SIH25022%20%7C%20Ministry%20of%20Railways-64748b?style=flat-square)
 
 ```
 [Mixed-Speed Train Network]
@@ -152,8 +151,8 @@ Subject to:
 
 ---
 
-### Pillar C — Crowdsourced IMU Sensor Telemetry Node
-> *Solving SIH25177 — ISRO*
+![PillarC](https://img.shields.io/badge/PILLAR%20C-Crowdsourced%20IMU%20Sensor%20Telemetry%20Node-7C3AED?style=for-the-badge)
+![SIH](https://img.shields.io/badge/Solving-SIH25177%20%7C%20ISRO-64748b?style=flat-square)
 
 ```
 [Passenger Smartphones] --> [3-Axis IMU Stream]
@@ -192,8 +191,8 @@ Subject to:
 
 ---
 
-### Pillar D — Garun CV Structural Auditor
-> *Solving SIH25021 — Ministry of Railways*
+![PillarD](https://img.shields.io/badge/PILLAR%20D-Garun%20CV%20Structural%20Auditor-10B981?style=for-the-badge)
+![SIH](https://img.shields.io/badge/Solving-SIH25021%20%7C%20Ministry%20of%20Railways-64748b?style=flat-square)
 
 ```
 [Anomaly Flag from Pillar C]
@@ -229,7 +228,7 @@ Subject to:
 
 ---
 
-## The Autonomous Flywheel
+![Flywheel](https://img.shields.io/badge/The%20Autonomous%20Flywheel-Zero%20Human%20Intervention-F59E0B?style=for-the-badge)
 
 ```
                  +---------------------+
@@ -278,7 +277,7 @@ Subject to:
 
 ---
 
-## Multilingual Intelligence — 230+ Languages
+![Multilingual](https://img.shields.io/badge/Multilingual%20Intelligence-230%2B%20Languages%20Supported-7C3AED?style=for-the-badge)
 
 ```
 +-------------------------------------------------------+
@@ -304,7 +303,7 @@ Powered by **IndicTrans2** — same architecture demonstrated live at Bharat Man
 
 ---
 
-## Tech Stack
+![TechStack](https://img.shields.io/badge/Tech%20Stack-Research--Proven%20%26%20Production--Deployed-1a3a5c?style=for-the-badge)
 
 ```
 +-------------------------------------------------------+
@@ -336,7 +335,7 @@ Powered by **IndicTrans2** — same architecture demonstrated live at Bharat Man
 
 ---
 
-## Project Structure
+![Structure](https://img.shields.io/badge/Project%20Structure-Codebase%20Layout-10B981?style=for-the-badge)
 
 ```
 NETRA-RAIL/
@@ -407,9 +406,9 @@ NETRA-RAIL/
 
 ---
 
-## Setup & Installation
+![Setup](https://img.shields.io/badge/Setup%20%26%20Installation-Get%20NETRA--RAIL%20Running-1a3a5c?style=for-the-badge)
 
-### Prerequisites
+![Pre](https://img.shields.io/badge/Prerequisites-Required%20Versions-64748b?style=flat-square)
 
 ```bash
 Python >= 3.10
@@ -418,14 +417,14 @@ PostgreSQL >= 14
 Neo4j >= 5.0
 ```
 
-### 1. Clone the Repository
+![Step1](https://img.shields.io/badge/Step%201-Clone%20the%20Repository-1a3a5c?style=flat-square)
 
 ```bash
 git clone https://github.com/Manasvi-Gangrade/NETRA-RAIL.git
 cd NETRA-RAIL
 ```
 
-### 2. Backend Setup
+![Step2](https://img.shields.io/badge/Step%202-Backend%20Setup-1a3a5c?style=flat-square)
 
 ```bash
 # Create virtual environment
@@ -436,7 +435,7 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Environment Variables
+![Step3](https://img.shields.io/badge/Step%203-Environment%20Variables-1a3a5c?style=flat-square)
 
 ```bash
 cp .env.example .env
@@ -463,7 +462,7 @@ VECTOR_INDEX_PATH=./data/vector_index
 INDICTRANS2_MODEL_PATH=./models/indictrans2
 ```
 
-### 4. Database Initialization
+![Step4](https://img.shields.io/badge/Step%204-Database%20Initialization-1a3a5c?style=flat-square)
 
 ```bash
 # PostgreSQL
@@ -474,7 +473,7 @@ python backend/scripts/init_db.py
 python backend/scripts/init_graph.py
 ```
 
-### 5. Frontend Setup
+![Step5](https://img.shields.io/badge/Step%205-Frontend%20Setup-1a3a5c?style=flat-square)
 
 ```bash
 cd frontend
@@ -483,15 +482,15 @@ npm install
 
 ---
 
-## Running the System
+![Running](https://img.shields.io/badge/Running%20the%20System-Start%20All%20Pillars-10B981?style=for-the-badge)
 
-### Start Backend
+![RunA](https://img.shields.io/badge/Run-Start%20Backend-10B981?style=flat-square)
 
 ```bash
 uvicorn backend.main:app --reload --port 8000
 ```
 
-### Start Frontend
+![RunB](https://img.shields.io/badge/Run-Start%20Frontend-10B981?style=flat-square)
 
 ```bash
 cd frontend
@@ -499,7 +498,7 @@ npm start
 # Runs on http://localhost:3000
 ```
 
-### Run with Docker (Recommended)
+![RunC](https://img.shields.io/badge/Run-Docker%20%28Recommended%29-10B981?style=flat-square)
 
 ```bash
 docker-compose up --build
@@ -509,9 +508,9 @@ docker-compose up --build
 
 ---
 
-## API Reference
+![API](https://img.shields.io/badge/API%20Reference-All%20Endpoints-F59E0B?style=for-the-badge)
 
-### Pillar A — Logistics
+![APIa](https://img.shields.io/badge/Pillar%20A-Logistics%20Endpoints-1a3a5c?style=flat-square)
 
 ```http
 GET  /api/pillar-a/vessel-status
@@ -520,7 +519,7 @@ POST /api/pillar-a/update-eta
 GET  /api/pillar-a/metrics
 ```
 
-### Pillar B — Traffic
+![APIb](https://img.shields.io/badge/Pillar%20B-Traffic%20Endpoints-F59E0B?style=flat-square)
 
 ```http
 GET  /api/pillar-b/section-status
@@ -529,7 +528,7 @@ GET  /api/pillar-b/slow-zones
 GET  /api/pillar-b/throughput-metrics
 ```
 
-### Pillar C — Sensors
+![APIc](https://img.shields.io/badge/Pillar%20C-Sensor%20Endpoints-7C3AED?style=flat-square)
 
 ```http
 POST /api/pillar-c/ingest-imu
@@ -538,7 +537,7 @@ GET  /api/pillar-c/heatmap-data
 GET  /api/pillar-c/vector-stats
 ```
 
-### Pillar D — Drones
+![APId](https://img.shields.io/badge/Pillar%20D-Drone%20Endpoints-10B981?style=flat-square)
 
 ```http
 GET  /api/pillar-d/drone-missions
@@ -547,7 +546,7 @@ GET  /api/pillar-d/inspection-reports
 POST /api/pillar-d/upload-report
 ```
 
-### Multilingual Command Center
+![APIe](https://img.shields.io/badge/Command%20Center-Multilingual%20Endpoints-7C3AED?style=flat-square)
 
 ```http
 POST /api/command/query
@@ -557,7 +556,7 @@ GET  /api/command/supported-languages
 
 ---
 
-## Research Foundation
+![Research](https://img.shields.io/badge/Research%20Foundation-Original%20Academic%20Work-7C3AED?style=for-the-badge)
 
 NETRA-RAIL is built on original academic research by the team:
 
@@ -569,7 +568,7 @@ NETRA-RAIL is built on original academic research by the team:
 
 ---
 
-## Production Deployments Referenced
+![Deployments](https://img.shields.io/badge/Production%20Deployments-Real%20World%20Proven-10B981?style=for-the-badge)
 
 | Project | Deployed At | Relevance to NETRA-RAIL |
 |---------|-------------|------------------------|
@@ -580,7 +579,7 @@ NETRA-RAIL is built on original academic research by the team:
 
 ---
 
-## Team
+![Team](https://img.shields.io/badge/Team-The%20Builders-F59E0B?style=for-the-badge)
 
 <div align="center">
 
