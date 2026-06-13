@@ -1,4 +1,7 @@
-![NETRA-RAIL](https://img.shields.io/badge/NETRA--RAIL-National%20Enterprise%20Traffic%2C%20Routing%20%26%20Autonomous%20Rail--Grid-1a3a5c?style=for-the-badge&logoColor=white)
+# NETRA-RAIL
+### National Enterprise Traffic, Routing & Autonomous Rail-Grid
+
+**India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
 
 ![Tagline](https://img.shields.io/badge/India's%20First-Closed--Loop%20Autonomous%20Multi--Agent%20Intelligence%20Platform%20for%20Indian%20Railways-F59E0B?style=for-the-badge)
 
