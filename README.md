@@ -1,20 +1,11 @@
-<div align="center">
-
-```
-███╗   ██╗███████╗████████╗██████╗  █████╗       ██████╗  █████╗ ██╗██╗     
-████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██╔══██╗      ██╔══██╗██╔══██╗██║██║     
-██╔██╗ ██║█████╗     ██║   ██████╔╝███████║      ██████╔╝███████║██║██║     
-██║╚██╗██║██╔══╝     ██║   ██╔══██╗██╔══██║      ██╔══██╗██╔══██║██║██║     
-██║ ╚████║███████╗   ██║   ██║  ██║██║  ██║      ██║  ██║██║  ██║██║███████╗
-╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
-```
-
-# 🚂 NETRA-RAIL
+# NETRA-RAIL
 ### National Enterprise Traffic, Routing & Autonomous Rail-Grid
 
 **India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
 
 ---
+
+<div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
@@ -23,16 +14,6 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![Neo4j](https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-
----
-
-```
-🚂 ──────────────────────────────────────────────────────────────────── 🏁
-  Logistics → Traffic → Sensors → Drones → Back to Logistics
-       The Autonomous Flywheel — Zero Human Intervention
-```
-
----
 
 [![Far Away Hackathon](https://img.shields.io/badge/Far%20Away%20Hackathon%202026-Theme%3A%20Railways-1a3a5c?style=for-the-badge)](https://unstop.com)
 [![Status](https://img.shields.io/badge/Status-Active%20Development-10B981?style=for-the-badge)]()
@@ -43,23 +24,32 @@
 
 ---
 
-## 📋 Table of Contents
+<div align="center">
 
-- [Overview](#-overview)
-- [The Problem](#-the-problem)
-- [Architecture — The 4-Pillar System](#-architecture--the-4-pillar-system)
-- [The Autonomous Flywheel](#-the-autonomous-flywheel)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Setup & Installation](#-setup--installation)
-- [Running the System](#-running-the-system)
-- [API Reference](#-api-reference)
-- [Research Foundation](#-research-foundation)
-- [Team](#-team)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=1a3a5c&center=true&vCenter=true&width=700&lines=Logistics+%E2%86%92+Traffic+%E2%86%92+Sensors+%E2%86%92+Drones;The+Autonomous+Flywheel+%E2%80%94+Zero+Human+Intervention;68%2C000+Route+KM+%7C+13%2C000%2B+Trains+%7C+4+Pillars;Build+Boldly.+Ship+Something+Real.)
+
+</div>
 
 ---
 
-## 🌐 Overview
+## Table of Contents
+
+- [Overview](#overview)
+- [The Problem](#the-problem)
+- [Architecture — The 4-Pillar System](#architecture--the-4-pillar-system)
+- [The Autonomous Flywheel](#the-autonomous-flywheel)
+- [Multilingual Intelligence](#multilingual-intelligence--230-languages)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Setup & Installation](#setup--installation)
+- [Running the System](#running-the-system)
+- [API Reference](#api-reference)
+- [Research Foundation](#research-foundation)
+- [Team](#team)
+
+---
+
+## Overview
 
 Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains daily**, and transports **1.4 billion tonnes of freight annually** — yet its operational intelligence remains fragmented, reactive, and dangerously manual.
 
@@ -67,45 +57,45 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 | Layer | Pillar | Problem Solved |
 |-------|--------|----------------|
-| 🔵 Macro-Logistics | Pillar A — Intermodal Sync | Port-to-plant freight coordination failures |
-| 🟠 Network-Traffic | Pillar B — Throughput Maximiser | Mixed-speed rail corridor gridlock |
-| 🟣 Micro-Sensing | Pillar C — IMU Telemetry Node | Cost-prohibitive infrastructure monitoring |
-| 🟢 Ground-Execution | Pillar D — Garun CV Auditor | Hazardous manual track inspections |
+| Macro-Logistics | Pillar A — Intermodal Sync | Port-to-plant freight coordination failures |
+| Network-Traffic | Pillar B — Throughput Maximiser | Mixed-speed rail corridor gridlock |
+| Micro-Sensing | Pillar C — IMU Telemetry Node | Cost-prohibitive infrastructure monitoring |
+| Ground-Execution | Pillar D — Garun CV Auditor | Hazardous manual track inspections |
 
 > **This is not 4 solutions. It is one self-healing ecosystem.**
 
 ---
 
-## 🚨 The Problem
+## The Problem
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    INDIAN RAILWAYS TODAY                        │
-├─────────────────┬───────────────────────────────────────────────┤
-│  🚢 LOGISTICS   │ Ships arrive. Wagons idle. ₹1000s Cr lost     │
-│                 │ annually in demurrage at major ports.         │
-├─────────────────┼───────────────────────────────────────────────┤
-│  🚂 TRAFFIC     │ Vande Bharat at 160 km/h vs freight at 40     │
-│                 │ km/h. Manual scheduling = cascading delays.   │
-├─────────────────┼───────────────────────────────────────────────┤
-│  📡 SENSORS     │ Track anomalies accumulate undetected between  │
-│                 │ expensive geometry car inspection cycles.     │
-├─────────────────┼───────────────────────────────────────────────┤
-│  🚁 INSPECTION  │ Trackmen sent into hazardous environments for  │
-│                 │ manual audits of individual track components. │
-└─────────────────┴───────────────────────────────────────────────┘
++------------------+----------------------------------------------+
+|  INDIAN RAILWAYS TODAY                                          |
++------------------+----------------------------------------------+
+|  LOGISTICS       | Ships arrive. Wagons idle.                   |
+|                  | Crores lost annually in demurrage at ports.  |
++------------------+----------------------------------------------+
+|  TRAFFIC         | Vande Bharat at 160 km/h vs freight at 40   |
+|                  | km/h. Manual scheduling = cascading delays.  |
++------------------+----------------------------------------------+
+|  SENSORS         | Track anomalies accumulate undetected between|
+|                  | expensive geometry car inspection cycles.    |
++------------------+----------------------------------------------+
+|  INSPECTION      | Trackmen sent into hazardous environments    |
+|                  | for manual audits of track components.       |
++------------------+----------------------------------------------+
 ```
 
 ---
 
-## 🏗 Architecture — The 4-Pillar System
+## Architecture — The 4-Pillar System
 
-### 🔵 Pillar A — Intermodal Supply-Chain Synchroniser
+### Pillar A — Intermodal Supply-Chain Synchroniser
 > *Solving SIH25209 — Ministry of Steel*
 
 ```
-[Vessel ETA Feed] ──► [RL Routing Optimizer] ──► [Wagon Dispatch Queue]
-        │                      │                         │
+[Vessel ETA Feed] --> [RL Routing Optimizer] --> [Wagon Dispatch Queue]
+        |                      |                         |
    Port APIs            Multimodal Logic           Auto-Schedule
   (Mundra, JNPT,      (Adapted from SIH 2024       Push to Zones
   Vizag, Chennai)      Grand Finalist Project)
@@ -114,45 +104,45 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 **What it does:** Ingests real-time shipping manifests and vessel ETA parameters from major Indian ports. Using an RL-inspired multimodal routing optimiser (adapted from the Ministry of Telecommunications SIH 2024 Grand Finalist project), it dynamically computes freight train dispatch queues — eliminating idle dwell time at marshalling yards.
 
 **Key Features:**
-- ✅ Real-time vessel ETA ingestion and dynamic schedule recalculation
-- ✅ Automated freight wagon allocation and dispatch queue management
-- ✅ Demurrage cost minimisation through predictive synchronisation
-- ✅ Multi-port, multi-plant simultaneous orchestration
-- ✅ Natural language query interface in 230+ languages
+- Real-time vessel ETA ingestion and dynamic schedule recalculation
+- Automated freight wagon allocation and dispatch queue management
+- Demurrage cost minimisation through predictive synchronisation
+- Multi-port, multi-plant simultaneous orchestration
+- Natural language query interface in 230+ languages
 
 ---
 
-### 🟠 Pillar B — Real-Time Section Throughput Maximiser
+### Pillar B — Real-Time Section Throughput Maximiser
 > *Solving SIH25022 — Ministry of Railways*
 
 ```
 [Mixed-Speed Train Network]
-         │
-         ▼
-[JSSP Optimization Engine] ◄── [LLM Heuristic Generator]
-         │                              │
+         |
+         v
+[JSSP Optimization Engine] <-- [LLM Heuristic Generator]
+         |                              |
     Precedence                  Evolutionary Mutation
     Decisions                   & Crossover Operators
-         │
-         ▼
-[Loop-Line Allocation] ──► [Sub-second Override Dispatch]
-         │
-         ▼
-[Slow Zone Enforcement] ◄── Triggered by Pillar C anomaly flags
+         |
+         v
+[Loop-Line Allocation] --> [Sub-second Override Dispatch]
+         |
+         v
+[Slow Zone Enforcement] <-- Triggered by Pillar C anomaly flags
 ```
 
 **What it does:** Models the entire rail corridor as a dynamic Job Shop Scheduling Problem (JSSP). Computes sub-second precedence override decisions — determining exactly which freight trains to side-track and for how long — ensuring Vande Bharat passes without delay while freight throughput is simultaneously maximised.
 
 **Key Features:**
-- ✅ Real-time JSSP-based mixed-speed train precedence computation
-- ✅ Sub-second loop-line allocation and override dispatch
-- ✅ Automatic slow-zone enforcement on Pillar C anomaly flags
-- ✅ Formal convergence guarantees on schedule optimality (under elitism)
-- ✅ LLM-driven dynamic heuristic generation replacing brittle static rules
+- Real-time JSSP-based mixed-speed train precedence computation
+- Sub-second loop-line allocation and override dispatch
+- Automatic slow-zone enforcement on Pillar C anomaly flags
+- Formal convergence guarantees on schedule optimality (under elitism)
+- LLM-driven dynamic heuristic generation replacing brittle static rules
 
 **Mathematical Foundation:**
 ```
-Objective: max Σ throughput(sectionᵢ)
+Objective: max sum(throughput(section_i))
 Subject to:
   - No collision conflicts between mixed-speed rolling stock
   - Precedence constraints: passenger > freight priority
@@ -162,30 +152,31 @@ Subject to:
 
 ---
 
-### 🟣 Pillar C — Crowdsourced IMU Sensor Telemetry Node
+### Pillar C — Crowdsourced IMU Sensor Telemetry Node
 > *Solving SIH25177 — ISRO*
 
 ```
-[Passenger Smartphones] ──► [3-Axis IMU Stream]
-         │                        │
+[Passenger Smartphones] --> [3-Axis IMU Stream]
+         |                        |
     Accelerometer            Gyroscope Data
     (X, Y, Z axes)           (Roll, Pitch, Yaw)
-         │                        │
-         └────────────┬───────────┘
-                      ▼
+         |                        |
+         +------------+-----------+
+                      |
+                      v
            [High-Dimensional Vector Pipeline]
-                      │
+                      |
            [AKNN Quantization Engine]
            (Sparse JL Projections +
             Custom HNSW/FAISS Indexing)
-                      │
-                      ▼
+                      |
+                      v
            [Anomaly Cluster Isolation]
-                      │
+                      |
            [Geo-Tagged Maintenance Flag]
-                      │
-              ┌───────┴───────┐
-              ▼               ▼
+                      |
+              +-------+-------+
+              v               v
         Pillar B          Pillar D
     (Slow Zone Alert)  (Drone Dispatch)
 ```
@@ -193,223 +184,216 @@ Subject to:
 **What it does:** Transforms every smartphone aboard a moving train into a precision track quality sensor. Structural anomalies manifest as statistically distinct vibration signatures. When multiple devices report anomalous vectors at converging GPS coordinates, the system isolates the anomaly cluster and generates a precise geo-tagged maintenance flag.
 
 **Key Features:**
-- ✅ Passive zero-cost distributed track monitoring via passenger smartphones
-- ✅ 3-axis IMU telemetry ingestion at scale across entire rail network
-- ✅ High-dimensional AKNN vector indexing with formal accuracy guarantees
-- ✅ GPS-precise anomaly coordinate isolation
-- ✅ Automatic downstream trigger to Pillar B (slow zone) and Pillar D (drone)
-
-**AKNN Architecture:**
-```python
-# Quantization-based AKNN with asymptotically optimal rate-distortion bounds
-# Unlike standard HNSW/IVF-PQ — formal error guarantees certified
-# Sparse Johnson-Lindenstrauss projections for dimensionality handling
-```
+- Passive zero-cost distributed track monitoring via passenger smartphones
+- 3-axis IMU telemetry ingestion at scale across entire rail network
+- High-dimensional AKNN vector indexing with formal accuracy guarantees
+- GPS-precise anomaly coordinate isolation
+- Automatic downstream trigger to Pillar B (slow zone) and Pillar D (drone)
 
 ---
 
-### 🟢 Pillar D — Garun CV Structural Auditor
+### Pillar D — Garun CV Structural Auditor
 > *Solving SIH25021 — Ministry of Railways*
 
 ```
 [Anomaly Flag from Pillar C]
-         │
-         ▼
+         |
+         v
 [Geo-Fenced Maintenance Ticket]
-         │
-         ▼
+         |
+         v
 [Autonomous Drone Dispatch]
-         │
-         ▼
+         |
+         v
 [Garun CV Inference Engine]
-    ├── QR Code Scanning on Track Fittings
-    ├── Fastener Wear Detection
-    ├── Surface Micro-Fissure Identification
-    └── Joint Bar Misalignment Detection
-         │
-         ▼
+    +-- QR Code Scanning on Track Fittings
+    +-- Fastener Wear Detection
+    +-- Surface Micro-Fissure Identification
+    +-- Joint Bar Misalignment Detection
+         |
+         v
 [Structured Inspection Report]
-    ├── CLEARED ──► Pillar B lifts slow zone
-    └── DEFECT  ──► Maintenance Work Order Generated
+    +-- CLEARED --> Pillar B lifts slow zone
+    +-- DEFECT  --> Maintenance Work Order Generated
 ```
 
 **What it does:** Autonomous drone dispatch triggered by Pillar C anomaly flags. Garun's production CV framework (originally deployed for Indore Municipal Corporation illegal construction detection) is adapted for railway infrastructure inspection.
 
 **Key Features:**
-- ✅ Autonomous geo-fenced drone dispatch triggered by Pillar C
-- ✅ Real-time convolutional inference on track infrastructure components
-- ✅ Automated QR code scanning on laser-marked track fittings
-- ✅ Structured aerial inspection report generation
-- ✅ Automatic slow-zone clearance upon verified track restoration
-- ✅ Escalated maintenance work order generation for confirmed defects
+- Autonomous geo-fenced drone dispatch triggered by Pillar C
+- Real-time convolutional inference on track infrastructure components
+- Automated QR code scanning on laser-marked track fittings
+- Structured aerial inspection report generation
+- Automatic slow-zone clearance upon verified track restoration
+- Escalated maintenance work order generation for confirmed defects
 
 ---
 
-## 🔄 The Autonomous Flywheel
+## The Autonomous Flywheel
 
 ```
-                    ┌─────────────────────┐
-                    │     PILLAR A        │
-                    │  Port-to-Plant      │
-                    │  Freight Scheduler  │
-                    └──────────┬──────────┘
-                               │
-                    Freight dispatch computed
-                               │
-                               ▼
-┌─────────────────┐   ┌────────────────────┐
-│    PILLAR D     │   │     PILLAR B        │
-│  Garun Drone    │◄──│  Section Throughput │
-│  CV Auditor     │   │  Maximiser (JSSP)   │
-└────────┬────────┘   └────────────────────┘
-         │                      ▲
-  Track report                  │
+                 +---------------------+
+                 |      PILLAR A       |
+                 |  Port-to-Plant      |
+                 |  Freight Scheduler  |
+                 +----------+----------+
+                            |
+               Freight dispatch computed
+                            |
+                            v
++----------------+   +---------------------+
+|   PILLAR D     |   |      PILLAR B        |
+|  Garun Drone   +<--+  Section Throughput  |
+|  CV Auditor    |   |  Maximiser (JSSP)    |
++-------+--------+   +---------------------+
+        |                       ^
+  Track report                  |
   uploaded                 Slow zone
-         │                 enforcement
-         │            ┌─────────────────────┐
-         └───────────►│     PILLAR C        │
-                       │  IMU Sensor         │
-                       │  Telemetry Node     │
-                       └─────────────────────┘
+        |                  enforcement
+        |             +---------------------+
+        +------------>+      PILLAR C        |
+                      |  IMU Sensor          |
+                      |  Telemetry Node      |
+                      +---------------------+
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---------------------------------------------------
   One complete autonomous cycle: ~23 minutes
   Human interventions required: ZERO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---------------------------------------------------
 ```
 
 **Live Event Log (Sample):**
 ```
-14:23:07  Vessel MV Himalaya ETA updated → 14:45
-14:23:08  Pillar A: Freight dispatch queue recalculated ✓
-14:23:09  Pillar B: Section 7 precedence override issued ✓
-14:31:44  Pillar C: Anomaly flagged @ 22.3°N, 73.1°E
-14:31:45  Pillar B: Slow zone enforced — Section 7 ✓
-14:31:46  Pillar D: Drone #3 dispatched → ETA 8 mins
-14:39:22  Pillar D: Loose fastener confirmed ⚠
-14:39:23  Maintenance order #MO-2847 generated ✓
-14:46:11  Pillar D: Track restored — report uploaded ✓
-14:46:12  Pillar B: Slow zone lifted — Section 7 ✓
+14:23:07  Vessel MV Himalaya ETA updated --> 14:45
+14:23:08  Pillar A: Freight dispatch queue recalculated
+14:23:09  Pillar B: Section 7 precedence override issued
+14:31:44  Pillar C: Anomaly flagged @ 22.3 N, 73.1 E
+14:31:45  Pillar B: Slow zone enforced -- Section 7
+14:31:46  Pillar D: Drone #3 dispatched --> ETA 8 mins
+14:39:22  Pillar D: Loose fastener confirmed
+14:39:23  Maintenance order #MO-2847 generated
+14:46:11  Pillar D: Track restored -- report uploaded
+14:46:12  Pillar B: Slow zone lifted -- Section 7
 ```
 
 ---
 
-## 🌐 Multilingual Intelligence — 230+ Languages
+## Multilingual Intelligence — 230+ Languages
 
 ```
-┌─────────────────────────────────────────────────────┐
-│              NETRA-RAIL COMMAND CENTER              │
-│                  230+ Languages                     │
-├─────────────────────────────────────────────────────┤
-│  Station Master (Hindi):                            │
-│  "Section 7 mein slow zone kab lift hoga?"         │
-│                                                     │
-│  NETRA-RAIL:                                        │
-│  "Drone inspection 8 minute mein complete hogi.    │
-│   Track clear hote hi slow zone automatically      │
-│   lift ho jayega."                                  │
-├─────────────────────────────────────────────────────┤
-│  Trackman (Tamil):                                  │
-│  "பிரிவு 4 அருகில் பராமரிப்பு எச்சரிக்கை உள்ளதா?" │
-│                                                     │
-│  NETRA-RAIL: [Responds in Tamil] ✓                 │
-└─────────────────────────────────────────────────────┘
++-------------------------------------------------------+
+|              NETRA-RAIL COMMAND CENTER                |
+|                  230+ Languages                       |
++-------------------------------------------------------+
+|  Station Master (Hindi):                              |
+|  "Section 7 mein slow zone kab lift hoga?"           |
+|                                                       |
+|  NETRA-RAIL:                                          |
+|  "Drone inspection 8 minute mein complete hogi.      |
+|   Track clear hote hi slow zone automatically        |
+|   lift ho jayega."                                    |
++-------------------------------------------------------+
+|  Trackman (Tamil):                                    |
+|  "பிரிவு 4 அருகில் பராமரிப்பு எச்சரிக்கை உள்ளதா?"   |
+|                                                       |
+|  NETRA-RAIL: [Responds in Tamil]                     |
++-------------------------------------------------------+
 ```
 
 Powered by **IndicTrans2** — same architecture demonstrated live at Bharat Mandapam, New Delhi (INDRA Project).
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                  FRONTEND LAYER                     │
-│         React · react-i18next · Tailwind            │
-├─────────────────────────────────────────────────────┤
-│                ORCHESTRATION LAYER                  │
-│         LangGraph · LangChain · LangSmith           │
-├─────────────────────────────────────────────────────┤
-│                   API LAYER                         │
-│              FastAPI · REST APIs                    │
-├─────────────────────────────────────────────────────┤
-│                   CORE ENGINES                      │
-│   LLM-JSSP Optimizer    │  AKNN Vector Engine       │
-│   (PyTorch + Custom)    │  (FAISS · HNSWLIB)        │
-│                         │                           │
-│   Garun CV Framework    │  RL Routing Optimizer     │
-│   (OpenCV + PyTorch)    │  (Custom RL Agent)        │
-├─────────────────────────────────────────────────────┤
-│                  NLP LAYER                          │
-│     IndicTrans2 · Google Cloud Translation API      │
-│           HuggingFace Transformers · spaCy          │
-├─────────────────────────────────────────────────────┤
-│                  DATA LAYER                         │
-│    PostgreSQL · MongoDB · Neo4j · Firebase          │
-│         FAISS · HNSWLIB · GeoPandas · Folium        │
-└─────────────────────────────────────────────────────┘
++-------------------------------------------------------+
+|                   FRONTEND LAYER                      |
+|          React . react-i18next . Tailwind             |
++-------------------------------------------------------+
+|               ORCHESTRATION LAYER                     |
+|          LangGraph . LangChain . LangSmith            |
++-------------------------------------------------------+
+|                    API LAYER                          |
+|               FastAPI . REST APIs                     |
++-------------------------------------------------------+
+|                    CORE ENGINES                       |
+|   LLM-JSSP Optimizer     |   AKNN Vector Engine       |
+|   (PyTorch + Custom)     |   (FAISS . HNSWLIB)        |
+|                          |                            |
+|   Garun CV Framework     |   RL Routing Optimizer     |
+|   (OpenCV + PyTorch)     |   (Custom RL Agent)        |
++-------------------------------------------------------+
+|                    NLP LAYER                          |
+|      IndicTrans2 . Google Cloud Translation API       |
+|            HuggingFace Transformers . spaCy           |
++-------------------------------------------------------+
+|                    DATA LAYER                         |
+|     PostgreSQL . MongoDB . Neo4j . Firebase           |
+|          FAISS . HNSWLIB . GeoPandas . Folium         |
++-------------------------------------------------------+
 ```
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 NETRA-RAIL/
 │
 ├── 📁 backend/
-│   ├── 📁 pillar_a/                  # Intermodal Logistics Sync
-│   │   ├── routing_optimizer.py      # RL-based freight scheduler
-│   │   ├── vessel_ingestion.py       # Port ETA feed processor
-│   │   └── dispatch_queue.py         # Wagon allocation engine
+│   ├── 📁 pillar_a/
+│   │   ├── routing_optimizer.py
+│   │   ├── vessel_ingestion.py
+│   │   └── dispatch_queue.py
 │   │
-│   ├── 📁 pillar_b/                  # Section Throughput Maximiser
-│   │   ├── jssp_solver.py            # Job Shop Scheduling engine
-│   │   ├── llm_heuristic.py          # LLM-driven heuristic generator
-│   │   ├── precedence_engine.py      # Real-time override dispatcher
-│   │   └── slowzone_manager.py       # Slow zone enforcement
+│   ├── 📁 pillar_b/
+│   │   ├── jssp_solver.py
+│   │   ├── llm_heuristic.py
+│   │   ├── precedence_engine.py
+│   │   └── slowzone_manager.py
 │   │
-│   ├── 📁 pillar_c/                  # IMU Sensor Telemetry Node
-│   │   ├── imu_ingestion.py          # Sensor stream processor
-│   │   ├── aknn_engine.py            # AKNN vector search pipeline
-│   │   ├── anomaly_detector.py       # Vibration anomaly isolator
-│   │   └── geo_flagger.py            # GPS coordinate mapper
+│   ├── 📁 pillar_c/
+│   │   ├── imu_ingestion.py
+│   │   ├── aknn_engine.py
+│   │   ├── anomaly_detector.py
+│   │   └── geo_flagger.py
 │   │
-│   ├── 📁 pillar_d/                  # Garun CV Structural Auditor
-│   │   ├── garun_cv.py               # Computer vision inference
-│   │   ├── drone_dispatcher.py       # Autonomous drone controller
-│   │   ├── qr_scanner.py             # Track fitting QR reader
-│   │   └── report_generator.py       # Inspection report builder
+│   ├── 📁 pillar_d/
+│   │   ├── garun_cv.py
+│   │   ├── drone_dispatcher.py
+│   │   ├── qr_scanner.py
+│   │   └── report_generator.py
 │   │
 │   ├── 📁 multilingual/
-│   │   ├── indictrans2_engine.py     # 230+ language processor
-│   │   └── voice_interface.py        # Voice command handler
+│   │   ├── indictrans2_engine.py
+│   │   └── voice_interface.py
 │   │
 │   ├── 📁 agents/
-│   │   ├── orchestrator.py           # LangGraph master agent
-│   │   ├── logistics_agent.py        # Pillar A agent
-│   │   ├── traffic_agent.py          # Pillar B agent
-│   │   ├── sensor_agent.py           # Pillar C agent
-│   │   └── inspection_agent.py       # Pillar D agent
+│   │   ├── orchestrator.py
+│   │   ├── logistics_agent.py
+│   │   ├── traffic_agent.py
+│   │   ├── sensor_agent.py
+│   │   └── inspection_agent.py
 │   │
-│   └── main.py                       # FastAPI entry point
+│   └── main.py
 │
 ├── 📁 frontend/
 │   ├── 📁 src/
 │   │   ├── 📁 components/
-│   │   │   ├── PillarA/              # Logistics dashboard
-│   │   │   ├── PillarB/              # Traffic control dashboard
-│   │   │   ├── PillarC/              # Sensor telemetry dashboard
-│   │   │   ├── PillarD/              # Drone inspection dashboard
-│   │   │   ├── Flywheel/             # System overview
-│   │   │   └── CommandCenter/        # Multilingual interface
+│   │   │   ├── 📁 PillarA/
+│   │   │   ├── 📁 PillarB/
+│   │   │   ├── 📁 PillarC/
+│   │   │   ├── 📁 PillarD/
+│   │   │   ├── 📁 Flywheel/
+│   │   │   └── 📁 CommandCenter/
 │   │   └── App.jsx
 │   └── package.json
 │
 ├── 📁 research/
-│   ├── llm_heuristic_paper.pdf       # LLM-Heuristic Design research
-│   ├── aknn_similarity_paper.pdf     # AKNN Vector Search research
-│   └── architecture_diagram.png     # System architecture
+│   ├── llm_heuristic_paper.pdf
+│   ├── aknn_similarity_paper.pdf
+│   └── architecture_diagram.png
 │
 ├── 📁 docs/
 │   ├── API_REFERENCE.md
@@ -423,7 +407,7 @@ NETRA-RAIL/
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 ### Prerequisites
 
@@ -486,7 +470,7 @@ INDICTRANS2_MODEL_PATH=./models/indictrans2
 psql -U postgres -c "CREATE DATABASE netrarail;"
 python backend/scripts/init_db.py
 
-# Neo4j — run after starting Neo4j service
+# Neo4j
 python backend/scripts/init_graph.py
 ```
 
@@ -499,12 +483,11 @@ npm install
 
 ---
 
-## 🚀 Running the System
+## Running the System
 
 ### Start Backend
 
 ```bash
-# From project root
 uvicorn backend.main:app --reload --port 8000
 ```
 
@@ -526,90 +509,90 @@ docker-compose up --build
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Pillar A — Logistics
 
 ```http
-GET  /api/pillar-a/vessel-status          # Live port vessel status
-GET  /api/pillar-a/dispatch-queue         # Current freight dispatch queue
-POST /api/pillar-a/update-eta             # Update vessel ETA
-GET  /api/pillar-a/metrics                # Sync efficiency metrics
+GET  /api/pillar-a/vessel-status
+GET  /api/pillar-a/dispatch-queue
+POST /api/pillar-a/update-eta
+GET  /api/pillar-a/metrics
 ```
 
 ### Pillar B — Traffic
 
 ```http
-GET  /api/pillar-b/section-status         # Live corridor status
-POST /api/pillar-b/compute-precedence     # Trigger precedence calculation
-GET  /api/pillar-b/slow-zones             # Active slow zones
-GET  /api/pillar-b/throughput-metrics     # Throughput statistics
+GET  /api/pillar-b/section-status
+POST /api/pillar-b/compute-precedence
+GET  /api/pillar-b/slow-zones
+GET  /api/pillar-b/throughput-metrics
 ```
 
 ### Pillar C — Sensors
 
 ```http
-POST /api/pillar-c/ingest-imu             # Ingest IMU sensor data
-GET  /api/pillar-c/anomalies              # Active anomaly flags
-GET  /api/pillar-c/heatmap-data           # Track health heatmap data
-GET  /api/pillar-c/vector-stats           # AKNN pipeline statistics
+POST /api/pillar-c/ingest-imu
+GET  /api/pillar-c/anomalies
+GET  /api/pillar-c/heatmap-data
+GET  /api/pillar-c/vector-stats
 ```
 
 ### Pillar D — Drones
 
 ```http
-GET  /api/pillar-d/drone-missions         # Active drone missions
-POST /api/pillar-d/dispatch-drone         # Manually dispatch drone
-GET  /api/pillar-d/inspection-reports     # Completed inspection reports
-POST /api/pillar-d/upload-report          # Upload drone inspection result
+GET  /api/pillar-d/drone-missions
+POST /api/pillar-d/dispatch-drone
+GET  /api/pillar-d/inspection-reports
+POST /api/pillar-d/upload-report
 ```
 
 ### Multilingual Command Center
 
 ```http
-POST /api/command/query                   # Natural language query (any language)
-POST /api/command/voice                   # Voice command endpoint
-GET  /api/command/supported-languages     # List of 230+ supported languages
+POST /api/command/query
+POST /api/command/voice
+GET  /api/command/supported-languages
 ```
 
 ---
 
-## 📚 Research Foundation
+## Research Foundation
 
 NETRA-RAIL is built on original academic research by the team:
 
 | Research | Application in NETRA-RAIL |
 |----------|--------------------------|
-| [Automating Heuristic Design with LLMs](https://github.com/Manasvi-Gangrade) | Pillar B — JSSP optimization engine with formal convergence guarantees |
-| [Similarity Search on High-Dimensional Vector Data](https://github.com/Manasvi-Gangrade) | Pillar C — AKNN anomaly detection with certified accuracy bounds |
-| [Subliminal Preference Transfer in LLM Training Data](https://github.com/Manasvi-Gangrade) | System-wide AI safety and alignment guarantees |
+| Automating Heuristic Design with LLMs | Pillar B — JSSP optimization engine with formal convergence guarantees |
+| Similarity Search on High-Dimensional Vector Data | Pillar C — AKNN anomaly detection with certified accuracy bounds |
+| Subliminal Preference Transfer in LLM Training Data | System-wide AI safety and alignment guarantees |
 
 ---
 
-## 🏆 Production Deployments Referenced
+## Production Deployments Referenced
 
 | Project | Deployed At | Relevance to NETRA-RAIL |
 |---------|-------------|------------------------|
-| **Garun Framework** | Indore Municipal Corporation, Smart City | Pillar D — CV drone inspection engine |
-| **INDRA Platform** | Bharat Mandapam, New Delhi | Central dashboard + multilingual layer |
-| **India Post Optimizer** | Ministry of Telecom, SIH 2024 Grand Finalist | Pillar A — RL freight routing engine |
-| **RAG Urban Intelligence** | Indore Smart City (3M+ citizens) | RAG query layer for command center |
+| Garun Framework | Indore Municipal Corporation, Smart City | Pillar D — CV drone inspection engine |
+| INDRA Platform | Bharat Mandapam, New Delhi | Central dashboard + multilingual layer |
+| India Post Optimizer | Ministry of Telecom, SIH 2024 Grand Finalist | Pillar A — RL freight routing engine |
+| RAG Urban Intelligence | Indore Smart City (3M+ citizens) | RAG query layer for command center |
 
 ---
 
-## 👥 Team
+## Team
 
 <div align="center">
 
-| | Name | Role |
-|--|------|------|
-| 🧠 | **Manasvi Gangrade** | Team Lead — AI Research & System Architecture |
-| ⚙️ | **Navneet Kaur** | Backend Engineering & Agent Orchestration |
-| 🎨 | **Muskan Lodhi** | Frontend Development & UX |
+| Name | Role |
+|------|------|
+| **Manasvi Gangrade** | Team Lead — AI Research & System Architecture |
+| **Navneet Kaur** | Backend Engineering & Agent Orchestration |
+| **Muskan Lodhi** | Frontend Development & UX |
 
 **Institution:** Indore Institute of Science and Technology, Indore
+
 **Hackathon:** Far Away 2026 — Theme: Railways
-**Organised by:** Zuup (Youth-led nonprofit, Zylon Labs)
 
 </div>
 
@@ -617,15 +600,10 @@ NETRA-RAIL is built on original academic research by the team:
 
 <div align="center">
 
-```
-🚂 ══════════════════════════════════════════════════════════════ 🇯🇵
-     NETRA-RAIL | Far Away Hackathon 2026 | Theme: Railways
-     Build Boldly. Ship Something Real.
-🚂 ══════════════════════════════════════════════════════════════ 🇯🇵
-```
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=F59E0B&center=true&vCenter=true&width=600&lines=NETRA-RAIL+%7C+Far+Away+Hackathon+2026;Theme%3A+Railways+%7C+Build+Boldly.+Ship+Something+Real.;Top+5+%E2%86%92+Fully+Sponsored+Japan+Trip+%F0%9F%87%AF%F0%9F%87%B5)
 
-**[⭐ Star this repo](https://github.com/Manasvi-Gangrade/NETRA-RAIL)** · **[🍴 Fork](https://github.com/Manasvi-Gangrade/NETRA-RAIL/fork)** · **[🐛 Report Bug](https://github.com/Manasvi-Gangrade/NETRA-RAIL/issues)**
+[![Star](https://img.shields.io/github/stars/Manasvi-Gangrade/NETRA-RAIL?style=social)](https://github.com/Manasvi-Gangrade/NETRA-RAIL)
 
-*Made with ❤️ and a dream of Japan 🇯🇵*
+*Made with love and a dream of Japan*
 
 </div>
