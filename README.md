@@ -3,8 +3,6 @@
 
 **India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
 
-![Tagline](https://img.shields.io/badge/India's%20First-Closed--Loop%20Autonomous%20Multi--Agent%20Intelligence%20Platform%20for%20Indian%20Railways-F59E0B?style=for-the-badge)
-
 ---
 
 <div align="center">
