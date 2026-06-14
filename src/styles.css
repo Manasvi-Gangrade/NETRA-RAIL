@@ -273,16 +273,23 @@ body {
 }
 iframe[class*="goog-te-banner-frame"],
 iframe.goog-te-banner-frame,
-.goog-te-banner-frame {
+.goog-te-banner-frame,
+iframe.skiptranslate,
+.skiptranslate iframe,
+iframe[id*="container"],
+[id*="container"] {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
   width: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 html, body {
   top: 0px !important;
   position: static !important;
 }
+
 
 
 

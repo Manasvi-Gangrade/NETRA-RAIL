@@ -5,6 +5,7 @@ import { Shell, PageHeader } from "@/components/netra/Shell";
 import { StatCard } from "@/components/netra/Stat";
 import { IndiaMap } from "@/components/netra/India";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, ReferenceLine, Tooltip, AreaChart, Area, BarChart, Bar, ScatterChart, Scatter, ZAxis, CartesianGrid, Cell } from "recharts";
+import { getIMUSensors } from "@/lib/api/datasets.functions";
 
 export const Route = createFileRoute("/pillar-c")({
   head: () => ({
@@ -25,11 +26,6 @@ const axisInit = Array.from({ length: 60 }).map((_, i) => ({
   z: Math.sin(i / 2) * 0.3 + (Math.random() - 0.5) * 0.4,
 }));
 
-const trackKm = Array.from({ length: 20 }).map((_, i) => ({
-  km: `KM ${100 + i * 5}`,
-  health: Math.max(40, 92 - Math.abs(i - 7) * 9 + Math.random() * 4),
-}));
-
 const scatter = Array.from({ length: 80 }).map(() => ({
   x: Math.cos(Math.random() * Math.PI * 2) * (10 + Math.random() * 8),
   y: Math.sin(Math.random() * Math.PI * 2) * (10 + Math.random() * 8),
@@ -42,27 +38,90 @@ const scatterAnom = Array.from({ length: 8 }).map(() => ({
 }));
 
 function PillarC() {
+  const [sensorsData, setSensorsData] = useState<any[]>([]);
+  const [dataIndex, setDataIndex] = useState(15);
+  const [activeSensors, setActiveSensors] = useState(12847);
+  const [anomalyCount, setAnomalyCount] = useState(7);
+  const [trackKm, setTrackKm] = useState<any[]>([]);
+
   const [feed, setFeed] = useState<{ id: string; coord: string; v: number; t: string; anomaly: boolean; device: string }[]>([]);
   const [series, setSeries] = useState(Array.from({ length: 30 }).map((_, i) => ({ t: i, v: 0.4 + Math.random() * 0.2 })));
   const [axes, setAxes] = useState(axisInit);
   const triggerRef = useRef(false);
 
   useEffect(() => {
+    getIMUSensors().then((data) => {
+      if (!data || data.length === 0) return;
+      setSensorsData(data);
+      
+      // Calculate KPIs
+      setActiveSensors(data.length * 6); // simulated scaling factor
+      const anoms = data.filter((r: any) => r.is_anomaly === true || r.is_anomaly === "True").length;
+      setAnomalyCount(anoms);
+      
+      // Build track segment health
+      const sectionMap: Record<string, { sumHealth: number; count: number }> = {};
+      data.forEach((row: any) => {
+        const sec = row.track_section || "General";
+        if (!sectionMap[sec]) {
+          sectionMap[sec] = { sumHealth: 0, count: 0 };
+        }
+        // health is 100 - avg vibration
+        const health = Math.max(35, 100 - (row.vibration_magnitude || 0.15) * 120);
+        sectionMap[sec].sumHealth += health;
+        sectionMap[sec].count += 1;
+      });
+      const segments = Object.entries(sectionMap).map(([name, val]) => ({
+        km: name,
+        health: Math.round(val.sumHealth / val.count),
+      }));
+      setTrackKm(segments);
+
+      // Seed initial feed from CSV
+      const devices = ["iPhone 15", "Pixel 8", "OnePlus 12", "Samsung S24", "Xiaomi 14", "Realme GT"];
+      const initialFeed = data.slice(0, 14).map((row: any) => ({
+        id: row.sensor_id,
+        coord: `${row.gps_lat}, ${row.gps_lon}`,
+        v: row.vibration_magnitude || 0.4,
+        t: row.timestamp ? row.timestamp.split(" ")[1].split(".")[0] : "00:00:00",
+        anomaly: row.is_anomaly === true || row.is_anomaly === "True",
+        device: devices[Math.floor(Math.random() * devices.length)],
+      }));
+      setFeed(initialFeed);
+    });
+  }, []);
+
+  useEffect(() => {
     const t = setInterval(() => {
-      const anomaly = triggerRef.current || Math.random() < 0.18;
+      const anomaly = triggerRef.current || Math.random() < 0.12;
       if (triggerRef.current) {
         triggerRef.current = false;
       }
-      const v = anomaly ? rand(2.4, 3.6) : rand(0.3, 0.9);
+      
+      let v = anomaly ? rand(2.4, 3.6) : rand(0.3, 0.9);
+      let coord = `${rand(8, 32).toFixed(2)}°N, ${rand(72, 92).toFixed(2)}°E`;
+      let id = `IMU-${Math.floor(rand(10000, 99999))}`;
       const devices = ["iPhone 15", "Pixel 8", "OnePlus 12", "Samsung S24", "Xiaomi 14", "Realme GT"];
+      let device = devices[Math.floor(Math.random() * devices.length)];
+
+      if (sensorsData.length > 0) {
+        const row = sensorsData[dataIndex % sensorsData.length];
+        setDataIndex((prev) => prev + 1);
+        v = row.vibration_magnitude || v;
+        coord = `${row.gps_lat}, ${row.gps_lon}`;
+        id = row.sensor_id;
+        device = devices[Math.floor((row.sensor_id.replace(/\D/g, "") || 0) % devices.length)];
+      }
+
       const entry = {
-        id: `IMU-${Math.floor(rand(10000, 99999))}`,
-        coord: `${rand(8, 32).toFixed(2)}°N, ${rand(72, 92).toFixed(2)}°E`,
+        id,
+        coord,
         v,
         t: new Date().toLocaleTimeString("en-IN", { hour12: false }),
         anomaly,
-        device: devices[Math.floor(Math.random() * devices.length)],
+        device,
       };
+
       setFeed((f) => [entry, ...f].slice(0, 14));
       setSeries((s) => [...s.slice(1), { t: s[s.length - 1].t + 1, v }]);
       setAxes((a) => [...a.slice(1), {
@@ -73,7 +132,7 @@ function PillarC() {
       }]);
     }, 900);
     return () => clearInterval(t);
-  }, []);
+  }, [sensorsData, dataIndex]);
 
   return (
     <Shell>
@@ -85,9 +144,9 @@ function PillarC() {
       />
 
       <section className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <StatCard label="Active Sensors" value={12847} icon={<Smartphone className="w-4 h-4" />} />
-        <StatCard label="Data Points / Day" value={2300000000} icon={<Database className="w-4 h-4" />} accent="saffron" />
-        <StatCard label="Anomalies (24h)" value={7} icon={<AlertTriangle className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Active Sensors" value={activeSensors} icon={<Smartphone className="w-4 h-4" />} />
+        <StatCard label="Data Points / Day" value={activeSensors * 180000} icon={<Database className="w-4 h-4" />} accent="saffron" />
+        <StatCard label="Anomalies (24h)" value={anomalyCount} icon={<AlertTriangle className="w-4 h-4" />} accent="emerald" />
         <StatCard label="AKNN Latency" value={2} suffix=".3 ms" icon={<Cpu className="w-4 h-4" />} />
         <StatCard label="Vector Dim" value={128} icon={<Activity className="w-4 h-4" />} accent="saffron" />
       </section>

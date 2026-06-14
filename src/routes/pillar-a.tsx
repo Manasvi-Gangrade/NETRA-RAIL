@@ -6,6 +6,7 @@ import { StatCard } from "@/components/netra/Stat";
 import { IndiaMap } from "@/components/netra/India";
 import { useCountUp } from "@/hooks/use-count-up";
 import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid, PieChart, Pie, Cell, Legend } from "recharts";
+import { getVesselFreight } from "@/lib/api/datasets.functions";
 
 export const Route = createFileRoute("/pillar-a")({
   head: () => ({
@@ -17,20 +18,20 @@ export const Route = createFileRoute("/pillar-a")({
   component: PillarA,
 });
 
-const initialPorts = [
+const defaultPorts = [
   { name: "Mundra Port", vessel: "MV Himalaya", eta: 1320, cargo: "Iron Ore", tons: 48200, status: "ARRIVING" as const, img: "https://images.unsplash.com/photo-1494412574745-c66e1ba6c2f4?auto=format&fit=crop&w=800&q=70" },
   { name: "JNPT Mumbai", vessel: "MV Konkan", eta: 0, cargo: "Containers", tons: 26100, status: "DOCKED" as const, img: "https://images.unsplash.com/photo-1535556261260-f2191cc63217?auto=format&fit=crop&w=800&q=70" },
   { name: "Vishakhapatnam", vessel: "MV Vindhya", eta: -1, cargo: "Coal", tons: 61800, status: "DISPATCHED" as const, img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=70" },
 ];
 
-const initialQueue = [
+const defaultQueue = [
   { id: "FRT-2241", from: "Mundra Port", to: "JSW Toranagallu Plant", time: "14:45", status: "DISPATCH READY", load: 92 },
   { id: "FRT-2242", from: "JNPT Mumbai", to: "Tata Steel Jamshedpur", time: "15:10", status: "LOADING", load: 68 },
   { id: "FRT-2243", from: "Paradip", to: "SAIL Bhilai", time: "15:35", status: "QUEUED", load: 41 },
   { id: "FRT-2244", from: "Vishakhapatnam", to: "RINL Plant", time: "16:00", status: "QUEUED", load: 22 },
 ];
 
-const cargoMix = [
+const defaultCargoMix = [
   { name: "Iron Ore", value: 38, fill: "oklch(0.34 0.08 250)" },
   { name: "Coal", value: 27, fill: "oklch(0.45 0.06 60)" },
   { name: "Containers", value: 18, fill: "oklch(0.78 0.16 70)" },
@@ -38,7 +39,7 @@ const cargoMix = [
   { name: "Fertiliser", value: 8, fill: "oklch(0.7 0.16 165)" },
 ];
 
-const dwellHistory = Array.from({ length: 14 }).map((_, i) => ({
+const defaultDwellHistory = Array.from({ length: 14 }).map((_, i) => ({
   d: `D${i + 1}`,
   before: 5.8 + Math.sin(i / 2) * 1.2 + Math.random() * 0.6,
   after: 0.8 + Math.cos(i / 2) * 0.25 + Math.random() * 0.2,
@@ -52,7 +53,7 @@ const wagonUtil = Array.from({ length: 12 }).map((_, i) => ({
 function statusStyle(s: string) {
   if (s === "ARRIVING") return "bg-saffron/15 text-saffron-foreground";
   if (s === "DOCKED") return "bg-primary/10 text-primary";
-  if (s === "DISPATCHED") return "bg-emerald/10 text-emerald";
+  if (s === "DISPATCHED" || s === "LOADING") return "bg-emerald/10 text-emerald";
   return "bg-muted text-muted-foreground";
 }
 function statusDot(s: string) {
@@ -70,8 +71,112 @@ function fmtCountdown(secs: number) {
 }
 
 function PillarA() {
-  const [ports, setPorts] = useState(initialPorts);
-  const [queue, setQueue] = useState(initialQueue);
+  const [rawDataset, setRawDataset] = useState<any[]>([]);
+  const [ports, setPorts] = useState(defaultPorts);
+  const [queue, setQueue] = useState(defaultQueue);
+  const [cargoMix, setCargoMix] = useState(defaultCargoMix);
+  const [dwellHistory, setDwellHistory] = useState(defaultDwellHistory);
+
+  // KPIs
+  const [vesselCount, setVesselCount] = useState(17);
+  const [wagonsRouted, setWagonsRouted] = useState(3812);
+  const [dwellCut, setDwellCut] = useState(87);
+  const [savingsInr, setSavingsInr] = useState(2.3);
+
+  useEffect(() => {
+    getVesselFreight().then((data) => {
+      if (!data || data.length === 0) return;
+      setRawDataset(data);
+
+      // Mapped Live Ports from dataset
+      const liveData = data.slice(0, 3).map((row: any, idx: number) => {
+        let img = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=70";
+        if (row.port.includes("Mundra")) {
+          img = "https://images.unsplash.com/photo-1494412574745-c66e1ba6c2f4?auto=format&fit=crop&w=800&q=70";
+        } else if (row.port.includes("JNPT") || row.port.includes("Mumbai")) {
+          img = "https://images.unsplash.com/photo-1535556261260-f2191cc63217?auto=format&fit=crop&w=800&q=70";
+        }
+        // compute mock remaining seconds based on index for demo ticking
+        const etaSecs = row.status === "DOCKED" ? 0 : 300 + idx * 450;
+        return {
+          name: row.port,
+          vessel: row.vessel_name,
+          eta: etaSecs,
+          cargo: row.cargo_type,
+          tons: row.cargo_tonnes,
+          status: row.status as any,
+          img,
+        };
+      });
+      setPorts(liveData);
+
+      // Mapped Queue from dataset
+      const queueData = data.slice(3, 8).map((row: any, idx: number) => {
+        let timeStr = "14:45";
+        try {
+          const d = new Date(row.wagon_dispatch_time || row.eta);
+          timeStr = d.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false });
+        } catch (e) {}
+
+        return {
+          id: `FRT-${1000 + idx}`,
+          from: row.port,
+          to: row.destination_plant,
+          time: timeStr,
+          status: row.status === "DISPATCHED" ? "DISPATCH READY" : "LOADING",
+          load: Math.floor(Math.min(98, 40 + (row.cargo_tonnes % 60))),
+        };
+      });
+      setQueue(queueData);
+
+      // Mapped Cargo Mix
+      const mixMap: Record<string, number> = {};
+      data.forEach((row: any) => {
+        mixMap[row.cargo_type] = (mixMap[row.cargo_type] || 0) + 1;
+      });
+      const total = Object.values(mixMap).reduce((a, b) => a + b, 0) || 1;
+      const computedMix = Object.entries(mixMap).map(([name, count]) => {
+        const value = Math.round((count / total) * 100);
+        let fill = "oklch(0.34 0.08 250)";
+        if (name.includes("Coal")) fill = "oklch(0.45 0.06 60)";
+        else if (name.includes("Containers") || name.includes("Limestone")) fill = "oklch(0.78 0.16 70)";
+        else if (name.includes("Coke")) fill = "oklch(0.7 0.13 195)";
+        else if (name.includes("Steel")) fill = "oklch(0.7 0.16 165)";
+        return { name, value, fill };
+      });
+      setCargoMix(computedMix);
+
+      // Mapped Dwell History grouped by day
+      const dailyMap: Record<string, { before: number; after: number; count: number }> = {};
+      data.forEach((row: any) => {
+        const dayKey = row.eta ? row.eta.split(" ")[0] : "2026-06-12";
+        if (!dailyMap[dayKey]) {
+          dailyMap[dayKey] = { before: 0, after: 0, count: 0 };
+        }
+        dailyMap[dayKey].before += row.idle_dwell_before_hrs || 0;
+        dailyMap[dayKey].after += row.idle_dwell_after_hrs || 0;
+        dailyMap[dayKey].count += 1;
+      });
+      const computedHistory = Object.entries(dailyMap)
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .slice(-14)
+        .map(([date, val]) => ({
+          d: date.split("-").slice(1).join("/"), // e.g. "06/10"
+          before: Number((val.before / val.count).toFixed(2)),
+          after: Number((val.after / val.count).toFixed(2)),
+        }));
+      setDwellHistory(computedHistory);
+
+      // Compute stats
+      setVesselCount(data.length);
+      const totalTons = data.reduce((sum: number, r: any) => sum + (r.cargo_tonnes || 0), 0);
+      setWagonsRouted(Math.round(totalTons / 60)); // Avg 60 tonnes per wagon
+      const avgDwellCut = data.reduce((sum: number, r: any) => sum + (r.dwell_reduction_pct || 0), 0) / data.length;
+      setDwellCut(Number(avgDwellCut.toFixed(1)) as any);
+      const totalSaved = data.reduce((sum: number, r: any) => sum + (r.demurrage_saved_inr || 0), 0);
+      setSavingsInr(Number((totalSaved / 10000000).toFixed(2))); // converted to Crores (10^7)
+    });
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -107,11 +212,11 @@ function PillarA() {
 
       {/* KPI ROW */}
       <section className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <StatCard label="Active Vessels" value={17} icon={<Anchor className="w-4 h-4" />} />
-        <StatCard label="Freight Trains Today" value={142} icon={<Train className="w-4 h-4" />} accent="saffron" />
-        <StatCard label="Wagons Routed" value={3812} icon={<Boxes className="w-4 h-4" />} />
-        <StatCard label="Idle Dwell Cut" value={87} suffix="%" icon={<TrendingDown className="w-4 h-4" />} accent="emerald" />
-        <StatCard label="Savings Today" value={2.3} prefix="₹" suffix="Cr" decimals={1} icon={<IndianRupee className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Active Vessels" value={vesselCount} icon={<Anchor className="w-4 h-4" />} />
+        <StatCard label="Freight Trains Today" value={Math.round(vesselCount * 8.3)} icon={<Train className="w-4 h-4" />} accent="saffron" />
+        <StatCard label="Wagons Routed" value={wagonsRouted} icon={<Boxes className="w-4 h-4" />} />
+        <StatCard label="Idle Dwell Cut" value={dwellCut} suffix="%" icon={<TrendingDown className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Savings Today" value={savingsInr} prefix="₹" suffix="Cr" decimals={2} icon={<IndianRupee className="w-4 h-4" />} accent="emerald" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 mt-8 grid lg:grid-cols-12 gap-5">

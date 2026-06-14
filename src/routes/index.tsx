@@ -6,6 +6,8 @@ import videoBg from "../../Videos/18626169-hd_1080_1920_30fps.mp4";
 import { StatCard } from "@/components/netra/Stat";
 import { Particles, NetworkMap } from "@/components/netra/Particles";
 import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, Tooltip, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import { getSystemSummary } from "@/lib/api/datasets.functions";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,6 +45,14 @@ const corridorBars = [
 const health = [{ name: "h", value: 96, fill: "oklch(0.7 0.16 165)" }];
 
 function Landing() {
+  const [summary, setSummary] = useState<any>(null);
+
+  useEffect(() => {
+    getSystemSummary().then((data) => {
+      setSummary(data);
+    });
+  }, []);
+
   const marqueeImages = [
     "https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?auto=format&fit=crop&w=400&q=80",
     "https://images.unsplash.com/photo-1532103054090-334e6e60ab29?auto=format&fit=crop&w=400&q=70",
@@ -132,9 +142,9 @@ function Landing() {
                 <span className="text-xs flex items-center gap-1.5 text-emerald font-semibold"><span className="live-dot" /> STREAMING</span>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2">
-                <MiniMetric label="Trains" v="13,427" color="text-primary" />
-                <MiniMetric label="Drones" v="3 / 12" color="text-emerald" />
-                <MiniMetric label="Sensors" v="12.8k" color="text-violet" />
+                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-primary" />
+                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" />
+                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-violet" />
               </div>
               <div className="mt-4 h-32">
                 <ResponsiveContainer>
@@ -186,10 +196,10 @@ function Landing() {
 
         <div className="relative mx-auto max-w-7xl px-6 pb-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard label="TRAINS MONITORED / DAY" value={13427} suffix=" +" icon={<TrainTrackIcon className="w-4 h-4" />} />
-            <StatCard label="ROUTE KM COVERED" value={68000} icon={<Train className="w-4 h-4 text-saffron-foreground" />} accent="saffron" />
+            <StatCard label="TRAINS MONITORED" value={summary?.pillar_b_summary?.total_trains || 500} suffix=" +" icon={<TrainTrackIcon className="w-4 h-4" />} />
+            <StatCard label="DEMURRAGE SAVED" value={summary?.pillar_a_summary?.total_demurrage_saved_inr || 163981869} prefix="₹ " icon={<IndianRupee className="w-4 h-4 text-saffron-foreground" />} accent="saffron" />
             <StatCard label="AUTONOMOUS PILLARS ACTIVE" value={4} icon={<Bot className="w-4 h-4 text-emerald" />} accent="emerald" />
-            <StatCard label="LANGUAGES SUPPORTED" value={230} suffix=" +" icon={<Smartphone className="w-4 h-4 text-primary" />} />
+            <StatCard label="ANOMALIES DETECTED" value={summary?.pillar_c_summary?.anomalies_detected || 111} icon={<Smartphone className="w-4 h-4 text-primary" />} />
           </div>
         </div>
       </section>

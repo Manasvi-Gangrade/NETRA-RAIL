@@ -4,6 +4,7 @@ import { TrainTrack as TrainTrackIcon, Cpu, AlertTriangle, CheckCircle2, Zap, Gi
 import { Shell, PageHeader } from "@/components/netra/Shell";
 import { StatCard } from "@/components/netra/Stat";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
+import { getTrafficThroughput } from "@/lib/api/datasets.functions";
 
 export const Route = createFileRoute("/pillar-b")({
   head: () => ({
@@ -68,6 +69,60 @@ function PillarB() {
   const [series, setSeries] = useState(
     Array.from({ length: 30 }).map((_, i) => ({ t: i, throughput: 67 + Math.random() * 8 + i * 1.1, baseline: 70 + Math.random() * 4 })),
   );
+
+  // Dynamic KPI States
+  const [kpiThroughput, setKpiThroughput] = useState(94);
+  const [kpiOverrides, setKpiOverrides] = useState(12);
+  const [kpiLoopOccupied, setKpiLoopOccupied] = useState(8);
+  const [kpiOptimality, setKpiOptimality] = useState(97.2);
+  const [kpiSolveMs, setKpiSolveMs] = useState(812);
+
+  useEffect(() => {
+    getTrafficThroughput().then((data) => {
+      if (!data || data.length === 0) return;
+
+      // Compute statistics from dataset
+      let sumThroughput = 0;
+      let overrideCount = 0;
+      let loopCount = 0;
+      let sumHeuristicScore = 0;
+      let sumSolveMs = 0;
+
+      data.forEach((row: any) => {
+        sumThroughput += row.section_throughput_after || 94;
+        if (row.precedence_override_issued) overrideCount++;
+        if (row.assigned_loop_line && row.assigned_loop_line !== "None") loopCount++;
+        sumHeuristicScore += row.heuristic_score || 0.972;
+        sumSolveMs += row.jssp_solve_ms || 812;
+      });
+
+      setKpiThroughput(Math.round(sumThroughput / data.length));
+      setKpiOverrides(overrideCount);
+      setKpiLoopOccupied(loopCount);
+      setKpiOptimality(Number(((sumHeuristicScore / data.length) * 100).toFixed(1)));
+      setKpiSolveMs(Math.round(sumSolveMs / data.length));
+
+      // Build live logs from real rows
+      const realLogs = data.slice(0, 10).map((row: any) => {
+        if (row.precedence_override_issued) {
+          return `Precedence override issued for ${row.train_id} on ${row.corridor} corridor.`;
+        }
+        if (row.assigned_loop_line && row.assigned_loop_line !== "None") {
+          return `Train ${row.train_id} routed to loop line ${row.assigned_loop_line} (${row.loop_wait_minutes} min wait).`;
+        }
+        return `JSSP Solver convergence achieved on iteration ${row.heuristic_iteration} (Score: ${(row.heuristic_score * 100).toFixed(1)}%).`;
+      });
+      setLogs(realLogs);
+
+      // Build series chart from first 30 rows
+      const chartSeries = data.slice(0, 30).map((row: any, idx: number) => ({
+        t: idx,
+        throughput: row.section_throughput_after || 88,
+        baseline: row.section_throughput_before || 72
+      }));
+      setSeries(chartSeries);
+    });
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -158,7 +213,6 @@ function PillarB() {
       ];
       // Only inject generic logs if no interactive sequences are overriding them rapidly
       setLogs((l) => [heuristics[Math.floor(Math.random() * heuristics.length)], ...l].slice(0, 9));
-      setSeries((s) => [...s.slice(1), { t: s[s.length - 1].t + 1, throughput: 88 + Math.random() * 8, baseline: 72 + Math.random() * 3 }]);
     }, 3500);
     return () => clearInterval(t);
   }, []);
@@ -173,11 +227,11 @@ function PillarB() {
       />
 
       <section className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <StatCard label="Section Throughput" value={94} suffix="trains/hr" icon={<Zap className="w-4 h-4" />} accent="emerald" />
-        <StatCard label="Precedence Overrides" value={12} icon={<Cpu className="w-4 h-4" />} accent="saffron" />
-        <StatCard label="Loop Lines Occupied" value={8} suffix="/ 24" icon={<TrainTrackIcon className="w-4 h-4" />} />
-        <StatCard label="Optimality Score" value={97} suffix=".2%" icon={<CheckCircle2 className="w-4 h-4" />} accent="emerald" />
-        <StatCard label="Avg Decision Time" value={812} suffix=" ms" icon={<Gauge className="w-4 h-4" />} accent="saffron" />
+        <StatCard label="Section Throughput" value={kpiThroughput} suffix=" trains/hr" icon={<Zap className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Precedence Overrides" value={kpiOverrides} icon={<Cpu className="w-4 h-4" />} accent="saffron" />
+        <StatCard label="Loop Lines Occupied" value={kpiLoopOccupied} suffix=" / 24" icon={<TrainTrackIcon className="w-4 h-4" />} />
+        <StatCard label="Optimality Score" value={kpiOptimality} suffix="%" icon={<CheckCircle2 className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Avg Decision Time" value={kpiSolveMs} suffix=" ms" icon={<Gauge className="w-4 h-4" />} accent="saffron" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 mt-8 grid lg:grid-cols-12 gap-5">

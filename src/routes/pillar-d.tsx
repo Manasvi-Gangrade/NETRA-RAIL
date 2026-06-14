@@ -4,6 +4,7 @@ import { Bot, Battery, MapPin, CheckCircle2, AlertTriangle, Download, QrCode, Cp
 import { Shell, PageHeader } from "@/components/netra/Shell";
 import { StatCard } from "@/components/netra/Stat";
 import { ResponsiveContainer, RadialBarChart, RadialBar, PolarAngleAxis, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell } from "recharts";
+import { getDroneInspections } from "@/lib/api/datasets.functions";
 
 export const Route = createFileRoute("/pillar-d")({
   head: () => ({
@@ -15,20 +16,20 @@ export const Route = createFileRoute("/pillar-d")({
   component: PillarD,
 });
 
-const initialDrones = [
+const defaultDrones = [
   { id: "GRN-03", target: "22.31°N, 73.10°E", site: "Vadodara–Surat", progress: 62, eta: "04:12", battery: 78, signal: 92, alt: 14 },
   { id: "GRN-07", target: "27.04°N, 88.26°E", site: "Siliguri–NJP", progress: 31, eta: "11:34", battery: 64, signal: 78, alt: 22 },
   { id: "GRN-11", target: "19.92°N, 75.34°E", site: "Aurangabad", progress: 88, eta: "01:08", battery: 41, signal: 86, alt: 11 },
 ];
 
-const reports = [
+const defaultReports = [
   { section: "Vadodara–Surat KM 134", drone: "GRN-03", result: "DEFECT FOUND", time: "14:47", action: "MR #44821 generated", severity: "HIGH" },
   { section: "Howrah–Asansol KM 217", drone: "GRN-09", result: "CLEARED", time: "14:32", action: "Slow zone lifted", severity: "OK" },
   { section: "Bhopal–Itarsi KM 092", drone: "GRN-04", result: "CLEARED", time: "14:18", action: "Slow zone lifted", severity: "OK" },
   { section: "Pune–Daund KM 045", drone: "GRN-12", result: "DEFECT FOUND", time: "13:55", action: "MR #44820 generated", severity: "MED" },
 ];
 
-const inspectionTrend = Array.from({ length: 14 }).map((_, i) => ({
+const defaultTrend = Array.from({ length: 14 }).map((_, i) => ({
   d: `D${i + 1}`,
   passed: 8 + Math.floor(Math.random() * 4),
   defects: Math.floor(Math.random() * 3),
@@ -43,8 +44,84 @@ const componentScores = [
 ];
 
 function PillarD() {
-  const [drones, setDrones] = useState(initialDrones);
+  const [drones, setDrones] = useState(defaultDrones);
+  const [reports, setReports] = useState(defaultReports);
+  const [inspectionTrend, setInspectionTrend] = useState(defaultTrend);
   const [activeDrone, setActiveDrone] = useState(0);
+
+  // KPIs
+  const [statDronesActive, setStatDronesActive] = useState(3);
+  const [statInspections, setStatInspections] = useState(12);
+  const [statDefects, setStatDefects] = useState(2);
+  const [statSlowZones, setStatSlowZones] = useState(10);
+
+  useEffect(() => {
+    getDroneInspections().then((data) => {
+      if (!data || data.length === 0) return;
+
+      // Extract unique drone list or calculate active drones count
+      const uniqueDrones = Array.from(new Set(data.map((r: any) => r.drone_id)));
+      setStatDronesActive(uniqueDrones.length);
+
+      // Compute total stats
+      setStatInspections(data.length);
+      const defects = data.filter((r: any) => r.defect_found === true || r.defect_found === "true").length;
+      setStatDefects(defects);
+      const slowZonesCleared = data.filter((r: any) => r.slow_zone_lifted === true || r.slow_zone_lifted === "true").length;
+      setStatSlowZones(slowZonesCleared);
+
+      // Set active drone missions based on dataset
+      const activeMissions = data.slice(0, 3).map((row: any, idx: number) => {
+        return {
+          id: row.drone_id,
+          target: `${row.gps_lat}, ${row.gps_lon}`,
+          site: row.track_section,
+          progress: idx === 0 ? 62 : idx === 1 ? 31 : 88,
+          eta: row.arrival_timestamp ? row.arrival_timestamp.split(" ")[1].slice(0, 5) : "04:12",
+          battery: row.battery_pct_on_return || 78,
+          signal: 85 + (idx * 5) % 15,
+          alt: row.altitude_metres || 14,
+        };
+      });
+      setDrones(activeMissions);
+
+      // Set inspection reports
+      const recentReports = data.slice(0, 4).map((row: any) => {
+        return {
+          section: `${row.track_section} Segment`,
+          drone: row.drone_id,
+          result: row.defect_found ? "DEFECT FOUND" : "CLEARED",
+          time: row.inspection_complete_timestamp ? row.inspection_complete_timestamp.split(" ")[1].slice(0, 5) : "14:30",
+          action: row.defect_found ? `MR #${row.maintenance_order_id} generated` : "Slow zone lifted",
+          severity: row.defect_found ? (row.defect_severity || "MED") : "OK",
+        };
+      });
+      setReports(recentReports);
+
+      // Set inspection trend
+      const dailyMap: Record<string, { passed: number; defects: number }> = {};
+      data.forEach((row: any) => {
+        const dateStr = row.dispatch_timestamp ? row.dispatch_timestamp.split(" ")[0].slice(5) : "06-12";
+        if (!dailyMap[dateStr]) {
+          dailyMap[dateStr] = { passed: 0, defects: 0 };
+        }
+        if (row.defect_found) {
+          dailyMap[dateStr].defects += 1;
+        } else {
+          dailyMap[dateStr].passed += 1;
+        }
+      });
+      const trendData = Object.entries(dailyMap)
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .slice(-14)
+        .map(([date, val]) => ({
+          d: date.replace("-", "/"),
+          passed: val.passed,
+          defects: val.defects,
+        }));
+      setInspectionTrend(trendData);
+    });
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -71,10 +148,10 @@ function PillarD() {
       />
 
       <section className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <StatCard label="Drones Active" value={3} icon={<Bot className="w-4 h-4" />} />
-        <StatCard label="Inspections Today" value={12} icon={<CheckCircle2 className="w-4 h-4" />} accent="emerald" />
-        <StatCard label="Defects Confirmed" value={2} icon={<AlertTriangle className="w-4 h-4" />} accent="saffron" />
-        <StatCard label="Slow Zones Cleared" value={10} icon={<CheckCircle2 className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Drones Active" value={statDronesActive} icon={<Bot className="w-4 h-4" />} />
+        <StatCard label="Inspections Today" value={statInspections} icon={<CheckCircle2 className="w-4 h-4" />} accent="emerald" />
+        <StatCard label="Defects Confirmed" value={statDefects} icon={<AlertTriangle className="w-4 h-4" />} accent="saffron" />
+        <StatCard label="Slow Zones Cleared" value={statSlowZones} icon={<CheckCircle2 className="w-4 h-4" />} accent="emerald" />
         <StatCard label="On-device Inference" value={47} suffix=" ms" icon={<Cpu className="w-4 h-4" />} />
       </section>
 
