@@ -458,6 +458,9 @@ def inspect_garun_cv_frame(frame_id: str = "GRN-FRAME-8902"):
         from algorithms.garun_cv_detector import GarunCVDefectDetector
         detector = GarunCVDefectDetector()
         return detector.inspect_frame(frame_id)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/python/non-disruptive-collaboration")
 def get_non_disruptive_collaboration_status():
     """
