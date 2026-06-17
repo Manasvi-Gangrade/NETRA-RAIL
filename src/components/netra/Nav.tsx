@@ -158,6 +158,17 @@ export function Footer() {
           <div className="flex md:justify-end items-center gap-2">
             <span className="live-dot" /> All four pillars · 99.97% uptime
           </div>
+          <div className="mt-2">
+            <a
+              href="http://127.0.0.1:8000/docs"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 font-extrabold text-[11px] hover:bg-emerald-500/20 transition"
+              title="Open Python FastAPI Interactive OpenAPI Swagger Documentation"
+            >
+              🐍 Python FastAPI Docs (port 8000)
+            </a>
+          </div>
         </div>
       </div>
     </footer>

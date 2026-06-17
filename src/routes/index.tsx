@@ -146,9 +146,9 @@ function Landing() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-45 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-85 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/60 via-[#0b1329]/40 to-[#0b1329]/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/30 via-[#0b1329]/15 to-[#0b1329]/60 pointer-events-none" />
         <Particles count={36} />
         <div className="relative mx-auto max-w-7xl px-6 pt-6 pb-4 grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: All Content & Controls */}
@@ -322,59 +322,59 @@ function Landing() {
             </div>
           </div>
 
-          {/* Right Side: Live Network Ops (Clean Light Card) */}
+          {/* Right Side: Live Network Ops */}
           <div className="lg:col-span-5 w-full">
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur p-5 shadow-xl w-full">
+            <div className="rounded-3xl border border-white/10 bg-slate-900/90 text-white backdrop-blur p-5 shadow-xl w-full">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Live Network Ops</div>
-                <span className="text-xs flex items-center gap-1.5 text-emerald font-semibold"><span className="live-dot" /> STREAMING</span>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-300">Live Network Ops</div>
+                <span className="text-xs flex items-center gap-1.5 text-emerald-400 font-bold"><span className="live-dot" /> STREAMING</span>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2">
-                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-primary" />
-                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" />
-                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-violet" />
+                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-saffron" dark={true} />
+                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald-400" dark={true} />
+                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-violet-400" dark={true} />
               </div>
               <div className="mt-4.5 h-32">
                 <ResponsiveContainer>
                   <AreaChart data={tracker}>
                     <defs>
                       <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stopColor="oklch(0.34 0.08 250)" stopOpacity={0.55} />
-                        <stop offset="100%" stopColor="oklch(0.34 0.08 250)" strokeOpacity={0} />
-                      </linearGradient>
-                      <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0.6} />
+                        <stop offset="0%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0.55} />
                         <stop offset="100%" stopColor="oklch(0.78 0.16 70)" strokeOpacity={0} />
                       </linearGradient>
+                      <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stopColor="oklch(0.7 0.16 165)" stopOpacity={0.6} />
+                        <stop offset="100%" stopColor="oklch(0.7 0.16 165)" strokeOpacity={0} />
+                      </linearGradient>
                     </defs>
-                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8 }} />
-                    <Area type="monotone" dataKey="throughput" stroke="oklch(0.34 0.08 250)" fill="url(#g1)" strokeWidth={2} />
-                    <Area type="monotone" dataKey="savings" stroke="oklch(0.78 0.16 70)" fill="url(#g2)" strokeWidth={2} />
+                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
+                    <Area type="monotone" dataKey="throughput" stroke="oklch(0.78 0.16 70)" fill="url(#g1)" strokeWidth={2} />
+                    <Area type="monotone" dataKey="savings" stroke="oklch(0.7 0.16 165)" fill="url(#g2)" strokeWidth={2} />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
               <div className="mt-3 grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-border p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Corridor Throughput</div>
+                <div className="rounded-xl border border-white/10 bg-slate-800/80 p-3">
+                  <div className="text-[10px] uppercase tracking-wider text-slate-300 font-bold">Corridor Throughput</div>
                   <div className="h-20">
                     <ResponsiveContainer>
                       <BarChart data={corridorBars}>
-                        <Tooltip contentStyle={{ fontSize: 11 }} />
+                        <Tooltip contentStyle={{ fontSize: 11, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
                         <Bar dataKey="value" radius={[4, 4, 0, 0]} />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
                 </div>
-                <div className="rounded-xl border border-border p-3 grid place-items-center">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground self-start">Network Health</div>
+                <div className="rounded-xl border border-white/10 bg-slate-800/80 p-3 grid place-items-center">
+                  <div className="text-[10px] uppercase tracking-wider text-slate-300 font-bold self-start">Network Health</div>
                   <div className="relative w-20 h-20">
                     <ResponsiveContainer>
                       <RadialBarChart innerRadius="70%" outerRadius="100%" data={health} startAngle={90} endAngle={-270}>
                         <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                        <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "oklch(0.95 0.02 80)" }} />
+                        <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "rgba(255,255,255,0.1)" }} />
                       </RadialBarChart>
                     </ResponsiveContainer>
-                    <div className="absolute inset-0 grid place-items-center font-display font-bold text-emerald">96%</div>
+                    <div className="absolute inset-0 grid place-items-center font-display font-extrabold text-emerald-400 text-lg">96%</div>
                   </div>
                 </div>
               </div>
