@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Ship, TrainTrack as TrainTrackIcon, Smartphone, Bot, Zap, ArrowRight, Play, RotateCcw, Cpu, ShieldAlert, Sparkles, Terminal } from "lucide-react";
 import { Shell, PageHeader } from "@/components/netra/Shell";
+import { addSlowZone, clearSlowZone } from "@/lib/api/datasets.functions";
 
 export const Route = createFileRoute("/flywheel")({
   head: () => ({
@@ -132,6 +133,23 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
     else if (step.pillar === "C") setPhase(2);
     else if (step.pillar === "D") setPhase(3);
 
+    // Sync state with Python backend
+    if (activeStep === 3) {
+      addSlowZone({
+        data: {
+          section: "Section 7 (Vadodara-Surat)",
+          speed_limit: 45,
+          reason: "Automated simulation vibration trigger"
+        }
+      }).catch((e) => console.error("Could not sync slow zone:", e));
+    } else if (activeStep === 5) {
+      clearSlowZone({
+        data: {
+          section: "Section 7 (Vadodara-Surat)"
+        }
+      }).catch((e) => console.error("Could not lift slow zone:", e));
+    }
+
     setActiveStep((s) => s + 1);
   };
 
@@ -140,6 +158,12 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
     setLog([]);
     setPhase(0);
     setDiagText("System reset. Awaiting step 1 parameters.");
+    // Clear simulation slow zone on reset
+    clearSlowZone({
+      data: {
+        section: "Section 7 (Vadodara-Surat)"
+      }
+    }).catch((e) => console.error("Could not reset slow zone:", e));
   };
 
   const content = (
@@ -345,24 +369,24 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
         <div className={`text-xs uppercase tracking-[0.22em] font-semibold mb-3 ${dark ? "text-saffron-foreground" : "text-saffron-foreground"}`}>Chain of Causation · Flywheel Lifecycle</div>
         <div className="grid lg:grid-cols-5 gap-3">
           {[
-            { i: Ship, p: "A", t: "Vessel Arrives", d: "MV Himalaya docks at Mundra · 48.2k T Ore", c: dark ? "from-primary/20 to-primary/5" : "from-primary/15 to-primary/5", b: dark ? "border-primary/50" : "border-primary/30" },
-            { i: TrainTrackIcon, p: "B", t: "Dynamic Schedule", d: "Section precedence & JSSP solved in sub-second", c: dark ? "from-saffron/30 to-saffron/10" : "from-saffron/20 to-saffron/5", b: dark ? "border-saffron/60" : "border-saffron/40" },
-            { i: Smartphone, p: "C", t: "Telemetry Anomaly", d: "Passengars' devices flag vibration at KM 134", c: dark ? "from-violet/30 to-violet/10" : "from-violet/20 to-violet/5", b: dark ? "border-violet/60" : "border-violet/40" },
-            { i: Bot, p: "D", t: "Drone Inspection", d: "GRN-03 confirms defect · slow zone enforced", c: dark ? "from-emerald/30 to-emerald/10" : "from-emerald/20 to-emerald/5", b: dark ? "border-emerald/60" : "border-emerald/40" },
-            { i: Zap, p: "✓", t: "Loop Restored", d: "Slow-zone lifted · throughput capacity normalized", c: dark ? "from-rose/30 to-rose/10" : "from-rose/20 to-rose/5", b: dark ? "border-rose/60" : "border-rose/40" },
+            { i: Ship, p: "A", t: "Vessel Arrives", d: "MV Himalaya docks at Mundra · 48.2k T Ore", c: dark ? "from-[#113a5f]/25 to-[#113a5f]/5" : "from-primary/10 to-primary/5", b: dark ? "border-[#113a5f]/40" : "border-primary/20", ic: "text-blue-500", rc: "ring-blue-500" },
+            { i: TrainTrackIcon, p: "B", t: "Dynamic Schedule", d: "Section precedence & JSSP solved in sub-second", c: dark ? "from-saffron/25 to-saffron/5" : "from-saffron/15 to-saffron/5", b: dark ? "border-saffron/30" : "border-saffron/20", ic: "text-saffron-foreground", rc: "ring-saffron" },
+            { i: Smartphone, p: "C", t: "Telemetry Anomaly", d: "Passengars' devices flag vibration at KM 134", c: dark ? "from-violet/25 to-violet/5" : "from-violet/15 to-violet/5", b: dark ? "border-violet/30" : "border-violet/20", ic: "text-violet-500", rc: "ring-violet" },
+            { i: Bot, p: "D", t: "Drone Inspection", d: "GRN-03 confirms defect · slow zone enforced", c: dark ? "from-emerald/25 to-emerald/5" : "from-emerald/15 to-emerald/5", b: dark ? "border-emerald/30" : "border-emerald/20", ic: "text-emerald-500", rc: "ring-emerald" },
+            { i: Zap, p: "✓", t: "Loop Restored", d: "Slow-zone lifted · throughput capacity normalized", c: dark ? "from-rose/25 to-rose/5" : "from-rose/15 to-rose/5", b: dark ? "border-rose/30" : "border-rose/20", ic: "text-rose-500", rc: "ring-rose" },
           ].map((x, i) => {
             const isCompleted = activeStep > i;
             const isInProgress = activeStep === i;
             return (
               <div
                 key={i}
-                className={`relative rounded-2xl border ${x.b} bg-gradient-to-br ${x.c} p-4 transition-all duration-300 ${
-                  isCompleted ? "opacity-100 shadow-sm" : isInProgress ? "opacity-100 ring-2 ring-primary ring-offset-2 scale-105" : "opacity-50"
+                className={`group relative rounded-2xl border ${x.b} bg-gradient-to-br ${x.c} p-4 transition-all duration-300 ${
+                  isCompleted ? "opacity-100 shadow-sm" : isInProgress ? `opacity-100 ring-2 ${x.rc} ring-offset-2 ${dark ? "ring-offset-[#0b1329]" : "ring-offset-white"} scale-105 shadow-md` : "opacity-50"
                 } ${dark ? "text-white" : "text-foreground"}`}
               >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-white grid place-items-center shadow-sm">
-                    <x.i className="w-4 h-4 text-primary" />
+                    <x.i className={`w-4 h-4 ${x.ic}`} />
                   </div>
                   <div className={`text-[9px] font-bold tracking-widest ${dark ? "text-white/60" : "text-foreground/60"}`}>STEP {i + 1} · PILLAR {x.p}</div>
                 </div>
@@ -372,7 +396,7 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
                   {isInProgress && <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />}
                 </div>
                 <div className={`text-[11px] mt-1 leading-relaxed ${dark ? "text-slate-300" : "text-muted-foreground"}`}>{x.d}</div>
-                {i < 4 ? <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" /> : null}
+                {i < 4 ? <ArrowRight className={`hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-all duration-300 group-hover:translate-x-0.5 ${dark ? "text-white/20" : "text-foreground/30"}`} /> : null}
               </div>
             );
           })}

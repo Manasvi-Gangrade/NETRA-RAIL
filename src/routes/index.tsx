@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Ship, TrainTrack as TrainTrackIcon, Train, Smartphone, Bot, ArrowRight, Activity, Globe, Zap, Shield, IndianRupee, Brain, Radio } from "lucide-react";
+import { Ship, TrainTrack as TrainTrackIcon, Train, Smartphone, Bot, ArrowRight, Activity, Globe, Zap, Shield, IndianRupee, Brain, Radio, ShieldAlert } from "lucide-react";
 import { Shell } from "@/components/netra/Shell";
 // @ts-ignore
 import videoBg from "../../Videos/18626169-hd_1080_1920_30fps.mp4";
@@ -8,7 +8,7 @@ import netraVideo from "../../Videos/NETRA(Non-Contact, Embedded, Track Recordin
 import { StatCard } from "@/components/netra/Stat";
 import { Particles } from "@/components/netra/Particles";
 import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, Tooltip, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
-import { getSystemSummary } from "@/lib/api/datasets.functions";
+import { getSystemSummary, getSlowZones, clearSlowZone } from "@/lib/api/datasets.functions";
 import { useEffect, useState, useRef } from "react";
 import { Flywheel } from "./flywheel";
 import { CommandCenter } from "./command-center";
@@ -102,12 +102,22 @@ const health = [{ name: "h", value: 96, fill: "oklch(0.7 0.16 165)" }];
 
 function Landing() {
   const [summary, setSummary] = useState<any>(null);
+  const [slowZones, setSlowZones] = useState<any[]>([]);
   const bgVideoRef = useRef<HTMLVideoElement>(null);
+
+  const refreshSlowZones = () => {
+    getSlowZones().then((zones) => {
+      setSlowZones(zones || []);
+    });
+  };
 
   useEffect(() => {
     getSystemSummary().then((data) => {
       setSummary(data);
     });
+    refreshSlowZones();
+    const interval = setInterval(refreshSlowZones, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -144,10 +154,13 @@ function Landing() {
           {/* Left Column: All Content & Controls */}
           <div className="lg:col-span-7 space-y-5 text-left">
             <div>
-              <h1 className="mt-2 text-5xl md:text-7xl font-display font-extrabold tracking-tight leading-none text-white">
-                NETRA-RAIL
+              <h1 className="mt-2 text-5xl md:text-7xl font-display font-extrabold tracking-tight leading-none flex items-center gap-3">
+                <span>
+                  <span className="text-white">NETRA</span>
+                  <span className="text-saffron">-RAIL</span>
+                </span>
+                <span className="text-4xl md:text-6xl select-none">🚂</span>
               </h1>
-              <div className="text-4xl md:text-5xl mt-2 select-none">🚂</div>
               <p className="mt-3 max-w-3xl text-lg md:text-xl text-white/90 font-semibold leading-snug">
                 National Enterprise Traffic, Routing & Autonomous Rail-Grid
               </p>
@@ -231,7 +244,37 @@ function Landing() {
 
       {/* MAIN WORKSPACE: Cream Background (Pillars on Left, Live Ops on Right) */}
       <section className="relative bg-background border-t border-slate-200/60 py-16">
-        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-8 items-start">
+        <div className="mx-auto max-w-7xl px-6">
+          {/* Active Slow Zones Alert Banner */}
+          {slowZones.length > 0 && (
+            <div className="mb-8 bg-rose-50 border border-rose-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm animate-pulse-once">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                  <ShieldAlert className="w-5 h-5" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs uppercase font-extrabold text-rose-600 tracking-wider">Critical Infrastructure Advisory</div>
+                  <div className="text-sm font-bold text-slate-900 mt-0.5">
+                    Active Slow Zone: {slowZones[0].section} restricted to {slowZones[0].speed_limit} km/h
+                  </div>
+                  <div className="text-xs text-slate-500 mt-0.5">
+                    {slowZones[0].reason} • Logged at {slowZones[0].timestamp}
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={async () => {
+                  await clearSlowZone({ data: { section: slowZones[0].section } });
+                  refreshSlowZones();
+                }}
+                className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs transition shadow-sm"
+              >
+                Lift Restriction
+              </button>
+            </div>
+          )}
+
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Side: The Four Pillars (2x2 grid) */}
           <div className="lg:col-span-7 space-y-5">
             <div className="flex items-end justify-between">
@@ -333,7 +376,8 @@ function Landing() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Why it matters & Ribbon */}
       <section className="relative bg-[#0b1329] border-t border-slate-800 text-white py-12">
