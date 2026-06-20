@@ -9,14 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RadarRouteImport } from './routes/radar'
 import { Route as PillarDRouteImport } from './routes/pillar-d'
 import { Route as PillarCRouteImport } from './routes/pillar-c'
 import { Route as PillarBRouteImport } from './routes/pillar-b'
 import { Route as PillarARouteImport } from './routes/pillar-a'
 import { Route as FlywheelRouteImport } from './routes/flywheel'
 import { Route as CommandCenterRouteImport } from './routes/command-center'
+import { Route as ArchitectureRouteImport } from './routes/architecture'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RadarRoute = RadarRouteImport.update({
+  id: '/radar',
+  path: '/radar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PillarDRoute = PillarDRouteImport.update({
   id: '/pillar-d',
   path: '/pillar-d',
@@ -47,6 +54,11 @@ const CommandCenterRoute = CommandCenterRouteImport.update({
   path: '/command-center',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArchitectureRoute = ArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,74 +67,95 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/architecture': typeof ArchitectureRoute
   '/command-center': typeof CommandCenterRoute
   '/flywheel': typeof FlywheelRoute
   '/pillar-a': typeof PillarARoute
   '/pillar-b': typeof PillarBRoute
   '/pillar-c': typeof PillarCRoute
   '/pillar-d': typeof PillarDRoute
+  '/radar': typeof RadarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/architecture': typeof ArchitectureRoute
   '/command-center': typeof CommandCenterRoute
   '/flywheel': typeof FlywheelRoute
   '/pillar-a': typeof PillarARoute
   '/pillar-b': typeof PillarBRoute
   '/pillar-c': typeof PillarCRoute
   '/pillar-d': typeof PillarDRoute
+  '/radar': typeof RadarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/architecture': typeof ArchitectureRoute
   '/command-center': typeof CommandCenterRoute
   '/flywheel': typeof FlywheelRoute
   '/pillar-a': typeof PillarARoute
   '/pillar-b': typeof PillarBRoute
   '/pillar-c': typeof PillarCRoute
   '/pillar-d': typeof PillarDRoute
+  '/radar': typeof RadarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/architecture'
     | '/command-center'
     | '/flywheel'
     | '/pillar-a'
     | '/pillar-b'
     | '/pillar-c'
     | '/pillar-d'
+    | '/radar'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/architecture'
     | '/command-center'
     | '/flywheel'
     | '/pillar-a'
     | '/pillar-b'
     | '/pillar-c'
     | '/pillar-d'
+    | '/radar'
   id:
     | '__root__'
     | '/'
+    | '/architecture'
     | '/command-center'
     | '/flywheel'
     | '/pillar-a'
     | '/pillar-b'
     | '/pillar-c'
     | '/pillar-d'
+    | '/radar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArchitectureRoute: typeof ArchitectureRoute
   CommandCenterRoute: typeof CommandCenterRoute
   FlywheelRoute: typeof FlywheelRoute
   PillarARoute: typeof PillarARoute
   PillarBRoute: typeof PillarBRoute
   PillarCRoute: typeof PillarCRoute
   PillarDRoute: typeof PillarDRoute
+  RadarRoute: typeof RadarRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/radar': {
+      id: '/radar'
+      path: '/radar'
+      fullPath: '/radar'
+      preLoaderRoute: typeof RadarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pillar-d': {
       id: '/pillar-d'
       path: '/pillar-d'
@@ -165,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommandCenterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/architecture': {
+      id: '/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,12 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArchitectureRoute: ArchitectureRoute,
   CommandCenterRoute: CommandCenterRoute,
   FlywheelRoute: FlywheelRoute,
   PillarARoute: PillarARoute,
   PillarBRoute: PillarBRoute,
   PillarCRoute: PillarCRoute,
   PillarDRoute: PillarDRoute,
+  RadarRoute: RadarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

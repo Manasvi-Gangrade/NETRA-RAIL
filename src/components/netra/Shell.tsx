@@ -3,9 +3,9 @@ import { Nav, Footer } from "./Nav";
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-[#0b1329] text-white w-full max-w-full overflow-x-hidden">
       <Nav />
-      <main className="flex-1 animate-fade-in">{children}</main>
+      <main className="flex-1 animate-fade-in w-full max-w-full overflow-x-hidden">{children}</main>
       <Footer />
     </div>
   );

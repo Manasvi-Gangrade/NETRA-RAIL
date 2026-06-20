@@ -153,7 +153,7 @@ function PillarC() {
 
       <section className="mx-auto max-w-7xl px-6 mt-8 grid lg:grid-cols-12 gap-5">
         {/* LIVE FEED */}
-        <div className="lg:col-span-3 rounded-2xl border border-border bg-white p-5">
+        <div className="lg:col-span-3 rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
           <div className="flex items-center justify-between mb-3">
             <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Live Sensor Feed</div>
             <span className="live-dot" />

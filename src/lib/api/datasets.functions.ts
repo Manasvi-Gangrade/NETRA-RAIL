@@ -230,3 +230,33 @@ export const processOperatorCommand = createServerFn({ method: "POST" })
     }
   });
 
+// ----------------- CHALLENGE 279 COLLABORATION LIVE UPDATES API -----------------
+
+export const getCollaborationLiveUpdates = createServerFn({ method: "GET" })
+  .handler(async () => {
+    return fetchFromPython("/api/collaboration/live-updates", () => {
+      const filePath = path.join(process.cwd(), "Datasets", "command_history.json");
+      let history = [];
+      if (fs.existsSync(filePath)) {
+        history = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      }
+      return {
+        timestamp: new Date().toISOString(),
+        active_operators_online: 4,
+        history: history,
+        challenge: "Challenge #279 - Non-Disruptive Live Collaboration Stream"
+      };
+    });
+  });
+
+export const simulateRemoteOperatorAction = createServerFn({ method: "POST" })
+  .handler(async () => {
+    try {
+      const res = await fetch(`${PYTHON_BACKEND_URL}/api/collaboration/simulate-remote-action`, { method: "POST" });
+      return await res.json();
+    } catch {
+      return { status: "fallback", message: "Remote operator simulated locally." };
+    }
+  });
+
+

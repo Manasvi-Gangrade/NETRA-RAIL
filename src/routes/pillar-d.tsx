@@ -193,7 +193,7 @@ function PillarD() {
           ))}
 
           {/* Component scores */}
-          <div className="rounded-2xl border border-border bg-white p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
             <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2">Component Health Scores</div>
             <div className="h-44">
               <ResponsiveContainer>
@@ -271,7 +271,7 @@ function PillarD() {
 
           {/* Battery radial + inspection trend */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-border bg-white p-5">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
               <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Battery · {active.id}</div>
               <div className="h-40 relative">
                 <ResponsiveContainer>
@@ -288,7 +288,7 @@ function PillarD() {
                 </div>
               </div>
             </div>
-            <div className="rounded-2xl border border-border bg-white p-5">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
               <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Inspections · 14 days</div>
               <div className="h-40">
                 <ResponsiveContainer>

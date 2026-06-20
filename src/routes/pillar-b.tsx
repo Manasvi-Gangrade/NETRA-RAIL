@@ -251,7 +251,7 @@ function PillarB() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-white p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
             <div className="flex items-center justify-between">
               <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Multi-objective Score</div>
               <Sigma className="w-4 h-4 text-primary" />
@@ -333,7 +333,7 @@ function PillarB() {
 
         {/* RIGHT: slow zones */}
         <div className="lg:col-span-3">
-          <div className="rounded-2xl border border-border bg-white p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
             <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-3">Slow Zone Alerts</div>
             <div className="space-y-3">
               {slowZonesList.map((s) => (

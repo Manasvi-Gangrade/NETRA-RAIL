@@ -127,12 +127,12 @@ function Landing() {
   }, []);
 
   const marqueeImages = [
-    "https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?auto=format&fit=crop&w=400&q=80",
-    "https://images.unsplash.com/photo-1532103054090-334e6e60ab29?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?auto=format&fit=crop&w=400&q=70",
-    "https://images.unsplash.com/photo-1615433995805-4c07c4273df1?auto=format&fit=crop&w=400&q=80",
+    "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1515165562839-978bbcf18277?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
   ];
 
   return (
@@ -146,20 +146,22 @@ function Landing() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.08] pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-45 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#0b1329]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/60 via-[#0b1329]/40 to-[#0b1329]/90 pointer-events-none" />
         <Particles count={36} />
         <div className="relative mx-auto max-w-7xl px-6 pt-6 pb-4 grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: All Content & Controls */}
           <div className="lg:col-span-7 space-y-5 text-left">
             <div>
-              <h1 className="mt-2 text-5xl md:text-7xl font-display font-extrabold tracking-tight leading-none flex items-center gap-3">
+              <h1 className="mt-2 text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-none flex flex-wrap items-center gap-2 sm:gap-3">
                 <span>
                   <span className="text-white">NETRA</span>
                   <span className="text-saffron">-RAIL</span>
                 </span>
-                <span className="text-4xl md:text-6xl select-none">🚂</span>
+                <span className="inline-flex items-center justify-center p-1.5 sm:p-2 rounded-2xl bg-white/10 border border-white/20 text-saffron shrink-0">
+                  <Train className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+                </span>
               </h1>
               <p className="mt-3 max-w-3xl text-lg md:text-xl text-white/90 font-semibold leading-snug">
                 National Enterprise Traffic, Routing & Autonomous Rail-Grid
@@ -189,6 +191,9 @@ function Landing() {
                     key={i}
                     src={img}
                     alt="Railway operations"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=600&q=80";
+                    }}
                     className="inline-block w-48 h-32 object-cover rounded-xl shadow-sm border border-white/10"
                   />
                 ))}
@@ -207,7 +212,7 @@ function Landing() {
 
           {/* Right Column: Video & Stats Tabs below it */}
           <div className="lg:col-span-5 flex flex-col gap-5 self-start w-full">
-            <div className="relative h-[220px] lg:h-[260px] overflow-hidden rounded-3xl bg-black shadow-2xl border border-border/40">
+            <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden rounded-3xl bg-slate-950 shadow-2xl border border-white/20 ring-1 ring-white/10 hover:ring-saffron/40 transition-all duration-300">
               <video
                 src={netraVideo}
                 autoPlay
@@ -215,7 +220,7 @@ function Landing() {
                 muted
                 controls
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-contain p-2"
               />
             </div>
 

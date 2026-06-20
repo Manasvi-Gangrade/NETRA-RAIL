@@ -17,7 +17,7 @@ export const Route = createFileRoute("/flywheel")({
 type LogEntry = { p: string; s: string; c: string; t: string; detail?: string };
 
 const seedLogs: LogEntry[] = [
-  { p: "A", s: "Vessel MV Himalaya ETA updated: 14:45", c: "oklch(0.34 0.08 250)", t: "10:30:15", detail: "Mundra Port Manifest parsed. Adapting SIH24 logistics engine..." },
+  { p: "A", s: "Vessel MV Himalaya ETA updated: 14:45", c: "oklch(0.34 0.08 250)", t: "10:30:15", detail: "Mundra Port Manifest parsed. Adapting Pillar A logistics engine..." },
   { p: "A", s: "Freight dispatch queue recalculated", c: "oklch(0.34 0.08 250)", t: "10:30:18", detail: "Optimized wagon queue updated. Idle dwell time projection: 0 min." },
   { p: "B", s: "Section 7 precedence override issued", c: "oklch(0.78 0.16 70)", t: "10:30:25", detail: "JSSP Solver: Side-tracked FRT-2241. VB-12 precedence active." },
   { p: "C", s: "Anomaly flagged at 22.3°N 73.1°E", c: "oklch(0.6 0.2 295)", t: "10:30:40", detail: "AKNN Vector Index: isolated 128-dim cluster. Cosine dist: 0.87." },

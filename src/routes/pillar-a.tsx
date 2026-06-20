@@ -227,9 +227,17 @@ function PillarA() {
             <span className="text-xs flex items-center gap-1.5 text-emerald"><span className="live-dot" /> LIVE</span>
           </div>
           {ports.map((p) => (
-            <div key={p.name} className="card-hover rounded-2xl border border-border bg-white overflow-hidden">
+            <div key={p.name} className="card-hover rounded-2xl border border-white/10 bg-slate-900/90 text-white overflow-hidden shadow-xl">
               <div className="relative h-24">
-                <img src={p.img} alt={p.name} className="w-full h-full object-cover" loading="lazy" />
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=70";
+                  }}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-white">
                   <div className="font-display font-bold flex items-center gap-1.5 drop-shadow"><Anchor className="w-4 h-4" />{p.name}</div>
@@ -240,24 +248,24 @@ function PillarA() {
               </div>
               <div className="p-4 grid grid-cols-3 gap-3 text-sm">
                 <div>
-                  <div className="text-[10px] uppercase text-muted-foreground">Vessel</div>
-                  <div className="font-medium text-xs">{p.vessel}</div>
+                  <div className="text-[10px] uppercase text-slate-400 font-bold">Vessel</div>
+                  <div className="font-medium text-xs text-white">{p.vessel}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase text-muted-foreground">Cargo</div>
-                  <div className="font-medium text-xs">{p.cargo}</div>
+                  <div className="text-[10px] uppercase text-slate-400 font-bold">Cargo</div>
+                  <div className="font-medium text-xs text-white">{p.cargo}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase text-muted-foreground">Tonnage</div>
-                  <div className="font-mono text-xs">{p.tons.toLocaleString()}T</div>
+                  <div className="text-[10px] uppercase text-slate-400 font-bold">Tonnage</div>
+                  <div className="font-mono text-xs text-white">{p.tons.toLocaleString()}T</div>
                 </div>
                 <div className="col-span-2">
-                  <div className="text-[10px] uppercase text-muted-foreground">ETA Countdown</div>
-                  <div className="font-mono font-bold text-primary">{fmtCountdown(p.eta)}</div>
+                  <div className="text-[10px] uppercase text-slate-400 font-bold">ETA Countdown</div>
+                  <div className="font-mono font-bold text-saffron">{fmtCountdown(p.eta)}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase text-muted-foreground">Sync</div>
-                  <div className="text-xs font-medium flex items-center gap-1"><Activity className="w-3 h-3 text-emerald" />Locked</div>
+                  <div className="text-[10px] uppercase text-slate-400 font-bold">Sync</div>
+                  <div className="text-xs font-medium flex items-center gap-1 text-emerald-400"><Activity className="w-3 h-3 text-emerald-400" />Locked</div>
                 </div>
               </div>
             </div>
@@ -267,23 +275,23 @@ function PillarA() {
         {/* QUEUE + UTILISATION */}
         <div className="lg:col-span-4 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Freight Dispatch Queue</h2>
-            <span className="text-xs text-muted-foreground">{queue.length} active</span>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">Freight Dispatch Queue</h2>
+            <span className="text-xs text-slate-400">{queue.length} active</span>
           </div>
-          <div className="rounded-2xl border border-border bg-white overflow-hidden">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white overflow-hidden shadow-xl">
             {queue.map((q) => (
-              <div key={q.id + q.time} className="animate-slide-up border-b last:border-b-0 border-border px-4 py-3">
+              <div key={q.id + q.time} className="animate-slide-up border-b last:border-b-0 border-white/10 px-4 py-3">
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-lg gradient-cool grid place-items-center text-white">
                     <Train className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-semibold">{q.id} <span className="text-muted-foreground font-normal">· {q.time}</span></div>
-                    <div className="text-xs text-muted-foreground truncate">{q.from} → {q.to}</div>
+                    <div className="text-sm font-semibold text-white">{q.id} <span className="text-slate-400 font-normal">· {q.time}</span></div>
+                    <div className="text-xs text-slate-300 truncate">{q.from} → {q.to}</div>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-saffron/15 text-saffron-foreground font-semibold whitespace-nowrap">{q.status}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-saffron/20 border border-saffron/30 text-saffron font-bold whitespace-nowrap">{q.status}</span>
                 </div>
-                <div className="mt-2 h-1.5 rounded-full bg-muted overflow-hidden">
+                <div className="mt-2 h-1.5 rounded-full bg-slate-800 overflow-hidden">
                   <div className="h-full gradient-saffron transition-all duration-700" style={{ width: `${q.load}%` }} />
                 </div>
               </div>
@@ -291,10 +299,10 @@ function PillarA() {
           </div>
 
           {/* Wagon utilisation */}
-          <div className="rounded-2xl border border-border bg-white p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
             <div className="flex items-center justify-between">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Wagon Utilisation (24h)</div>
-              <span className="text-[11px] text-emerald font-bold">+18.4%</span>
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-bold">Wagon Utilisation (24h)</div>
+              <span className="text-[11px] text-emerald-400 font-bold">+18.4%</span>
             </div>
             <div className="h-28 mt-2">
               <ResponsiveContainer>
@@ -307,7 +315,7 @@ function PillarA() {
                   </defs>
                   <XAxis dataKey="h" hide />
                   <YAxis hide />
-                  <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8 }} />
+                  <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
                   <Area type="monotone" dataKey="util" stroke="oklch(0.7 0.16 165)" fill="url(#wu)" strokeWidth={2} />
                 </AreaChart>
               </ResponsiveContainer>
@@ -317,9 +325,9 @@ function PillarA() {
 
         {/* METRICS */}
         <div className="lg:col-span-4 space-y-4">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Synchronisation Metrics</h2>
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-saffron/10 via-white to-emerald/10 p-5">
-            <div className="text-xs text-muted-foreground">Sync Efficiency</div>
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400">Synchronisation Metrics</h2>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
+            <div className="text-xs text-slate-400 font-bold">Sync Efficiency</div>
             <div className="mt-3 grid place-items-center">
               <div className="relative w-44 h-44">
                 <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
@@ -330,14 +338,14 @@ function PillarA() {
                       <stop offset="100%" stopColor="oklch(0.6 0.2 295)" />
                     </linearGradient>
                   </defs>
-                  <circle cx="60" cy="60" r="50" stroke="oklch(0.95 0.02 80)" strokeWidth="10" fill="none" />
+                  <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.1)" strokeWidth="10" fill="none" />
                   <circle cx="60" cy="60" r="50" stroke="url(#ring)" strokeWidth="10" fill="none"
                     strokeDasharray={`${(94.3 / 100) * 314} 314`} strokeLinecap="round" />
                 </svg>
                 <div className="absolute inset-0 grid place-items-center">
                   <div className="text-center">
-                    <div className="text-3xl font-display font-bold text-primary">{efficiency}<span className="text-base">.3%</span></div>
-                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">vessel ↔ wagon</div>
+                    <div className="text-3xl font-display font-bold text-white">{efficiency}<span className="text-base">.3%</span></div>
+                    <div className="text-[10px] uppercase tracking-wider text-slate-400">vessel ↔ wagon</div>
                   </div>
                 </div>
               </div>
@@ -345,19 +353,19 @@ function PillarA() {
           </div>
 
           {/* Cargo mix */}
-          <div className="rounded-2xl border border-border bg-white p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
             <div className="flex items-center justify-between">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Cargo Mix · today</div>
-              <Container className="w-4 h-4 text-primary" />
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-bold">Cargo Mix · today</div>
+              <Container className="w-4 h-4 text-saffron" />
             </div>
             <div className="h-44">
               <ResponsiveContainer>
                 <PieChart>
-                  <Tooltip contentStyle={{ fontSize: 11 }} />
+                  <Tooltip contentStyle={{ fontSize: 11, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
                   <Pie data={cargoMix} dataKey="value" innerRadius={42} outerRadius={70} paddingAngle={2}>
                     {cargoMix.map((c, i) => <Cell key={i} fill={c.fill} />)}
                   </Pie>
-                  <Legend iconSize={8} wrapperStyle={{ fontSize: 10 }} />
+                  <Legend iconSize={8} wrapperStyle={{ fontSize: 10, color: "#cbd5e1" }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
@@ -373,24 +381,24 @@ function PillarA() {
 
       {/* DWELL HISTORY + WAREHOUSE */}
       <section className="mx-auto max-w-7xl px-6 mt-10 grid lg:grid-cols-3 gap-5">
-        <div className="lg:col-span-2 rounded-2xl border border-border bg-white p-5">
+        <div className="lg:col-span-2 rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Wagon Idle Dwell · last 14 days</div>
-              <div className="text-sm font-display font-semibold">Before vs After NETRA-RAIL</div>
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-bold">Wagon Idle Dwell · last 14 days</div>
+              <div className="text-sm font-display font-semibold text-white">Before vs After NETRA-RAIL</div>
             </div>
             <div className="flex gap-3 text-[11px]">
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-destructive/70" /> Before</span>
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-emerald" /> After</span>
+              <span className="flex items-center gap-1 text-slate-300"><span className="w-2.5 h-2.5 rounded-sm bg-rose-500/80" /> Before</span>
+              <span className="flex items-center gap-1 text-slate-300"><span className="w-2.5 h-2.5 rounded-sm bg-emerald-400" /> After</span>
             </div>
           </div>
           <div className="h-64">
             <ResponsiveContainer>
               <BarChart data={dwellHistory}>
-                <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.92 0.01 250)" />
-                <XAxis dataKey="d" tick={{ fontSize: 10 }} />
-                <YAxis tick={{ fontSize: 10 }} unit="h" />
-                <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                <XAxis dataKey="d" tick={{ fontSize: 10, fill: "#94a3b8" }} />
+                <YAxis tick={{ fontSize: 10, fill: "#94a3b8" }} unit="h" />
+                <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
                 <Bar dataKey="before" fill="oklch(0.62 0.22 25 / 0.75)" radius={[4, 4, 0, 0]} />
                 <Bar dataKey="after" fill="oklch(0.7 0.16 165)" radius={[4, 4, 0, 0]} />
               </BarChart>
@@ -398,22 +406,22 @@ function PillarA() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-white p-5">
+        <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
           <div className="flex items-center justify-between mb-3">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Warehouse Buffers</div>
-            <Warehouse className="w-4 h-4 text-primary" />
+            <div className="text-xs uppercase tracking-wider text-slate-400 font-bold">Warehouse Buffers</div>
+            <Warehouse className="w-4 h-4 text-saffron" />
           </div>
           <div className="space-y-3">
             {[
-              { n: "Mundra-Adani", v: 78, c: "bg-primary" },
-              { n: "JSW Toranagallu", v: 52, c: "bg-emerald" },
-              { n: "Tata Jamshedpur", v: 91, c: "bg-saffron" },
-              { n: "SAIL Bhilai", v: 64, c: "bg-violet" },
-              { n: "RINL Vizag", v: 38, c: "bg-teal" },
+              { n: "Mundra-Adani", v: 78, c: "bg-saffron" },
+              { n: "JSW Toranagallu", v: 52, c: "bg-emerald-400" },
+              { n: "Tata Jamshedpur", v: 91, c: "bg-amber-400" },
+              { n: "SAIL Bhilai", v: 64, c: "bg-violet-400" },
+              { n: "RINL Vizag", v: 38, c: "bg-teal-400" },
             ].map((w) => (
               <div key={w.n}>
-                <div className="flex justify-between text-xs"><span>{w.n}</span><span className="font-mono">{w.v}%</span></div>
-                <div className="h-2 rounded-full bg-muted overflow-hidden">
+                <div className="flex justify-between text-xs text-slate-200"><span>{w.n}</span><span className="font-mono font-bold">{w.v}%</span></div>
+                <div className="h-2 rounded-full bg-slate-800 overflow-hidden">
                   <div className={`h-full ${w.c} transition-all duration-700`} style={{ width: `${w.v}%` }} />
                 </div>
               </div>

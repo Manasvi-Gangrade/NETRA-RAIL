@@ -7,6 +7,11 @@
 
 <div align="center">
 
+### Submitted To: Far Away Hackathon 2026 — Theme: Railways
+**Team Name:** Japan Buddies  
+**Team Members:** Manasvi Gangrade (Team Lead), Navneet Kaur, Suhani Sharma, Muskan Lodhi  
+**Institution:** Indore Institute of Science and Technology, Indore
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -16,7 +21,8 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 [![Far Away Hackathon](https://img.shields.io/badge/Far%20Away%20Hackathon%202026-Theme%3A%20Railways-1a3a5c?style=for-the-badge)](https://unstop.com)
-[![Status](https://img.shields.io/badge/Status-Active%20Development-10B981?style=for-the-badge)]()
+[![Round 2 Challenge 279](https://img.shields.io/badge/Round%202%20Challenge%20%23279-Non--Disruptive%20Live%20Update-10B981?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-10B981?style=for-the-badge)]()
 [![Languages](https://img.shields.io/badge/Languages%20Supported-230%2B-F59E0B?style=for-the-badge)]()
 [![Pillars](https://img.shields.io/badge/Autonomous%20Pillars-4-blue?style=for-the-badge)]()
 
@@ -588,6 +594,7 @@ NETRA-RAIL is built on original academic research by the team:
 |------|------|
 | **Manasvi Gangrade** | Team Lead — AI Research & System Architecture |
 | **Navneet Kaur** | Backend Engineering & Agent Orchestration |
+| **Suhani Sharma** | Data Pipelines & Geospatial Analytics |
 | **Muskan Lodhi** | Frontend Development & UX |
 
 **Institution:** Indore Institute of Science and Technology, Indore
