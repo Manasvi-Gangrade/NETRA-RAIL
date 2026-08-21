@@ -7,18 +7,16 @@
 
 <div align="center">
 
-### Submitted To: Far Away Hackathon 2026 — Theme: Railways
+### 🏆 Submitted To: Far Away Hackathon 2026 — Theme: Railways
 **Team Name:** Japan Buddies  
 **Team Members:** Manasvi Gangrade (Team Lead), Navneet Kaur, Suhani Sharma, Muskan Lodhi  
-**Institution:** Indore Institute of Science and Technology, Indore
+**Institution:** Indore Institute of Science and Technology (IIST), Indore
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge&logo=chainlink&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![Neo4j](https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+[![Research Paper](https://img.shields.io/badge/ResearchGate-Research%20Paper-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid)
+[![Web Deployment](https://img.shields.io/badge/Vercel-Live%20Web%20App-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://netra-rail.vercel.app/)
+[![Mobile Deployment](https://img.shields.io/badge/Vercel-Live%20Mobile%20App-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://netra-rail-mobile.vercel.app/)
+[![Backend Engine](https://img.shields.io/badge/Render-FastAPI%20Backend-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://netra-rail-backend.onrender.com)
+[![Swagger API Docs](https://img.shields.io/badge/FastAPI-Live%20API%20Docs-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://netra-rail-backend.onrender.com/docs)
 
 [![Far Away Hackathon](https://img.shields.io/badge/Far%20Away%20Hackathon%202026-Theme%3A%20Railways-1a3a5c?style=for-the-badge)](https://unstop.com)
 [![Round 2 Challenge 279](https://img.shields.io/badge/Round%202%20Challenge%20%23279-Non--Disruptive%20Live%20Update-10B981?style=for-the-badge)]()
@@ -38,24 +36,68 @@
 
 ---
 
-![TOC](https://img.shields.io/badge/Table%20of%20Contents-1a3a5c?style=for-the-badge)
+## 🔗 Quick Deliverables & Official Links Hub
 
-- [Overview](#overview)
-- [The Problem](#the-problem)
-- [Architecture — The 4-Pillar System](#architecture--the-4-pillar-system)
-- [The Autonomous Flywheel](#the-autonomous-flywheel)
-- [Multilingual Intelligence](#multilingual-intelligence--230-languages)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Setup & Installation](#setup--installation)
-- [Running the System](#running-the-system)
-- [API Reference](#api-reference)
-- [Research Foundation](#research-foundation)
-- [Team](#team)
+| Category | Deliverable Resource | Direct Link |
+| :--- | :--- | :--- |
+| 📄 **Academic Research** | **Official NETRA-RAIL Research Paper** | [View on ResearchGate](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) |
+| 🌐 **Web Platform** | **Live Deployed Web Application** | [netra-rail.vercel.app](https://netra-rail.vercel.app/) |
+| 🐙 **Web Codebase** | **NETRA-RAIL Main GitHub Repository** | [GitHub: NETRA-RAIL](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
+| ⚡ **AI Engine Backend** | **Live FastAPI Backend Service** | [netra-rail-backend.onrender.com](https://netra-rail-backend.onrender.com) |
+| 📚 **API Documentation** | **Interactive Swagger API Specs** | [OpenAPI Docs (Port 8000)](https://netra-rail-backend.onrender.com/docs) |
+| 📲 **Mobile App** | **Live Deployed Mobile Application** | [netra-rail-mobile.vercel.app](https://netra-rail-mobile.vercel.app/) |
+| 📱 **Mobile Codebase** | **NETRA-RAIL Mobile GitHub Repository** | [GitHub: NETRA-RAIL-Mobile](https://github.com/Manasvi-Gangrade/NETRA-RAIL-Mobile) |
+| 📊 **Presentation** | **Official Presentation Pitch Deck** | [View Google Slides / PPT](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
+| 🎥 **Pitch Video** | **Team Japan Buddies Pitch Video** | [Watch Pitch Video](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) |
+| 🎬 **Demonstration** | **MVP Explanation & Walkthrough Video** | [Watch MVP Video](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) |
+| 🎞️ **Concept Animation** | **System Architecture Animated Video** | [Watch Animation](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
+| 📑 **System Docs** | **NETRA-RAIL Detailed Documentation** | [Download PDF / View Drive](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
+| 📑 **Mobile Docs** | **Mobile Platform Detailed Documentation** | [Download PDF / View Drive](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) |
+| 📋 **Technical Report** | **Full Technical Implementation Report** | [Download PDF / View Drive](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) |
+| 📁 **Drive Folder** | **Additional Project Documents Folder** | [Browse Google Drive](https://drive.google.com/drive/folders/1M2ZGIU9P-UsU3-AdsrlVHBr-sPi52W4q?usp=sharing) |
+| 💾 **Assets Folder** | **Datasets & Media Assets Drive Folder** | [Browse Datasets Folder](https://drive.google.com/drive/folders/1TU3SeWIb6gRzmvRQ3dnolC_EAaqHiAUF?usp=sharing) |
 
 ---
 
-![Overview](https://img.shields.io/badge/Overview-What%20is%20NETRA--RAIL%3F-10B981?style=for-the-badge)
+## 📸 System Visual Gallery & Visual Assets
+
+<div align="center">
+
+| Railway Operations & Telemetry | Track Inspection & Inspection Drone |
+| :---: | :---: |
+| ![Freight Logistics](./Images/img1.jpeg) | ![Track Inspection](./Images/img2.jpeg) |
+| **Pillar A: Intermodal Freight Dispatch** | **Pillar D: Garun CV Autonomous Drone Audit** |
+
+| Structural Maintenance & Rail Grid | IMU Telemetry & Sensor Analytics |
+| :---: | :---: |
+| ![Rail Infrastructure](./Images/img3.jpeg) | ![Sensors & Telemetry](./Images/img4.jpeg) |
+| **Pillar B: Section Throughput JSSP Scheduling** | **Pillar C: Passenger Crowdsourced IMU Sensing** |
+
+</div>
+
+---
+
+## 📌 Table of Contents
+
+- [Overview — What is NETRA-RAIL?](#overview--what-is-netra-rail)
+- [The Problem — Indian Railways Challenge](#the-problem--indian-railways-challenge)
+- [Architecture — The 4-Pillar System](#architecture--the-4-pillar-system)
+  - [Pillar A: Intermodal Supply-Chain Synchroniser](#pillar-a-intermodal-supply-chain-synchroniser)
+  - [Pillar B: Real-Time Section Throughput Maximiser](#pillar-b-real-time-section-throughput-maximiser)
+  - [Pillar C: Crowdsourced IMU Telemetry Node](#pillar-c-crowdsourced-imu-telemetry-node)
+  - [Pillar D: Garun CV Structural Auditor](#pillar-d-garun-cv-structural-auditor)
+- [The Autonomous Flywheel Cycle](#the-autonomous-flywheel-cycle)
+- [Multilingual Intelligence (230+ Languages)](#multilingual-intelligence-230-languages)
+- [Tech Stack & Architecture](#tech-stack--architecture)
+- [Project Directory Structure](#project-directory-structure)
+- [Setup & Local Installation](#setup--local-installation)
+- [API Reference](#api-reference)
+- [Research Foundation & Past Deployments](#research-foundation--past-deployments)
+- [Team Japan Buddies](#team-japan-buddies)
+
+---
+
+## 🚀 Overview — What is NETRA-RAIL?
 
 Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains daily**, and transports **1.4 billion tonnes of freight annually** — yet its operational intelligence remains fragmented, reactive, and dangerously manual.
 
@@ -63,41 +105,41 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 | Layer | Pillar | Problem Solved |
 |-------|--------|----------------|
-| Macro-Logistics | Pillar A — Intermodal Sync | Port-to-plant freight coordination failures |
-| Network-Traffic | Pillar B — Throughput Maximiser | Mixed-speed rail corridor gridlock |
-| Micro-Sensing | Pillar C — IMU Telemetry Node | Cost-prohibitive infrastructure monitoring |
-| Ground-Execution | Pillar D — Garun CV Auditor | Hazardous manual track inspections |
+| **Macro-Logistics** | **Pillar A — Intermodal Sync** | Port-to-plant freight coordination failures & demurrage costs |
+| **Network-Traffic** | **Pillar B — Throughput Maximiser** | Mixed-speed rail corridor gridlock (Passenger vs. Freight) |
+| **Micro-Sensing** | **Pillar C — IMU Telemetry Node** | Cost-prohibitive infrastructure monitoring via passenger phones |
+| **Ground-Execution** | **Pillar D — Garun CV Auditor** | Hazardous manual track inspections via autonomous drones |
 
-> **This is not 4 solutions. It is one self-healing ecosystem.**
-
----
-
-![Problem](https://img.shields.io/badge/The%20Problem-Indian%20Railways%20Running%20Blind-DC2626?style=for-the-badge)
-
-```
-+------------------+----------------------------------------------+
-|  INDIAN RAILWAYS TODAY                                          |
-+------------------+----------------------------------------------+
-|  LOGISTICS       | Ships arrive. Wagons idle.                   |
-|                  | Crores lost annually in demurrage at ports.  |
-+------------------+----------------------------------------------+
-|  TRAFFIC         | Vande Bharat at 160 km/h vs freight at 40   |
-|                  | km/h. Manual scheduling = cascading delays.  |
-+------------------+----------------------------------------------+
-|  SENSORS         | Track anomalies accumulate undetected between|
-|                  | expensive geometry car inspection cycles.    |
-+------------------+----------------------------------------------+
-|  INSPECTION      | Trackmen sent into hazardous environments    |
-|                  | for manual audits of track components.       |
-+------------------+----------------------------------------------+
-```
+> 💡 **This is not 4 isolated solutions. It is a single self-healing autonomous ecosystem.**
 
 ---
 
-![Architecture](https://img.shields.io/badge/Architecture-The%204--Pillar%20System-1a3a5c?style=for-the-badge)
+## ⚠️ The Problem — Indian Railways Challenge
 
-![PillarA](https://img.shields.io/badge/PILLAR%20A-Intermodal%20Supply--Chain%20Synchroniser-1a3a5c?style=for-the-badge)
-![SIH](https://img.shields.io/badge/Solving-SIH25209%20%7C%20Ministry%20of%20Steel-64748b?style=flat-square)
+```
++------------------+-------------------------------------------------------------+
+|  INDIAN RAILWAYS TODAY                                                         |
++------------------+-------------------------------------------------------------+
+|  LOGISTICS       | Ships arrive. Wagons idle. Crores lost annually in         |
+|                  | demurrage at major ports (Mundra, JNPT, Vizag, Chennai).    |
++------------------+-------------------------------------------------------------+
+|  TRAFFIC         | Vande Bharat (160 km/h) vs Freight (40 km/h). Manual       |
+|                  | scheduling leads to cascading delays & loop-line blockage.  |
++------------------+-------------------------------------------------------------+
+|  SENSORS         | Track micro-fissures accumulate undetected between rare     |
+|                  | & expensive geometry car inspection cycles.                  |
++------------------+-------------------------------------------------------------+
+|  INSPECTION      | Trackmen sent into hazardous operational environments       |
+|                  | for manual audits of track fittings & joint bars.          |
++------------------+-------------------------------------------------------------+
+```
+
+---
+
+## 🏛️ Architecture — The 4-Pillar System
+
+### ⚓ Pillar A: Intermodal Supply-Chain Synchroniser
+> **Solving:** SIH25209 | Ministry of Steel & Logistics
 
 ```
 [Vessel ETA Feed] --> [RL Routing Optimizer] --> [Wagon Dispatch Queue]
@@ -107,19 +149,17 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
   Vizag, Chennai)      Grand Finalist Project)
 ```
 
-**What it does:** Ingests real-time shipping manifests and vessel ETA parameters from major Indian ports. Using an RL-inspired multimodal routing optimiser (adapted from the Ministry of Telecommunications SIH 2024 Grand Finalist project), it dynamically computes freight train dispatch queues — eliminating idle dwell time at marshalling yards.
-
-**Key Features:**
-- Real-time vessel ETA ingestion and dynamic schedule recalculation
-- Automated freight wagon allocation and dispatch queue management
-- Demurrage cost minimisation through predictive synchronisation
-- Multi-port, multi-plant simultaneous orchestration
-- Natural language query interface in 230+ languages
+- **Core Functionality:** Ingests real-time shipping manifests and vessel ETA parameters from major Indian ports. Using an RL-inspired multimodal routing optimiser (adapted from the Ministry of Telecommunications SIH 2024 Grand Finalist project), it dynamically computes freight train dispatch queues — eliminating idle dwell time at marshalling yards.
+- **Key Capabilities:**
+  - Real-time vessel ETA ingestion and dynamic schedule recalculation
+  - Automated freight wagon allocation and dispatch queue management
+  - Demurrage cost minimisation through predictive synchronisation
+  - Multi-port, multi-plant simultaneous orchestration
 
 ---
 
-![PillarB](https://img.shields.io/badge/PILLAR%20B-Real--Time%20Section%20Throughput%20Maximiser-F59E0B?style=for-the-badge)
-![SIH](https://img.shields.io/badge/Solving-SIH25022%20%7C%20Ministry%20of%20Railways-64748b?style=flat-square)
+### 🚅 Pillar B: Real-Time Section Throughput Maximiser
+> **Solving:** SIH25022 | Ministry of Railways
 
 ```
 [Mixed-Speed Train Network]
@@ -137,105 +177,54 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 [Slow Zone Enforcement] <-- Triggered by Pillar C anomaly flags
 ```
 
-**What it does:** Models the entire rail corridor as a dynamic Job Shop Scheduling Problem (JSSP). Computes sub-second precedence override decisions — determining exactly which freight trains to side-track and for how long — ensuring Vande Bharat passes without delay while freight throughput is simultaneously maximised.
-
-**Key Features:**
-- Real-time JSSP-based mixed-speed train precedence computation
-- Sub-second loop-line allocation and override dispatch
-- Automatic slow-zone enforcement on Pillar C anomaly flags
-- Formal convergence guarantees on schedule optimality (under elitism)
-- LLM-driven dynamic heuristic generation replacing brittle static rules
-
-**Mathematical Foundation:**
-```
-Objective: max sum(throughput(section_i))
-Subject to:
-  - No collision conflicts between mixed-speed rolling stock
-  - Precedence constraints: passenger > freight priority
-  - Loop-line capacity constraints
-  - Formal convergence: monotonic improvement under elitism
-```
+- **Core Functionality:** Models the entire rail corridor as a dynamic Job Shop Scheduling Problem (JSSP). Computes sub-second precedence override decisions — determining exactly which freight trains to side-track and for how long — ensuring Vande Bharat passes without delay while freight throughput is simultaneously maximised.
+- **Mathematical Foundation:**
+$$\max \sum_{i} \text{Throughput}(\text{Section}_i)$$
+Subject to collision avoidance, passenger precedence, loop-line limits, and monotonic convergence under elitism.
 
 ---
 
-![PillarC](https://img.shields.io/badge/PILLAR%20C-Crowdsourced%20IMU%20Sensor%20Telemetry%20Node-7C3AED?style=for-the-badge)
-![SIH](https://img.shields.io/badge/Solving-SIH25177%20%7C%20ISRO-64748b?style=flat-square)
+### 📱 Pillar C: Crowdsourced IMU Sensor Telemetry Node
+> **Solving:** SIH25177 | ISRO & Telemetry
 
 ```
-[Passenger Smartphones] --> [3-Axis IMU Stream]
-         |                        |
-    Accelerometer            Gyroscope Data
-    (X, Y, Z axes)           (Roll, Pitch, Yaw)
-         |                        |
-         +------------+-----------+
-                      |
-                      v
-           [High-Dimensional Vector Pipeline]
-                      |
-           [AKNN Quantization Engine]
-           (Sparse JL Projections +
-            Custom HNSW/FAISS Indexing)
-                      |
-                      v
-           [Anomaly Cluster Isolation]
-                      |
-           [Geo-Tagged Maintenance Flag]
-                      |
-              +-------+-------+
-              v               v
-        Pillar B          Pillar D
-    (Slow Zone Alert)  (Drone Dispatch)
+[Passenger Smartphones] --> [3-Axis IMU Stream (Accel + Gyro)]
+                                    |
+                        [AKNN Vector Engine]
+                   (JL Projections + HNSW Indexing)
+                                    |
+                     [Anomaly Cluster Isolation]
+                                    |
+                   [Geo-Tagged Maintenance Flag]
+                        |                  |
+                        v                  v
+                    Pillar B            Pillar D
+               (Slow Zone Alert)    (Drone Dispatch)
 ```
 
-**What it does:** Transforms every smartphone aboard a moving train into a precision track quality sensor. Structural anomalies manifest as statistically distinct vibration signatures. When multiple devices report anomalous vectors at converging GPS coordinates, the system isolates the anomaly cluster and generates a precise geo-tagged maintenance flag.
-
-**Key Features:**
-- Passive zero-cost distributed track monitoring via passenger smartphones
-- 3-axis IMU telemetry ingestion at scale across entire rail network
-- High-dimensional AKNN vector indexing with formal accuracy guarantees
-- GPS-precise anomaly coordinate isolation
-- Automatic downstream trigger to Pillar B (slow zone) and Pillar D (drone)
+- **Core Functionality:** Transforms every passenger smartphone into a precision track quality sensor. Structural anomalies manifest as statistically distinct 3-axis acceleration vectors ($X, Y, Z$) and angular velocity ($Roll, Pitch, Yaw$). When multiple devices report anomalous vectors at converging GPS coordinates, the system isolates the anomaly cluster via AKNN vector indexing and generates a geo-tagged maintenance flag.
 
 ---
 
-![PillarD](https://img.shields.io/badge/PILLAR%20D-Garun%20CV%20Structural%20Auditor-10B981?style=for-the-badge)
-![SIH](https://img.shields.io/badge/Solving-SIH25021%20%7C%20Ministry%20of%20Railways-64748b?style=flat-square)
+### 🛸 Pillar D: Garun CV Structural Auditor
+> **Solving:** SIH25021 | Ministry of Railways
 
 ```
-[Anomaly Flag from Pillar C]
-         |
-         v
-[Geo-Fenced Maintenance Ticket]
-         |
-         v
-[Autonomous Drone Dispatch]
-         |
-         v
-[Garun CV Inference Engine]
-    +-- QR Code Scanning on Track Fittings
-    +-- Fastener Wear Detection
-    +-- Surface Micro-Fissure Identification
-    +-- Joint Bar Misalignment Detection
-         |
-         v
-[Structured Inspection Report]
-    +-- CLEARED --> Pillar B lifts slow zone
-    +-- DEFECT  --> Maintenance Work Order Generated
+[Pillar C Anomaly Flag] --> [Autonomous Drone Dispatch]
+                                     |
+                          [Garun CV Inference]
+                (QR Scan + Fastener Wear + Fissures)
+                                     |
+                         [Structured Report]
+                    +---- CLEARED --> Lift Slow Zone
+                    +---- DEFECT  --> Work Order
 ```
 
-**What it does:** Autonomous drone dispatch triggered by Pillar C anomaly flags. Garun's production CV framework (originally deployed for Indore Municipal Corporation illegal construction detection) is adapted for railway infrastructure inspection.
-
-**Key Features:**
-- Autonomous geo-fenced drone dispatch triggered by Pillar C
-- Real-time convolutional inference on track infrastructure components
-- Automated QR code scanning on laser-marked track fittings
-- Structured aerial inspection report generation
-- Automatic slow-zone clearance upon verified track restoration
-- Escalated maintenance work order generation for confirmed defects
+- **Core Functionality:** Autonomous drone dispatch triggered by Pillar C anomaly flags. Garun's production CV framework (originally deployed for Indore Municipal Corporation illegal construction detection) is adapted for railway infrastructure inspection — performing QR code scanning on laser-marked fittings, fastener wear detection, and rail defect classification.
 
 ---
 
-![Flywheel](https://img.shields.io/badge/The%20Autonomous%20Flywheel-Zero%20Human%20Intervention-F59E0B?style=for-the-badge)
+## 🔄 The Autonomous Flywheel Cycle
 
 ```
                  +---------------------+
@@ -248,7 +237,7 @@ Subject to:
                             |
                             v
 +----------------+   +---------------------+
-|   PILLAR D     |   |      PILLAR B        |
+|   PILLAR D     |   |      PILLAR B       |
 |  Garun Drone   +<--+  Section Throughput  |
 |  CV Auditor    |   |  Maximiser (JSSP)    |
 +-------+--------+   +---------------------+
@@ -268,23 +257,23 @@ Subject to:
 ---------------------------------------------------
 ```
 
-**Live Event Log (Sample):**
-```
-14:23:07  Vessel MV Himalaya ETA updated --> 14:45
-14:23:08  Pillar A: Freight dispatch queue recalculated
-14:23:09  Pillar B: Section 7 precedence override issued
-14:31:44  Pillar C: Anomaly flagged @ 22.3 N, 73.1 E
-14:31:45  Pillar B: Slow zone enforced -- Section 7
-14:31:46  Pillar D: Drone #3 dispatched --> ETA 8 mins
-14:39:22  Pillar D: Loose fastener confirmed
-14:39:23  Maintenance order #MO-2847 generated
-14:46:11  Pillar D: Track restored -- report uploaded
-14:46:12  Pillar B: Slow zone lifted -- Section 7
+### ⏱️ Live System Execution Log
+```log
+14:23:07  [Pillar A] Vessel MV Himalaya ETA updated --> 14:45
+14:23:08  [Pillar A] Freight dispatch queue recalculated (Savings: ₹42 Lakhs)
+14:23:09  [Pillar B] Section 7 precedence override issued (Vande Bharat Express Priority)
+14:31:44  [Pillar C] Anomaly flagged @ 22.3482° N, 73.1942° E (AKNN Cluster Size: 14 Devices)
+14:31:45  [Pillar B] Slow zone enforced -- Section 7 (Speed Limit: 30 km/h)
+14:31:46  [Pillar D] Drone Garun-03 dispatched --> Destination ETA: 8 mins
+14:39:22  [Pillar D] CV Inference complete: Loose Fastener & Rail Gap confirmed (Confidence: 98.4%)
+14:39:23  [Pillar D] Work Order #MO-2847 generated & sent to Zonal Maintenance
+14:46:11  [Pillar D] Maintenance complete -- Track restored & drone re-inspection verified
+14:46:12  [Pillar B] Slow zone automatically lifted -- Section 7 restored to 130 km/h
 ```
 
 ---
 
-![Multilingual](https://img.shields.io/badge/Multilingual%20Intelligence-230%2B%20Languages%20Supported-7C3AED?style=for-the-badge)
+## 🌐 Multilingual Intelligence (230+ Languages)
 
 ```
 +-------------------------------------------------------+
@@ -294,7 +283,7 @@ Subject to:
 |  Station Master (Hindi):                              |
 |  "Section 7 mein slow zone kab lift hoga?"           |
 |                                                       |
-|  NETRA-RAIL:                                          |
+|  NETRA-RAIL AI:                                       |
 |  "Drone inspection 8 minute mein complete hogi.      |
 |   Track clear hote hi slow zone automatically        |
 |   lift ho jayega."                                    |
@@ -302,26 +291,27 @@ Subject to:
 |  Trackman (Tamil):                                    |
 |  "பிரிவு 4 அருகில் பராமரிப்பு எச்சரிக்கை உள்ளதா?"   |
 |                                                       |
-|  NETRA-RAIL: [Responds in Tamil]                     |
+|  NETRA-RAIL AI: [Responds in Tamil]                  |
 +-------------------------------------------------------+
 ```
 
-Powered by **IndicTrans2** — same architecture demonstrated live at Bharat Mandapam, New Delhi (INDRA Project).
+Powered by **IndicTrans2** and BCP-47 text-to-speech locale mapping, enabling seamless voice & text interaction in over 230 regional and international languages.
 
 ---
 
-![TechStack](https://img.shields.io/badge/Tech%20Stack-Research--Proven%20%26%20Production--Deployed-1a3a5c?style=for-the-badge)
+## 💻 Tech Stack & Architecture
 
 ```
 +-------------------------------------------------------+
 |                   FRONTEND LAYER                      |
-|          React . react-i18next . Tailwind             |
+|       React 18 . TanStack Router . Tailwind CSS       |
+|             Recharts . Lucide-React . Vite            |
 +-------------------------------------------------------+
 |               ORCHESTRATION LAYER                     |
 |          LangGraph . LangChain . LangSmith            |
 +-------------------------------------------------------+
 |                    API LAYER                          |
-|               FastAPI . REST APIs                     |
+|             FastAPI . Uvicorn . REST APIs             |
 +-------------------------------------------------------+
 |                    CORE ENGINES                       |
 |   LLM-JSSP Optimizer     |   AKNN Vector Engine       |
@@ -342,264 +332,140 @@ Powered by **IndicTrans2** — same architecture demonstrated live at Bharat Man
 
 ---
 
-![Structure](https://img.shields.io/badge/Project%20Structure-Codebase%20Layout-10B981?style=for-the-badge)
+## 📁 Project Directory Structure
 
 ```
 NETRA-RAIL/
 │
-├── 📁 backend/
-│   ├── 📁 pillar_a/
+├── 📁 backend/                    # Python FastAPI Core Backend
+│   ├── 📁 pillar_a/               # Intermodal Routing & Vessel Ingestion
 │   │   ├── routing_optimizer.py
 │   │   ├── vessel_ingestion.py
 │   │   └── dispatch_queue.py
 │   │
-│   ├── 📁 pillar_b/
+│   ├── 📁 pillar_b/               # JSSP Throughput Maximiser Engine
 │   │   ├── jssp_solver.py
 │   │   ├── llm_heuristic.py
 │   │   ├── precedence_engine.py
 │   │   └── slowzone_manager.py
 │   │
-│   ├── 📁 pillar_c/
+│   ├── 📁 pillar_c/               # Crowdsourced IMU AKNN Vector Engine
 │   │   ├── imu_ingestion.py
 │   │   ├── aknn_engine.py
 │   │   ├── anomaly_detector.py
 │   │   └── geo_flagger.py
 │   │
-│   ├── 📁 pillar_d/
+│   ├── 📁 pillar_d/               # Garun CV Inspection Engine
 │   │   ├── garun_cv.py
 │   │   ├── drone_dispatcher.py
 │   │   ├── qr_scanner.py
 │   │   └── report_generator.py
 │   │
-│   ├── 📁 multilingual/
+│   ├── 📁 multilingual/           # IndicTrans2 & Translation Interface
 │   │   ├── indictrans2_engine.py
 │   │   └── voice_interface.py
 │   │
-│   ├── 📁 agents/
-│   │   ├── orchestrator.py
-│   │   ├── logistics_agent.py
-│   │   ├── traffic_agent.py
-│   │   ├── sensor_agent.py
-│   │   └── inspection_agent.py
-│   │
-│   └── main.py
+│   └── main.py                    # FastAPI Service Entrypoint
 │
-├── 📁 frontend/
-│   ├── 📁 src/
-│   │   ├── 📁 components/
-│   │   │   ├── 📁 PillarA/
-│   │   │   ├── 📁 PillarB/
-│   │   │   ├── 📁 PillarC/
-│   │   │   ├── 📁 PillarD/
-│   │   │   ├── 📁 Flywheel/
-│   │   │   └── 📁 CommandCenter/
-│   │   └── App.jsx
-│   └── package.json
+├── 📁 src/                        # React + Vite Frontend Application
+│   ├── 📁 components/netra/       # Shared UI Shell, Nav, Cards & Scanners
+│   ├── 📁 routes/                 # App Routes (Index, Flywheel, Radar, Pillars)
+│   └── main.tsx                   # React Entrypoint
 │
-├── 📁 research/
-│   ├── llm_heuristic_paper.pdf
-│   ├── aknn_similarity_paper.pdf
-│   └── architecture_diagram.png
+├── 📁 Images/                     # System Visual Assets & Screenshots
+│   ├── img1.jpeg
+│   ├── img2.jpeg
+│   ├── img3.jpeg
+│   └── img4.jpeg
 │
-├── 📁 docs/
-│   ├── API_REFERENCE.md
-│   ├── ARCHITECTURE.md
-│   └── DEPLOYMENT.md
-│
-├── requirements.txt
-├── docker-compose.yml
-└── README.md
+├── 📁 Datasets/                   # Real-time Telemetry & Freight CSV Datasets
+├── requirements.txt               # Python Dependencies
+├── package.json                   # Node.js Dependencies
+└── README.md                      # Official Documentation
 ```
 
 ---
 
-![Setup](https://img.shields.io/badge/Setup%20%26%20Installation-Get%20NETRA--RAIL%20Running-1a3a5c?style=for-the-badge)
+## 🛠️ Setup & Local Installation
 
-![Pre](https://img.shields.io/badge/Prerequisites-Required%20Versions-64748b?style=flat-square)
+### Prerequisites
+- Python >= 3.10
+- Node.js >= 18.0
+- npm / yarn / pnpm
 
-```bash
-Python >= 3.10
-Node.js >= 18.0
-PostgreSQL >= 14
-Neo4j >= 5.0
-```
-
-![Step1](https://img.shields.io/badge/Step%201-Clone%20the%20Repository-1a3a5c?style=flat-square)
-
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/Manasvi-Gangrade/NETRA-RAIL.git
 cd NETRA-RAIL
 ```
 
-![Step2](https://img.shields.io/badge/Step%202-Backend%20Setup-1a3a5c?style=flat-square)
-
+### 2. Backend Setup (FastAPI)
 ```bash
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Install dependencies
+# Activate environment (Windows)
+venv\Scripts\activate
+# Activate environment (Linux/macOS)
+source venv/bin/activate
+
+# Install requirements
 pip install -r requirements.txt
-```
 
-![Step3](https://img.shields.io/badge/Step%203-Environment%20Variables-1a3a5c?style=flat-square)
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env`:
-
-```env
-# API Keys
-OPENAI_API_KEY=your_openai_key
-GOOGLE_CLOUD_API_KEY=your_google_key
-
-# Database
-POSTGRES_URL=postgresql://localhost:5432/netrarail
-MONGODB_URI=mongodb://localhost:27017/netrarail
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your_password
-
-# FAISS / HNSWLIB
-VECTOR_INDEX_PATH=./data/vector_index
-
-# Multilingual
-INDICTRANS2_MODEL_PATH=./models/indictrans2
-```
-
-![Step4](https://img.shields.io/badge/Step%204-Database%20Initialization-1a3a5c?style=flat-square)
-
-```bash
-# PostgreSQL
-psql -U postgres -c "CREATE DATABASE netrarail;"
-python backend/scripts/init_db.py
-
-# Neo4j
-python backend/scripts/init_graph.py
-```
-
-![Step5](https://img.shields.io/badge/Step%205-Frontend%20Setup-1a3a5c?style=flat-square)
-
-```bash
-cd frontend
-npm install
-```
-
----
-
-![Running](https://img.shields.io/badge/Running%20the%20System-Start%20All%20Pillars-10B981?style=for-the-badge)
-
-![RunA](https://img.shields.io/badge/Run-Start%20Backend-10B981?style=flat-square)
-
-```bash
+# Start Backend Server (Runs on http://localhost:8000)
 uvicorn backend.main:app --reload --port 8000
 ```
 
-![RunB](https://img.shields.io/badge/Run-Start%20Frontend-10B981?style=flat-square)
-
+### 3. Frontend Setup (React Vite)
 ```bash
-cd frontend
-npm start
-# Runs on http://localhost:3000
-```
+# Install frontend dependencies
+npm install
 
-![RunC](https://img.shields.io/badge/Run-Docker%20%28Recommended%29-10B981?style=flat-square)
-
-```bash
-docker-compose up --build
-# Full system at http://localhost:3000
-# API docs at http://localhost:8000/docs
+# Start Frontend Dev Server (Runs on http://localhost:8080)
+npm run dev
 ```
 
 ---
 
-![API](https://img.shields.io/badge/API%20Reference-All%20Endpoints-F59E0B?style=for-the-badge)
+## 📑 API Reference
 
-![APIa](https://img.shields.io/badge/Pillar%20A-Logistics%20Endpoints-1a3a5c?style=flat-square)
-
-```http
-GET  /api/pillar-a/vessel-status
-GET  /api/pillar-a/dispatch-queue
-POST /api/pillar-a/update-eta
-GET  /api/pillar-a/metrics
-```
-
-![APIb](https://img.shields.io/badge/Pillar%20B-Traffic%20Endpoints-F59E0B?style=flat-square)
-
-```http
-GET  /api/pillar-b/section-status
-POST /api/pillar-b/compute-precedence
-GET  /api/pillar-b/slow-zones
-GET  /api/pillar-b/throughput-metrics
-```
-
-![APIc](https://img.shields.io/badge/Pillar%20C-Sensor%20Endpoints-7C3AED?style=flat-square)
-
-```http
-POST /api/pillar-c/ingest-imu
-GET  /api/pillar-c/anomalies
-GET  /api/pillar-c/heatmap-data
-GET  /api/pillar-c/vector-stats
-```
-
-![APId](https://img.shields.io/badge/Pillar%20D-Drone%20Endpoints-10B981?style=flat-square)
-
-```http
-GET  /api/pillar-d/drone-missions
-POST /api/pillar-d/dispatch-drone
-GET  /api/pillar-d/inspection-reports
-POST /api/pillar-d/upload-report
-```
-
-![APIe](https://img.shields.io/badge/Command%20Center-Multilingual%20Endpoints-7C3AED?style=flat-square)
-
-```http
-POST /api/command/query
-POST /api/command/voice
-GET  /api/command/supported-languages
-```
+| Endpoint | Method | Pillar | Description |
+| :--- | :---: | :---: | :--- |
+| `/api/pillar-a/vessel-status` | `GET` | **Pillar A** | Fetch real-time port vessel arrival manifests |
+| `/api/pillar-a/dispatch-queue` | `GET` | **Pillar A** | Retrieve computed freight wagon dispatch schedules |
+| `/api/pillar-b/section-status` | `GET` | **Pillar B** | Fetch section throughput & precedence overrides |
+| `/api/pillar-b/slow-zones` | `GET` | **Pillar B** | Fetch active speed restrictions across corridors |
+| `/api/pillar-c/ingest-imu` | `POST` | **Pillar C** | Ingest 3-axis accelerometer/gyroscope streams |
+| `/api/pillar-c/anomalies` | `GET` | **Pillar C** | Retrieve AKNN-isolated track anomaly clusters |
+| `/api/pillar-d/drone-missions` | `GET` | **Pillar D** | Fetch active Garun drone inspection flight paths |
+| `/api/pillar-d/dispatch-drone` | `POST` | **Pillar D** | Autonomous drone dispatch trigger |
+| `/docs` | `GET` | **Global** | Interactive Swagger OpenAPI Documentation |
 
 ---
 
-![Research](https://img.shields.io/badge/Research%20Foundation-Original%20Academic%20Work-7C3AED?style=for-the-badge)
+## 🔬 Research Foundation & Past Deployments
 
-NETRA-RAIL is built on original academic research by the team:
+NETRA-RAIL is backed by original academic research and production-proven software deployments by the team:
 
-| Research | Application in NETRA-RAIL |
-|----------|--------------------------|
-| Automating Heuristic Design with LLMs | Pillar B — JSSP optimization engine with formal convergence guarantees |
-| Similarity Search on High-Dimensional Vector Data | Pillar C — AKNN anomaly detection with certified accuracy bounds |
-| Subliminal Preference Transfer in LLM Training Data | System-wide AI safety and alignment guarantees |
-
----
-
-![Deployments](https://img.shields.io/badge/Production%20Deployments-Real%20World%20Proven-10B981?style=for-the-badge)
-
-| Project | Deployed At | Relevance to NETRA-RAIL |
-|---------|-------------|------------------------|
-| Garun Framework | Indore Municipal Corporation, Smart City | Pillar D — CV drone inspection engine |
-| INDRA Platform | Bharat Mandapam, New Delhi | Central dashboard + multilingual layer |
-| India Post Optimizer | Ministry of Telecom, SIH 2024 Grand Finalist | Pillar A — RL freight routing engine |
-| RAG Urban Intelligence | Indore Smart City (3M+ citizens) | RAG query layer for command center |
+| Project / Framework | Deployment Site | Operational Relevance to NETRA-RAIL |
+| :--- | :--- | :--- |
+| **Garun Drone CV Framework** | Indore Municipal Corporation (Smart City) | **Pillar D** — Computer vision drone inspection engine |
+| **INDRA Platform** | Bharat Mandapam, New Delhi | System-wide command center & multilingual interface |
+| **India Post Routing Optimizer** | Ministry of Telecom (SIH 2024 Grand Finalist) | **Pillar A** — Multimodal freight routing optimization |
+| **RAG Urban Intelligence** | Indore Smart City (3M+ Citizens) | Command Center RAG query engine |
 
 ---
 
-![Team](https://img.shields.io/badge/Team-The%20Builders-F59E0B?style=for-the-badge)
+## 👩‍💻 Team Japan Buddies
 
 <div align="center">
 
-| Name | Role |
-|------|------|
-| **Manasvi Gangrade** | Team Lead — AI Research & System Architecture |
-| **Navneet Kaur** | Backend Engineering & Agent Orchestration |
-| **Suhani Sharma** | Data Pipelines & Geospatial Analytics |
-| **Muskan Lodhi** | Frontend Development & UX |
-
-**Institution:** Indore Institute of Science and Technology, Indore
-
-**Hackathon:** Far Away 2026 — Theme: Railways
+| Name | Role | Institution |
+| :--- | :--- | :--- |
+| **Manasvi Gangrade** | **Team Lead** — AI Research & System Architecture | Indore Institute of Science and Technology |
+| **Navneet Kaur** | **Backend Lead** — Agentic Orchestration & Algorithms | Indore Institute of Science and Technology |
+| **Suhani Sharma** | **Data Lead** — Telemetry Pipelines & Spatial Analytics | Indore Institute of Science and Technology |
+| **Muskan Lodhi** | **Frontend Lead** — UX Engineering & Design Systems | Indore Institute of Science and Technology |
 
 </div>
 
@@ -611,6 +477,6 @@ NETRA-RAIL is built on original academic research by the team:
 
 [![Star](https://img.shields.io/github/stars/Manasvi-Gangrade/NETRA-RAIL?style=social)](https://github.com/Manasvi-Gangrade/NETRA-RAIL)
 
-*Made with love and a dream of Japan*
+*Made with ❤️ by Team Japan Buddies for Indian Railways*
 
 </div>
