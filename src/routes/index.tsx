@@ -5,6 +5,14 @@ import { Shell } from "@/components/netra/Shell";
 import videoBg from "../../Videos/18626169-hd_1080_1920_30fps.mp4";
 // @ts-ignore
 import netraVideo from "../../Videos/NETRA(Non-Contact, Embedded, Track Recording Analysis).mp4";
+// @ts-ignore
+import img1 from "../../Images/img1.jpeg";
+// @ts-ignore
+import img2 from "../../Images/img2.jpeg";
+// @ts-ignore
+import img3 from "../../Images/img3.jpeg";
+// @ts-ignore
+import img4 from "../../Images/img4.jpeg";
 import { StatCard } from "@/components/netra/Stat";
 import { Particles } from "@/components/netra/Particles";
 import { AreaChart, Area, ResponsiveContainer, BarChart, Bar, Tooltip, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
@@ -127,12 +135,12 @@ function Landing() {
   }, []);
 
   const marqueeImages = [
+    img1,
+    img2,
+    img3,
+    img4,
     "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80",
     "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1515165562839-978bbcf18277?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
   ];
 
   return (
@@ -194,7 +202,7 @@ function Landing() {
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=600&q=80";
                     }}
-                    className="inline-block w-48 h-32 object-cover rounded-xl shadow-sm border border-white/10"
+                    className="inline-block w-56 h-36 shrink-0 aspect-[16/10] object-cover rounded-2xl shadow-md border border-white/15"
                   />
                 ))}
               </div>
@@ -325,49 +333,70 @@ function Landing() {
           {/* Right Side: Live Network Ops */}
           <div className="lg:col-span-5 w-full">
             <div className="rounded-3xl border border-border bg-white text-foreground p-5 shadow-sm w-full">
-              <div className="flex items-center justify-between">
-                <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Live Network Ops</div>
-                <span className="text-xs flex items-center gap-1.5 text-emerald font-bold"><span className="live-dot" /> STREAMING</span>
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <div className="text-xs font-extrabold uppercase tracking-wider text-slate-900">Live Network Operations</div>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">Streaming telemetry across Indian Railways freight corridors.</p>
+                </div>
+                <span className="text-xs flex items-center gap-1.5 text-emerald font-bold shrink-0"><span className="live-dot" /> STREAMING</span>
               </div>
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-saffron-foreground" dark={false} />
-                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" dark={false} />
-                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-purple-600" dark={false} />
+              <div className="mt-3.5 grid grid-cols-3 gap-2">
+                <MiniMetric label="Active Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-saffron-foreground" dark={false} desc="Active freight dispatches" />
+                <MiniMetric label="Drone Sorties" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" dark={false} desc="Autonomous aerial audits" />
+                <MiniMetric label="Phone Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-purple-600" dark={false} desc="200Hz crowdsourced IMUs" />
               </div>
-              <div className="mt-4.5 h-32">
-                <ResponsiveContainer>
-                  <AreaChart data={tracker}>
-                    <defs>
-                      <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0.55} />
-                        <stop offset="100%" stopColor="oklch(0.78 0.16 70)" strokeOpacity={0} />
-                      </linearGradient>
-                      <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stopColor="oklch(0.7 0.16 165)" stopOpacity={0.6} />
-                        <stop offset="100%" stopColor="oklch(0.7 0.16 165)" strokeOpacity={0} />
-                      </linearGradient>
-                    </defs>
-                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#ffffff", color: "#0f172a", border: "1px solid #e2e8f0" }} />
-                    <Area type="monotone" dataKey="throughput" stroke="oklch(0.78 0.16 70)" fill="url(#g1)" strokeWidth={2} />
-                    <Area type="monotone" dataKey="savings" stroke="oklch(0.7 0.16 165)" fill="url(#g2)" strokeWidth={2} />
-                  </AreaChart>
-                </ResponsiveContainer>
+
+              {/* Area Chart: Throughput vs Savings */}
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wide">Network Throughput & Cost Savings</span>
+                  <span className="text-[9px] text-muted-foreground font-mono">24h Variance</span>
+                </div>
+                <p className="text-[10px] text-slate-500 mb-2">Hourly throughput capacity (t/hr) vs cumulative demurrage cost savings (₹ Lakhs).</p>
+                <div className="h-32">
+                  <ResponsiveContainer>
+                    <AreaChart data={tracker}>
+                      <defs>
+                        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0%" stopColor="oklch(0.78 0.16 70)" stopOpacity={0.55} />
+                          <stop offset="100%" stopColor="oklch(0.78 0.16 70)" strokeOpacity={0} />
+                        </linearGradient>
+                        <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0%" stopColor="oklch(0.7 0.16 165)" stopOpacity={0.6} />
+                          <stop offset="100%" stopColor="oklch(0.7 0.16 165)" strokeOpacity={0} />
+                        </linearGradient>
+                      </defs>
+                      <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#ffffff", color: "#0f172a", border: "1px solid #e2e8f0" }} />
+                      <Area type="monotone" dataKey="throughput" stroke="oklch(0.78 0.16 70)" fill="url(#g1)" strokeWidth={2} name="Throughput (t/h)" />
+                      <Area type="monotone" dataKey="savings" stroke="oklch(0.7 0.16 165)" fill="url(#g2)" strokeWidth={2} name="Savings (₹ L)" />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
               </div>
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-border bg-slate-50 p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Corridor Throughput</div>
-                  <div className="h-20">
+
+              {/* Sub-Charts Grid */}
+              <div className="mt-3 grid grid-cols-2 gap-3 pt-3 border-t border-slate-100">
+                <div className="rounded-xl border border-border bg-slate-50 p-3 flex flex-col justify-between">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-wider text-slate-900 font-extrabold">Corridor Throughput</div>
+                    <p className="text-[9px] text-muted-foreground mt-0.5">Efficiency across WDFC, EDFC & Eastern freight lines.</p>
+                  </div>
+                  <div className="h-20 mt-2">
                     <ResponsiveContainer>
                       <BarChart data={corridorBars}>
                         <Tooltip contentStyle={{ fontSize: 11, background: "#ffffff", color: "#0f172a", border: "1px solid #e2e8f0" }} />
-                        <Bar dataKey="value" radius={[4, 4, 0, 0]} />
+                        <Bar dataKey="value" radius={[4, 4, 0, 0]} name="Efficiency %" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-50 p-3 grid place-items-center">
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold self-start">Network Health</div>
-                  <div className="relative w-20 h-20">
+
+                <div className="rounded-xl border border-border bg-slate-50 p-3 grid place-items-center text-center">
+                  <div className="self-start w-full text-left">
+                    <div className="text-[10px] uppercase tracking-wider text-slate-900 font-extrabold">Network Health Index</div>
+                    <p className="text-[9px] text-muted-foreground mt-0.5">Composite telemetry safety rating.</p>
+                  </div>
+                  <div className="relative w-20 h-20 my-1">
                     <ResponsiveContainer>
                       <RadialBarChart innerRadius="70%" outerRadius="100%" data={health} startAngle={90} endAngle={-270}>
                         <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
@@ -443,11 +472,14 @@ function Landing() {
   );
 }
 
-function MiniMetric({ label, v, color, dark }: { label: string; v: string; color: string; dark?: boolean }) {
+function MiniMetric({ label, v, color, dark, desc }: { label: string; v: string; color: string; dark?: boolean; desc?: string }) {
   return (
-    <div className={`rounded-xl border p-2.5 ${dark ? "bg-white/5 border-white/10" : "bg-white border-border"}`}>
-      <div className={`text-[9px] uppercase tracking-wider ${dark ? "text-slate-400" : "text-muted-foreground"}`}>{label}</div>
-      <div className={`text-lg font-display font-bold ${color}`}>{v}</div>
+    <div className={`rounded-xl border p-2.5 flex flex-col justify-between ${dark ? "bg-white/5 border-white/10" : "bg-slate-50 border-border"}`}>
+      <div>
+        <div className={`text-[9px] font-extrabold uppercase tracking-wider ${dark ? "text-slate-400" : "text-slate-700"}`}>{label}</div>
+        <div className={`text-xl font-display font-black mt-0.5 ${color}`}>{v}</div>
+      </div>
+      {desc && <div className="text-[8.5px] text-muted-foreground mt-1 leading-tight font-medium">{desc}</div>}
     </div>
   );
 }

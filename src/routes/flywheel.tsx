@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Ship, TrainTrack as TrainTrackIcon, Smartphone, Bot, Zap, ArrowRight, Play, RotateCcw, Cpu, ShieldAlert, Sparkles, Terminal } from "lucide-react";
+import { Ship, TrainTrack as TrainTrackIcon, Smartphone, Bot, Zap, ArrowRight, Play, RotateCcw, Cpu, ShieldAlert, Sparkles, Terminal, BarChart2, TrendingUp } from "lucide-react";
 import { Shell, PageHeader } from "@/components/netra/Shell";
 import { addSlowZone, clearSlowZone } from "@/lib/api/datasets.functions";
+import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, Tooltip } from "recharts";
 
 export const Route = createFileRoute("/flywheel")({
   head: () => ({
@@ -424,6 +425,71 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
               </p>
             </div>
           )}
+
+          {/* Telemetry Visualizer Grid (New Visual Charts) */}
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* Chart 1: Speed Recovery Curve */}
+            <div className={`rounded-2xl border p-4 shadow-sm ${dark ? "border-slate-800 bg-[#0d1527] text-white" : "border-slate-200 bg-white"}`}>
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-emerald-500" />
+                  <h3 className="text-xs font-extrabold uppercase tracking-wide text-slate-900 dark:text-white">Corridor Speed Restoration</h3>
+                </div>
+                <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600">LIVE GAUGING</span>
+              </div>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-3 leading-tight">
+                Section 7 velocity recovery profile (45 km/h restriction → 94 trains/hr restoration).
+              </p>
+              <div className="h-28 w-full">
+                <ResponsiveContainer>
+                  <AreaChart data={[
+                    { time: "00s", speed: 94 },
+                    { time: "10s", speed: 45 },
+                    { time: "20s", speed: 45 },
+                    { time: "30s", speed: 68 },
+                    { time: "40s", speed: 85 },
+                    { time: "50s", speed: 94 },
+                  ]}>
+                    <defs>
+                      <linearGradient id="speedGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#059669" stopOpacity={0.4}/>
+                        <stop offset="95%" stopColor="#059669" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <Tooltip contentStyle={{ fontSize: 10, borderRadius: 8, background: "#0f172a", color: "#fff", border: "none" }} />
+                    <Area type="monotone" dataKey="speed" stroke="#059669" strokeWidth={2.5} fillOpacity={1} fill="url(#speedGrad)" />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* Chart 2: 4-Pillar Cross Event Density */}
+            <div className={`rounded-2xl border p-4 shadow-sm ${dark ? "border-slate-800 bg-[#0d1527] text-white" : "border-slate-200 bg-white"}`}>
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-2">
+                  <BarChart2 className="w-4 h-4 text-blue-500" />
+                  <h3 className="text-xs font-extrabold uppercase tracking-wide text-slate-900 dark:text-white">Pillar Telemetry Density</h3>
+                </div>
+                <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-blue-500/10 text-blue-600">STREAM FEED</span>
+              </div>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-3 leading-tight">
+                Distribution of real-time telemetry events across all 4 NETRA-RAIL operational pillars.
+              </p>
+              <div className="h-28 w-full">
+                <ResponsiveContainer>
+                  <BarChart data={[
+                    { name: "Pillar A", events: 142, fill: "#2563eb" },
+                    { name: "Pillar B", events: 389, fill: "#d97706" },
+                    { name: "Pillar C", events: 820, fill: "#7c3aed" },
+                    { name: "Pillar D", events: 96, fill: "#059669" },
+                  ]}>
+                    <Tooltip contentStyle={{ fontSize: 10, borderRadius: 8, background: "#0f172a", color: "#fff", border: "none" }} />
+                    <Bar dataKey="events" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
 
           {/* Diagnostic Console Box */}
           <div className="rounded-2xl border border-slate-800 bg-[#090d16] p-4 font-mono text-xs shadow-xl relative overflow-hidden">
