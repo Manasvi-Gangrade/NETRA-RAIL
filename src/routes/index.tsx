@@ -324,15 +324,15 @@ function Landing() {
 
           {/* Right Side: Live Network Ops */}
           <div className="lg:col-span-5 w-full">
-            <div className="rounded-3xl border border-white/10 bg-slate-900/90 text-white backdrop-blur p-5 shadow-xl w-full">
+            <div className="rounded-3xl border border-border bg-white text-foreground p-5 shadow-sm w-full">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-300">Live Network Ops</div>
-                <span className="text-xs flex items-center gap-1.5 text-emerald-400 font-bold"><span className="live-dot" /> STREAMING</span>
+                <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Live Network Ops</div>
+                <span className="text-xs flex items-center gap-1.5 text-emerald font-bold"><span className="live-dot" /> STREAMING</span>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2">
-                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-saffron" dark={true} />
-                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald-400" dark={true} />
-                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-violet-400" dark={true} />
+                <MiniMetric label="Trains" v={summary?.pillar_b_summary?.total_trains ? `${summary.pillar_b_summary.total_trains}` : "500"} color="text-saffron-foreground" dark={false} />
+                <MiniMetric label="Missions" v={summary?.pillar_d_summary?.total_missions ? `${summary.pillar_d_summary.total_missions}` : "80"} color="text-emerald" dark={false} />
+                <MiniMetric label="Sensors" v={summary?.pillar_c_summary?.total_sensor_readings ? `${(summary.pillar_c_summary.total_sensor_readings / 1000).toFixed(1)}k` : "2.0k"} color="text-purple-600" dark={false} />
               </div>
               <div className="mt-4.5 h-32">
                 <ResponsiveContainer>
@@ -347,34 +347,34 @@ function Landing() {
                         <stop offset="100%" stopColor="oklch(0.7 0.16 165)" strokeOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
+                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#ffffff", color: "#0f172a", border: "1px solid #e2e8f0" }} />
                     <Area type="monotone" dataKey="throughput" stroke="oklch(0.78 0.16 70)" fill="url(#g1)" strokeWidth={2} />
                     <Area type="monotone" dataKey="savings" stroke="oklch(0.7 0.16 165)" fill="url(#g2)" strokeWidth={2} />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
               <div className="mt-3 grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-white/10 bg-slate-800/80 p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-slate-300 font-bold">Corridor Throughput</div>
+                <div className="rounded-xl border border-border bg-slate-50 p-3">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Corridor Throughput</div>
                   <div className="h-20">
                     <ResponsiveContainer>
                       <BarChart data={corridorBars}>
-                        <Tooltip contentStyle={{ fontSize: 11, background: "#0f172a", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }} />
+                        <Tooltip contentStyle={{ fontSize: 11, background: "#ffffff", color: "#0f172a", border: "1px solid #e2e8f0" }} />
                         <Bar dataKey="value" radius={[4, 4, 0, 0]} />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-slate-800/80 p-3 grid place-items-center">
-                  <div className="text-[10px] uppercase tracking-wider text-slate-300 font-bold self-start">Network Health</div>
+                <div className="rounded-xl border border-border bg-slate-50 p-3 grid place-items-center">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold self-start">Network Health</div>
                   <div className="relative w-20 h-20">
                     <ResponsiveContainer>
                       <RadialBarChart innerRadius="70%" outerRadius="100%" data={health} startAngle={90} endAngle={-270}>
                         <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                        <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "rgba(255,255,255,0.1)" }} />
+                        <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "rgba(0,0,0,0.06)" }} />
                       </RadialBarChart>
                     </ResponsiveContainer>
-                    <div className="absolute inset-0 grid place-items-center font-display font-extrabold text-emerald-400 text-lg">96%</div>
+                    <div className="absolute inset-0 grid place-items-center font-display font-extrabold text-emerald text-lg">96%</div>
                   </div>
                 </div>
               </div>
@@ -436,8 +436,8 @@ function Landing() {
       </section>
 
       {/* COMMAND CENTER */}
-      <section className="border-t border-slate-800 bg-[#0b1329] text-white py-16">
-        <CommandCenter noShell dark={true} />
+      <section className="border-t border-border bg-background py-16">
+        <CommandCenter noShell dark={false} />
       </section>
     </Shell>
   );

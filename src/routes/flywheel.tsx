@@ -211,35 +211,20 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
 
       <section className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-8 items-start">
         {/* LEFT: Autonomous loop visualization */}
-        <div className={`lg:col-span-5 relative aspect-square w-full max-w-[480px] mx-auto rounded-3xl p-4 border ${dark ? "border-white/10 bg-[#121c38]/40" : "border-border bg-white/50 shadow-sm"}`}>
+        <div className="lg:col-span-5 relative aspect-square w-full max-w-[480px] mx-auto rounded-3xl p-4 border border-slate-700 bg-[#0a1128] shadow-xl overflow-hidden">
           <svg viewBox="0 0 400 400" className="absolute inset-0 w-full h-full">
-            <defs>
-              <linearGradient id="ringg" x1="0" x2="1">
-                <stop offset="0%" stopColor="oklch(0.34 0.08 250)" />
-                <stop offset="33%" stopColor="oklch(0.78 0.16 70)" />
-                <stop offset="66%" stopColor="oklch(0.6 0.2 295)" />
-                <stop offset="100%" stopColor="oklch(0.7 0.16 165)" />
-              </linearGradient>
-              <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0 0 L10 5 L0 10 z" fill="oklch(0.6 0.2 295)" />
-              </marker>
-            </defs>
-            <circle cx="200" cy="200" r="160" fill="none" stroke={dark ? "rgba(255,255,255,0.08)" : "oklch(0.34 0.08 250 / 0.15)"} strokeDasharray="2 6" />
-            <circle cx="200" cy="200" r="150" fill="none" stroke="url(#ringg)" strokeDasharray="10 10" className="animate-dash" strokeWidth={2.5} markerEnd="url(#arrow2)" />
-            <circle cx="200" cy="200" r="68" fill={dark ? "#0b1329" : "white"} stroke={dark ? "rgba(255,255,255,0.15)" : "oklch(0.34 0.08 250 / 0.3)"} strokeWidth={1.5} />
-            <text x="200" y="190" textAnchor="middle" fontSize="13" fontWeight="800" fill={dark ? "#ffffff" : "oklch(0.34 0.08 250)"}>NETRA-RAIL</text>
-            <text x="200" y="206" textAnchor="middle" fontSize="9" fill={dark ? "rgba(255,255,255,0.6)" : "oklch(0.5 0.02 250)"}>AUTONOMOUS CORE</text>
-            <text x="200" y="220" textAnchor="middle" fontSize="8" fill="oklch(0.7 0.16 165)" fontWeight="700">● {mode === "auto" ? "AUTO-RUNNING" : "STANDBY"}</text>
-            <circle cx="200" cy="200" r="68" fill="none" stroke="oklch(0.7 0.16 165)" strokeWidth="2">
-              <animate attributeName="r" from="60" to="90" dur="2.4s" repeatCount="indefinite" />
-              <animate attributeName="opacity" from="0.7" to="0" dur="2.4s" repeatCount="indefinite" />
-            </circle>
+            <circle cx="200" cy="200" r="160" fill="none" stroke="#334155" strokeDasharray="3 6" />
+            <circle cx="200" cy="200" r="150" fill="none" stroke="#3b82f6" strokeDasharray="8 8" strokeWidth={2.5} />
+            <circle cx="200" cy="200" r="68" fill="#0f172a" stroke="#38bdf8" strokeWidth={2.5} />
+            <text x="200" y="190" textAnchor="middle" fontSize="14" fontWeight="900" fill="#ffffff">NETRA-RAIL</text>
+            <text x="200" y="206" textAnchor="middle" fontSize="9" fontWeight="700" fill="#38bdf8" letterSpacing="1">AUTONOMOUS CORE</text>
+            <text x="200" y="222" textAnchor="middle" fontSize="9" fill="#10b981" fontWeight="800">● {mode === "auto" ? "AUTO-RUNNING" : "STANDBY"}</text>
             {/* connecting lines */}
             {nodes.map((_, i) => {
               const a = (i / 4) * Math.PI * 2 - Math.PI / 2;
               const x = 200 + Math.cos(a) * 150;
               const y = 200 + Math.sin(a) * 150;
-              return <line key={i} x1="200" y1="200" x2={x} y2={y} stroke={dark ? "rgba(255,255,255,0.08)" : "oklch(0.34 0.08 250 / 0.15)"} strokeDasharray="3 4" />;
+              return <line key={i} x1="200" y1="200" x2={x} y2={y} stroke="#475569" strokeDasharray="3 4" />;
             })}
           </svg>
           {nodes.map((n, i) => {
@@ -248,14 +233,23 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
             const y = 50 + Math.sin(angle) * 38;
             const Icon = n.icon;
             const active = phase === i;
+            const cardStyles = [
+              { bg: "bg-[#1d4ed8]", border: "border-blue-300", text: "text-blue-100", iconBg: "bg-white text-[#1d4ed8]" },
+              { bg: "bg-[#d97706]", border: "border-amber-300", text: "text-amber-100", iconBg: "bg-white text-[#d97706]" },
+              { bg: "bg-[#7c3aed]", border: "border-purple-300", text: "text-purple-100", iconBg: "bg-white text-[#7c3aed]" },
+              { bg: "bg-[#059669]", border: "border-emerald-300", text: "text-emerald-100", iconBg: "bg-white text-[#059669]" }
+            ][i];
+
             return (
               <div key={n.id} className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${x}%`, top: `${y}%` }}>
-                <div className={`card-hover w-28 h-28 rounded-2xl border flex flex-col items-center justify-center gap-1 transition-all ${dark ? (active ? "bg-[#113a5f] border-saffron text-white shadow-lg scale-115" : "bg-[#121c38] border-white/10 text-white") : (active ? "bg-white border-primary shadow-lg scale-110" : "bg-white border-border shadow-md")}`} style={{ boxShadow: `0 0 0 ${active ? 8 : 4}px ${n.color}25` }}>
-                  <div className="w-10 h-10 rounded-xl grid place-items-center" style={{ background: `${n.color}18`, color: n.color }}>
+                <div
+                  className={`w-28 h-28 rounded-2xl border-2 flex flex-col items-center justify-center gap-1 transition-all ${cardStyles.bg} ${cardStyles.border} ${active ? "scale-110 shadow-2xl ring-4 ring-white" : "shadow-lg"}`}
+                >
+                  <div className={`w-9 h-9 rounded-xl grid place-items-center shadow-sm ${cardStyles.iconBg}`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <div className="text-[12px] font-display font-bold">{n.label}</div>
-                  <div className="text-[9px] uppercase tracking-wider opacity-80">{n.sub}</div>
+                  <div className="text-[13px] font-display font-extrabold text-white">{n.label}</div>
+                  <div className={`text-[9px] uppercase tracking-wider font-extrabold ${cardStyles.text}`}>{n.sub}</div>
                 </div>
               </div>
             );
@@ -366,37 +360,92 @@ export function Flywheel({ noShell = false, dark = false }: { noShell?: boolean;
 
       {/* Static causation flow */}
       <section className="mx-auto max-w-7xl px-6 mt-10">
-        <div className={`text-xs uppercase tracking-[0.22em] font-semibold mb-3 ${dark ? "text-saffron-foreground" : "text-saffron-foreground"}`}>Chain of Causation · Flywheel Lifecycle</div>
+        <div className="text-xs uppercase tracking-[0.22em] font-extrabold mb-4 text-amber-400 flex items-center gap-2">
+          <span>CHAIN OF CAUSATION · FLYWHEEL LIFECYCLE</span>
+          <span className="h-px flex-1 bg-slate-700" />
+        </div>
         <div className="grid lg:grid-cols-5 gap-3">
           {[
-            { i: Ship, p: "A", t: "Vessel Arrives", d: "MV Himalaya docks at Mundra · 48.2k T Ore", c: dark ? "from-[#113a5f]/25 to-[#113a5f]/5" : "from-primary/10 to-primary/5", b: dark ? "border-[#113a5f]/40" : "border-primary/20", ic: "text-blue-500", rc: "ring-blue-500" },
-            { i: TrainTrackIcon, p: "B", t: "Dynamic Schedule", d: "Section precedence & JSSP solved in sub-second", c: dark ? "from-saffron/25 to-saffron/5" : "from-saffron/15 to-saffron/5", b: dark ? "border-saffron/30" : "border-saffron/20", ic: "text-saffron-foreground", rc: "ring-saffron" },
-            { i: Smartphone, p: "C", t: "Telemetry Anomaly", d: "Passengars' devices flag vibration at KM 134", c: dark ? "from-violet/25 to-violet/5" : "from-violet/15 to-violet/5", b: dark ? "border-violet/30" : "border-violet/20", ic: "text-violet-500", rc: "ring-violet" },
-            { i: Bot, p: "D", t: "Drone Inspection", d: "GRN-03 confirms defect · slow zone enforced", c: dark ? "from-emerald/25 to-emerald/5" : "from-emerald/15 to-emerald/5", b: dark ? "border-emerald/30" : "border-emerald/20", ic: "text-emerald-500", rc: "ring-emerald" },
-            { i: Zap, p: "✓", t: "Loop Restored", d: "Slow-zone lifted · throughput capacity normalized", c: dark ? "from-rose/25 to-rose/5" : "from-rose/15 to-rose/5", b: dark ? "border-rose/30" : "border-rose/20", ic: "text-rose-500", rc: "ring-rose" },
+            {
+              i: Ship,
+              p: "A",
+              t: "Vessel Arrives",
+              d: "MV Himalaya docks at Mundra · 48.2k T Ore",
+              cardBg: "bg-[#1e3a8a] border border-blue-400 text-white shadow-md",
+              badgeBg: "bg-[#3b82f6] text-white",
+              subText: "text-blue-200",
+              iconBox: "bg-white text-[#1e3a8a]"
+            },
+            {
+              i: TrainTrackIcon,
+              p: "B",
+              t: "Dynamic Schedule",
+              d: "Section precedence & JSSP solved in sub-second",
+              cardBg: "bg-[#78350f] border border-amber-400 text-white shadow-md",
+              badgeBg: "bg-[#f59e0b] text-white",
+              subText: "text-amber-200",
+              iconBox: "bg-white text-[#78350f]"
+            },
+            {
+              i: Smartphone,
+              p: "C",
+              t: "Telemetry Anomaly",
+              d: "Passengers' devices flag vibration at KM 134",
+              cardBg: "bg-[#4c1d95] border border-purple-400 text-white shadow-md",
+              badgeBg: "bg-[#8b5cf6] text-white",
+              subText: "text-purple-200",
+              iconBox: "bg-white text-[#4c1d95]"
+            },
+            {
+              i: Bot,
+              p: "D",
+              t: "Drone Inspection",
+              d: "GRN-03 confirms defect · slow zone enforced",
+              cardBg: "bg-[#064e3b] border border-emerald-400 text-white shadow-md",
+              badgeBg: "bg-[#10b981] text-white",
+              subText: "text-emerald-200",
+              iconBox: "bg-white text-[#064e3b]"
+            },
+            {
+              i: Zap,
+              p: "✓",
+              t: "Loop Restored",
+              d: "Slow-zone lifted · throughput capacity normalized",
+              cardBg: "bg-[#881337] border border-rose-400 text-white shadow-md",
+              badgeBg: "bg-[#f43f5e] text-white",
+              subText: "text-rose-200",
+              iconBox: "bg-white text-[#881337]"
+            },
           ].map((x, i) => {
             const isCompleted = activeStep > i;
             const isInProgress = activeStep === i;
             return (
               <div
                 key={i}
-                className={`group relative rounded-2xl border ${x.b} bg-gradient-to-br ${x.c} p-4 transition-all duration-300 ${
-                  isCompleted ? "opacity-100 shadow-sm" : isInProgress ? `opacity-100 ring-2 ${x.rc} ring-offset-2 ${dark ? "ring-offset-[#0b1329]" : "ring-offset-white"} scale-105 shadow-md` : "opacity-50"
-                } ${dark ? "text-white" : "text-foreground"}`}
+                className={`group relative rounded-2xl border p-4 transition-all ${x.cardBg} ${
+                  isInProgress ? "ring-4 ring-white shadow-2xl scale-105" : "hover:scale-[1.02]"
+                }`}
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-white grid place-items-center shadow-sm">
-                    <x.i className={`w-4 h-4 ${x.ic}`} />
+                <div className="flex items-center justify-between gap-2">
+                  <div className={`w-8 h-8 rounded-xl grid place-items-center shadow-sm ${x.iconBox}`}>
+                    <x.i className="w-4.5 h-4.5" />
                   </div>
-                  <div className={`text-[9px] font-bold tracking-widest ${dark ? "text-white/60" : "text-foreground/60"}`}>STEP {i + 1} · PILLAR {x.p}</div>
+                  <span className={`text-[9px] font-extrabold uppercase px-2.5 py-0.5 rounded-full ${x.badgeBg}`}>
+                    STEP {i + 1} · PILLAR {x.p}
+                  </span>
                 </div>
-                <div className="mt-3 font-display font-semibold text-xs flex items-center gap-1.5">
-                  {x.t}
-                  {isCompleted && <span className="text-[10px] text-emerald font-bold">✓</span>}
-                  {isInProgress && <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />}
+
+                <div className="mt-3 font-display font-bold text-sm text-white flex items-center justify-between">
+                  <span>{x.t}</span>
+                  {isCompleted && <span className="text-xs text-[#4ade80] font-extrabold">✓ CLEAR</span>}
+                  {isInProgress && <span className="inline-block w-2 h-2 rounded-full bg-white animate-ping" />}
                 </div>
-                <div className={`text-[11px] mt-1 leading-relaxed ${dark ? "text-slate-300" : "text-muted-foreground"}`}>{x.d}</div>
-                {i < 4 ? <ArrowRight className={`hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-all duration-300 group-hover:translate-x-0.5 ${dark ? "text-white/20" : "text-foreground/30"}`} /> : null}
+
+                <p className={`text-[11px] mt-1 leading-relaxed font-medium ${x.subText}`}>{x.d}</p>
+
+                {i < 4 ? (
+                  <ArrowRight className="hidden lg:block absolute -right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white font-bold z-10 drop-shadow" />
+                ) : null}
               </div>
             );
           })}
