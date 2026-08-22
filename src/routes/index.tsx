@@ -146,9 +146,9 @@ function Landing() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-85 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/30 via-[#0b1329]/15 to-[#0b1329]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/75 via-[#0b1329]/50 to-[#0b1329]/95 pointer-events-none" />
         <Particles count={36} />
         <div className="relative mx-auto max-w-7xl px-6 pt-6 pb-4 grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: All Content & Controls */}
