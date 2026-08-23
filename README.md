@@ -375,62 +375,76 @@ Powered by **IndicTrans2** and BCP-47 text-to-speech locale mapping, enabling se
 ```
 NETRA-RAIL/
 │
-├── 📁 backend/                    # Python FastAPI Core Backend
-│   ├── 📁 pillar_a/               # Intermodal Routing & Vessel Ingestion
-│   │   ├── routing_optimizer.py
-│   │   ├── vessel_ingestion.py
-│   │   └── dispatch_queue.py
+├── 📁 backend/                    # Python FastAPI Core AI Backend Service
+│   ├── 📁 algorithms/             # Core Machine Learning & Heuristic Solvers
+│   ├── 📁 pillar_a/               # Pillar A: Intermodal Supply-Chain Routing & Vessel Ingestion
+│   │   ├── routing_optimizer.py   # Multimodal Freight Optimization Logic
+│   │   ├── vessel_ingestion.py    # Live Shipping Port Manifest API Ingestion
+│   │   └── dispatch_queue.py      # Automated Freight Wagon Queue Computing
 │   │
-│   ├── 📁 pillar_b/               # JSSP Throughput Maximiser Engine
-│   │   ├── jssp_solver.py
-│   │   ├── llm_heuristic.py
-│   │   ├── precedence_engine.py
-│   │   └── slowzone_manager.py
+│   ├── 📁 pillar_b/               # Pillar B: Real-Time Section Throughput Maximiser (JSSP)
+│   │   ├── jssp_solver.py         # Sub-Second JSSP Precedence Constraint Solver
+│   │   ├── llm_heuristic.py       # Evolutionary Mutation & LLM Heuristic Generator
+│   │   ├── precedence_engine.py   # Vande Bharat Priority & Loop-Line Allocation
+│   │   └── slowzone_manager.py    # Automated Speed Restrictions Enforcement
 │   │
-│   ├── 📁 pillar_c/               # Crowdsourced IMU AKNN Vector Engine
-│   │   ├── imu_ingestion.py
-│   │   ├── aknn_engine.py
-│   │   ├── anomaly_detector.py
-│   │   └── geo_flagger.py
+│   ├── 📁 pillar_c/               # Pillar C: Crowdsourced IMU Sensor Telemetry Node
+│   │   ├── imu_ingestion.py       # Passenger 3-Axis Accel/Gyro Data Streams
+│   │   ├── aknn_engine.py         # FAISS / HNSWLIB Vector Indexing & JL Projections
+│   │   ├── anomaly_detector.py    # Spatial Anomaly Cluster Isolation Algorithm
+│   │   └── geo_flagger.py         # Geo-Tagged Maintenance Flags & Alerts
 │   │
-│   ├── 📁 pillar_d/               # Garun CV Inspection Engine
-│   │   ├── garun_cv.py
-│   │   ├── drone_dispatcher.py
-│   │   ├── qr_scanner.py
-│   │   └── report_generator.py
+│   ├── 📁 pillar_d/               # Pillar D: Garun CV Structural Inspection Auditor
+│   │   ├── garun_cv.py            # Computer Vision Model (Track Fittings, QR Code & Rail Defect Detection)
+│   │   ├── drone_dispatcher.py    # Autonomous Drone Mission Dispatcher
+│   │   ├── qr_scanner.py          # Fastener Laser-Marked QR Code Auditor
+│   │   └── report_generator.py    # Automated Work Order & Clearance Generation
 │   │
-│   ├── 📁 multilingual/           # IndicTrans2 & Translation Interface
-│   │   ├── indictrans2_engine.py
-│   │   └── voice_interface.py
-│   │
-│   └── main.py                    # FastAPI Service Entrypoint
+│   ├── 📁 tests/                  # Backend Unit & Integration Tests
+│   └── main.py                    # FastAPI Service Entrypoint (Port 8000)
 │
-├── 📁 src/                        # React + Vite Frontend Application
-│   ├── 📁 components/netra/       # Shared UI Shell, Nav, Cards & Scanners
-│   ├── 📁 routes/                 # App Routes (Index, Flywheel, Radar, Pillars)
-│   └── main.tsx                   # React Entrypoint
+├── 📁 src/                        # React 18 + Vite Frontend Command Platform
+│   ├── 📁 components/             # Reusable UI Components (Navbar, Shell, Scanners, Cards)
+│   ├── 📁 hooks/                  # Custom React Hooks & State Managers
+│   ├── 📁 lib/                    # Helper Utilities & API Bridges
+│   ├── 📁 routes/                 # Application Route Pages (TanStack Router)
+│   │   ├── index.tsx              # Main Platform Landing & 4-Pillar Workspace Overview
+│   │   ├── flywheel.tsx           # 23-Minute Autonomous Flywheel Simulator
+│   │   ├── radar.tsx              # Interactive GIS Telemetry Radar & Anomaly Injector
+│   │   ├── architecture.tsx       # Comprehensive SIH Architecture Proposal Matrix
+│   │   ├── command-center.tsx     # Multilingual Command Center (230+ Languages)
+│   │   ├── pillar-a.tsx           # Intermodal Supply-Chain Workspace
+│   │   ├── pillar-b.tsx           # Section Throughput JSSP Workspace
+│   │   ├── pillar-c.tsx           # Crowdsourced IMU Telemetry Workspace
+│   │   └── pillar-d.tsx           # Garun CV Autonomous Drone Audit Workspace
+│   │
+│   ├── router.tsx                 # Router Configuration
+│   └── main.tsx                   # Frontend React Entrypoint
 │
 ├── 📁 Images/
 │   └── 📁 GitHub/                 # Official README Visual Assets (14 Assets)
-│       ├── Web Platform.png
-│       ├── Mobile App.png
-│       ├── Presentation.png
-│       ├── Research.png
-│       ├── API Documentation.png
-│       ├── Detailed Doc.jpeg
-│       ├── Mobile Doc.jpeg
-│       ├── Technical Report.jpeg
-│       ├── Additional Docs.jpeg
-│       ├── Datasets.jpeg
-│       ├── Video.jpeg
-│       ├── MVP.jpeg
-│       ├── Animated.jpeg
-│       └── Team.jpeg
+│       ├── Web Platform.png       # Live Web App Screenshot
+│       ├── Mobile App.png         # Live Mobile App Screenshot
+│       ├── Presentation.png       # Official Pitch Deck Screenshot
+│       ├── Research.png           # ResearchGate Publication Screenshot
+│       ├── API Documentation.png # Live FastAPI Swagger Specs Screenshot
+│       ├── Detailed Doc.jpeg      # System Documentation Screenshot
+│       ├── Mobile Doc.jpeg        # Mobile Documentation Screenshot
+│       ├── Technical Report.jpeg  # Technical Implementation Report Screenshot
+│       ├── Additional Docs.jpeg   # Additional Documents Drive Folder
+│       ├── Datasets.jpeg          # Datasets & Media Assets Drive Folder
+│       ├── Video.jpeg             # Team Pitch Video Preview
+│       ├── MVP.jpeg               # MVP Explanation Video Preview
+│       ├── Animated.jpeg          # System Architecture Animated Video Preview
+│       └── Team.jpeg              # Team Japan Buddies Roster Photo
 │
-├── 📁 Datasets/                   # Real-time Telemetry & Freight CSV Datasets
+├── 📁 Datasets/                   # Operational Telemetry & Freight CSV Datasets
+├── 📁 Videos/                     # High-Resolution MVP & Animation Videos
+├── run_netra.bat                  # One-Click Windows Launcher (Web App - Port 8080)
+├── run_python_backend.bat         # One-Click Windows Launcher (FastAPI Backend - Port 8000)
 ├── requirements.txt               # Python Dependencies
 ├── package.json                   # Node.js Dependencies
-└── README.md                      # Official Documentation
+└── README.md                      # Official Repository Documentation
 ```
 
 ---
