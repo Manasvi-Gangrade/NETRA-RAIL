@@ -193,14 +193,14 @@ function PillarD() {
           ))}
 
           {/* Component scores */}
-          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2">Component Health Scores</div>
+          <div className="rounded-2xl border border-slate-200 bg-white text-slate-900 p-5 shadow-sm">
+            <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold mb-2 border-b border-slate-100 pb-2">Component Health Scores</div>
             <div className="h-44">
               <ResponsiveContainer>
                 <BarChart data={componentScores} layout="vertical">
                   <XAxis type="number" domain={[0, 100]} hide />
-                  <YAxis dataKey="name" type="category" tick={{ fontSize: 10 }} width={70} />
-                  <Tooltip contentStyle={{ fontSize: 11 }} />
+                  <YAxis dataKey="name" type="category" tick={{ fontSize: 10, fill: "#0f172a", fontWeight: "bold" }} width={70} />
+                  <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#ffffff", color: "#0f172a", border: "1px solid #cbd5e1" }} />
                   <Bar dataKey="score" radius={[0, 6, 6, 0]}>
                     {componentScores.map((c, i) => <Cell key={i} fill={c.fill} />)}
                   </Bar>
@@ -212,10 +212,10 @@ function PillarD() {
 
         {/* CAM FEED + telemetry */}
         <div className="lg:col-span-5 space-y-4">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Live Inspection Feed</h2>
-          <div className="rounded-2xl border border-border bg-white overflow-hidden shadow-md">
-            <div className="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-slate-900 to-slate-800 text-white border-b border-border">
-              <div className="text-xs font-semibold flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-rose animate-pulse" /> DRONE CAM · {active.id}</div>
+          <h2 className="text-sm font-extrabold uppercase tracking-wider text-slate-900">Live Inspection Feed</h2>
+          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+            <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900 text-white border-b border-slate-200">
+              <div className="text-xs font-bold flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" /> DRONE CAM · {active.id}</div>
               <div className="text-[11px] font-mono text-white/80">{active.target} · alt {active.alt}m</div>
             </div>
             <div className="relative aspect-[16/10] bg-gradient-to-b from-[#dfe7ef] to-[#cbd5e1] overflow-hidden">
@@ -251,7 +251,7 @@ function PillarD() {
               <div className="absolute bottom-2 right-2 text-[10px] font-mono bg-black/60 text-white px-2 py-0.5 rounded">FPS 60 · 4K</div>
             </div>
             {/* Telemetry strip */}
-            <div className="grid grid-cols-4 gap-px bg-border">
+            <div className="grid grid-cols-4 gap-px bg-slate-200">
               {[
                 { l: "ALT", v: `${active.alt}m`, i: Wind },
                 { l: "BATT", v: `${Math.round(active.battery)}%`, i: Battery },
@@ -259,10 +259,10 @@ function PillarD() {
                 { l: "CAM", v: "4K·60", i: Camera },
               ].map((x) => (
                 <div key={x.l} className="bg-white px-3 py-2 flex items-center gap-2">
-                  <x.i className="w-3.5 h-3.5 text-primary" />
+                  <x.i className="w-3.5 h-3.5 text-blue-600" />
                   <div>
-                    <div className="text-[9px] uppercase tracking-wider text-muted-foreground">{x.l}</div>
-                    <div className="text-xs font-mono font-bold">{x.v}</div>
+                    <div className="text-[9px] uppercase tracking-wider text-slate-500 font-extrabold">{x.l}</div>
+                    <div className="text-xs font-mono font-bold text-slate-900">{x.v}</div>
                   </div>
                 </div>
               ))}
@@ -271,34 +271,34 @@ function PillarD() {
 
           {/* Battery radial + inspection trend */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Battery · {active.id}</div>
+            <div className="rounded-2xl border border-slate-200 bg-white text-slate-900 p-5 shadow-sm">
+              <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold border-b border-slate-100 pb-2">Battery · {active.id}</div>
               <div className="h-40 relative">
                 <ResponsiveContainer>
                   <RadialBarChart innerRadius="65%" outerRadius="100%" data={battData} startAngle={90} endAngle={-270}>
                     <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                    <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "oklch(0.95 0.02 80)" }} />
+                    <RadialBar dataKey="value" cornerRadius={20} background={{ fill: "#e2e8f0" }} />
                   </RadialBarChart>
                 </ResponsiveContainer>
                 <div className="absolute inset-0 grid place-items-center">
                   <div className="text-center">
-                    <div className="text-2xl font-display font-bold">{Math.round(active.battery)}%</div>
-                    <div className="text-[10px] uppercase text-muted-foreground">{Math.round(active.battery * 0.6)} min left</div>
+                    <div className="text-2xl font-display font-black text-slate-900">{Math.round(active.battery)}%</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-500">{Math.round(active.battery * 0.6)} min left</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Inspections · 14 days</div>
+            <div className="rounded-2xl border border-slate-200 bg-white text-slate-900 p-5 shadow-sm">
+              <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold border-b border-slate-100 pb-2">Inspections · 14 days</div>
               <div className="h-40">
                 <ResponsiveContainer>
                   <BarChart data={inspectionTrend} stackOffset="sign">
-                    <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.92 0.01 250)" />
-                    <XAxis dataKey="d" tick={{ fontSize: 9 }} />
-                    <YAxis tick={{ fontSize: 10 }} />
-                    <Tooltip contentStyle={{ fontSize: 11 }} />
-                    <Bar dataKey="passed" stackId="a" fill="oklch(0.7 0.16 165)" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="defects" stackId="a" fill="oklch(0.62 0.22 25)" radius={[4, 4, 0, 0]} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#cbd5e1" />
+                    <XAxis dataKey="d" tick={{ fontSize: 9, fill: "#0f172a", fontWeight: "bold" }} />
+                    <YAxis tick={{ fontSize: 10, fill: "#0f172a", fontWeight: "bold" }} />
+                    <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#ffffff", color: "#0f172a", border: "1px solid #cbd5e1" }} />
+                    <Bar dataKey="passed" stackId="a" fill="#10b981" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="defects" stackId="a" fill="#f43f5e" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

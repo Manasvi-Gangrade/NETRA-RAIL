@@ -3,7 +3,7 @@ import { Nav, Footer } from "./Nav";
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0b1329] text-white w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 w-full max-w-full overflow-x-hidden">
       <Nav />
       <main className="flex-1 animate-fade-in w-full max-w-full overflow-x-hidden">{children}</main>
       <Footer />
@@ -28,15 +28,15 @@ export function PageHeader({
     <div className="mx-auto max-w-7xl px-6 pt-10 pb-6">
       <div className="flex items-start gap-4">
         {icon ? (
-          <div className={`w-14 h-14 rounded-2xl grid place-items-center ${dark ? "bg-white/10 border border-white/20 text-saffron" : "bg-cream-bg border border-border text-primary"}`}>
+          <div className="w-14 h-14 rounded-2xl grid place-items-center bg-white border border-slate-200 text-blue-600 shadow-sm shrink-0">
             {icon}
           </div>
         ) : null}
         <div>
-          <div className={`text-xs uppercase tracking-[0.22em] font-semibold ${dark ? "text-saffron-foreground" : "text-saffron-foreground/80"}`}>{eyebrow}</div>
-          <h1 className={`mt-1 text-3xl md:text-4xl font-display font-bold ${dark ? "text-white" : "text-foreground"}`}>{title}</h1>
+          <div className="text-xs uppercase tracking-[0.22em] font-extrabold text-amber-600">{eyebrow}</div>
+          <h1 className="mt-1 text-3xl md:text-4xl font-display font-black text-slate-900 tracking-tight">{title}</h1>
           {description ? (
-            <p className={`mt-2 max-w-2xl ${dark ? "text-slate-300" : "text-muted-foreground"}`}>{description}</p>
+            <p className="mt-2 max-w-2xl text-slate-600 font-semibold text-sm md:text-base leading-relaxed">{description}</p>
           ) : null}
         </div>
       </div>

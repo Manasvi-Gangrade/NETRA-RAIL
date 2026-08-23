@@ -9,8 +9,8 @@ export function StatCard({
   decimals = 0,
   icon,
   accent = "primary",
-  bgClass = "bg-slate-900/90 border-white/15 text-white shadow-xl",
-  textClass = "text-slate-300",
+  bgClass = "bg-white border-slate-200 text-slate-900 shadow-sm",
+  textClass = "text-slate-500 font-extrabold",
 }: {
   label: string;
   value: number;
@@ -25,26 +25,26 @@ export function StatCard({
   const display = useCountUp(value, 1500, decimals);
   const accentClass =
     accent === "saffron" || accent === "amber"
-      ? "text-amber-400 bg-amber-500/20 border border-amber-500/30"
+      ? "text-amber-700 bg-amber-100 border border-amber-200"
       : accent === "emerald"
-        ? "text-emerald-400 bg-emerald-500/20 border border-emerald-500/30"
+        ? "text-emerald-700 bg-emerald-100 border border-emerald-200"
         : accent === "rose"
-          ? "text-rose-400 bg-rose-500/20 border border-rose-500/30"
+          ? "text-rose-700 bg-rose-100 border border-rose-200"
           : accent === "violet"
-            ? "text-violet-400 bg-violet-500/20 border border-violet-500/30"
+            ? "text-violet-700 bg-violet-100 border border-violet-200"
             : accent === "blue"
-              ? "text-blue-400 bg-blue-500/20 border border-blue-500/30"
-              : "text-saffron bg-saffron/20 border border-saffron/30";
+              ? "text-blue-700 bg-blue-100 border border-blue-200"
+              : "text-amber-700 bg-amber-100 border border-amber-200";
   return (
-    <div className={`card-hover rounded-2xl border p-5 flex flex-col gap-3 backdrop-blur-md transition-all duration-300 ${bgClass}`}>
+    <div className={`card-hover rounded-2xl border p-5 flex flex-col gap-3 transition-all duration-300 ${bgClass}`}>
       <div className="flex items-center justify-between">
         <div className={`text-[10px] uppercase tracking-wider font-extrabold ${textClass}`}>{label}</div>
         {icon ? <div className={`w-9 h-9 rounded-xl grid place-items-center ${accentClass}`}>{icon}</div> : null}
       </div>
-      <div className="text-3xl font-display font-extrabold tracking-tight text-white">
+      <div className="text-3xl font-display font-black tracking-tight text-slate-900">
         {prefix}
         {display}
-        {suffix ? <span className="text-sm font-bold text-slate-300 ml-1">{suffix}</span> : null}
+        {suffix ? <span className="text-sm font-bold text-slate-500 ml-1">{suffix}</span> : null}
       </div>
     </div>
   );

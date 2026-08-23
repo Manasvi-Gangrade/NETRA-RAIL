@@ -40,13 +40,12 @@ const pillars = [
     chip: "Pillar A", 
     title: "Intermodal Logistics Sync", 
     desc: "Port-to-plant freight orchestration. Vessel ETAs → wagon dispatch in real time.", 
-    grad: "from-primary via-sky to-teal", 
-    img: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=70",
-    cardBg: "bg-[#113a5f] hover:bg-[#0c2a47] border-transparent text-white shadow-lg",
-    chipBg: "text-white border-white/20 bg-white/10",
-    iconBg: "bg-white text-[#113a5f]",
-    textColor: "text-white",
-    actionColor: "text-white"
+    cardBg: "bg-blue-900 hover:bg-blue-950 border-blue-800 text-white shadow-md",
+    chipBg: "text-white border-white/30 bg-white/20 font-black",
+    iconBg: "bg-white text-blue-900",
+    textColor: "text-white font-black",
+    descColor: "text-slate-100 font-semibold",
+    actionColor: "text-white font-extrabold"
   },
   { 
     to: "/pillar-b", 
@@ -54,13 +53,12 @@ const pillars = [
     chip: "Pillar B", 
     title: "Section Throughput Maximiser", 
     desc: "LLM-driven JSSP scheduling. Sub-second loop-line precedence overrides.", 
-    grad: "from-saffron via-sun to-rose", 
-    img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=70",
-    cardBg: "bg-[#d97706] hover:bg-[#b45309] border-transparent text-white shadow-lg",
-    chipBg: "text-white border-white/20 bg-white/10",
-    iconBg: "bg-white text-[#d97706]",
-    textColor: "text-white",
-    actionColor: "text-white"
+    cardBg: "bg-amber-600 hover:bg-amber-700 border-amber-500 text-white shadow-md",
+    chipBg: "text-white border-white/30 bg-white/20 font-black",
+    iconBg: "bg-white text-amber-700",
+    textColor: "text-white font-black",
+    descColor: "text-slate-100 font-semibold",
+    actionColor: "text-white font-extrabold"
   },
   { 
     to: "/pillar-c", 
@@ -68,13 +66,12 @@ const pillars = [
     chip: "Pillar C", 
     title: "IMU Sensor Telemetry", 
     desc: "Every passenger phone becomes a track sensor. AKNN anomaly isolation.", 
-    grad: "from-violet via-rose to-saffron", 
-    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=70",
-    cardBg: "bg-[#059669] hover:bg-[#047857] border-transparent text-white shadow-lg",
-    chipBg: "text-white border-white/20 bg-white/10",
-    iconBg: "bg-white text-[#059669]",
-    textColor: "text-white",
-    actionColor: "text-white"
+    cardBg: "bg-emerald-700 hover:bg-emerald-800 border-emerald-600 text-white shadow-md",
+    chipBg: "text-white border-white/30 bg-white/20 font-black",
+    iconBg: "bg-white text-emerald-800",
+    textColor: "text-white font-black",
+    descColor: "text-slate-100 font-semibold",
+    actionColor: "text-white font-extrabold"
   },
   { 
     to: "/pillar-d", 
@@ -82,13 +79,12 @@ const pillars = [
     chip: "Pillar D", 
     title: "Garun CV Structural Auditor", 
     desc: "Autonomous drone dispatch + on-device CV defect detection.", 
-    grad: "from-emerald via-teal to-primary", 
-    img: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=70",
-    cardBg: "bg-[#e11d48] hover:bg-[#be123c] border-transparent text-white shadow-lg",
-    chipBg: "text-white border-white/20 bg-white/10",
-    iconBg: "bg-white text-[#e11d48]",
-    textColor: "text-white",
-    actionColor: "text-white"
+    cardBg: "bg-rose-700 hover:bg-rose-800 border-rose-600 text-white shadow-md",
+    chipBg: "text-white border-white/30 bg-white/20 font-black",
+    iconBg: "bg-white text-rose-800",
+    textColor: "text-white font-black",
+    descColor: "text-slate-100 font-semibold",
+    actionColor: "text-white font-extrabold"
   },
 ] as const;
 
@@ -154,45 +150,45 @@ function Landing() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/75 via-[#0b1329]/50 to-[#0b1329]/95 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/80 via-[#0b1329]/60 to-[#0b1329] pointer-events-none" />
         <Particles count={36} />
-        <div className="relative mx-auto max-w-7xl px-6 pt-6 pb-4 grid lg:grid-cols-12 gap-8 items-start">
+        <div className="relative mx-auto max-w-7xl px-6 pt-8 pb-4 grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: All Content & Controls */}
           <div className="lg:col-span-7 space-y-5 text-left">
             <div>
-              <h1 className="mt-2 text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-none flex flex-wrap items-center gap-2 sm:gap-3">
+              <h1 className="mt-2 text-4xl sm:text-6xl lg:text-7xl font-display font-black tracking-tight leading-none flex flex-wrap items-center gap-2 sm:gap-3">
                 <span>
                   <span className="text-white">NETRA</span>
-                  <span className="text-saffron">-RAIL</span>
+                  <span className="text-amber-400">-RAIL</span>
                 </span>
-                <span className="inline-flex items-center justify-center p-1.5 sm:p-2 rounded-2xl bg-white/10 border border-white/20 text-saffron shrink-0">
+                <span className="inline-flex items-center justify-center p-2 rounded-2xl bg-white/10 border border-white/20 text-amber-400 shrink-0 shadow-md">
                   <Train className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                 </span>
               </h1>
-              <p className="mt-3 max-w-3xl text-lg md:text-xl text-white/90 font-semibold leading-snug">
+              <p className="mt-3 max-w-3xl text-lg md:text-xl text-white/90 font-extrabold leading-snug">
                 National Enterprise Traffic, Routing & Autonomous Rail-Grid
               </p>
             </div>
-            <p className="max-w-3xl text-slate-300 text-sm leading-relaxed">
+            <p className="max-w-3xl text-slate-300 text-sm font-semibold leading-relaxed">
               India's first closed-loop autonomous intelligence platform for Indian Railways — unifying freight, traffic, telemetry and structural safety into a single self-healing flywheel.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
               {[
-                { t: "LLM-driven JSSP", c: "bg-white/10 text-white border-white/20" },
-                { t: "Crowdsourced IMU", c: "bg-violet text-white border-transparent" },
-                { t: "Autonomous drones", c: "bg-emerald text-white border-transparent" },
-                { t: "230+ languages", c: "bg-saffron text-white border-transparent" },
+                { t: "LLM-driven JSSP", c: "bg-white/10 text-white border-white/20 font-extrabold" },
+                { t: "Crowdsourced IMU", c: "bg-violet-500/20 text-violet-200 border-violet-500/30 font-extrabold" },
+                { t: "Autonomous drones", c: "bg-emerald-500/20 text-emerald-200 border-emerald-500/30 font-extrabold" },
+                { t: "230+ languages", c: "bg-amber-500/20 text-amber-200 border-amber-500/30 font-extrabold" },
               ].map((x) => (
-                <div key={x.t} className={`px-4 py-2.5 rounded-xl text-center font-bold text-[11px] shadow-sm border ${x.c}`}>
+                <div key={x.t} className={`px-4 py-2.5 rounded-xl text-center text-[11px] shadow-sm border backdrop-blur-md ${x.c}`}>
                   {x.t}
                 </div>
               ))}
             </div>
 
             {/* Photo Marquee (Above CTA) */}
-            <div className="mt-6 relative overflow-hidden rounded-xl max-w-3xl">
+            <div className="mt-6 relative overflow-hidden rounded-xl max-w-3xl border border-white/20 bg-white/5 p-1 backdrop-blur-md">
               <div className="flex whitespace-nowrap animate-ticker gap-3 py-1" style={{ animationDuration: "25s" }}>
                 {[...marqueeImages, ...marqueeImages].map((img, i) => (
                   <img
@@ -202,25 +198,25 @@ function Landing() {
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=600&q=80";
                     }}
-                    className="inline-block w-56 h-36 shrink-0 aspect-[16/10] object-cover rounded-2xl shadow-md border border-white/15"
+                    className="inline-block w-56 h-36 shrink-0 aspect-[16/10] object-cover rounded-2xl shadow-md border border-white/20"
                   />
                 ))}
               </div>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/flywheel" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-saffron text-white shadow-md hover:shadow-lg transition font-bold">
+              <Link to="/flywheel" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition font-black text-sm">
                 See the autonomous loop <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/command-center" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 transition font-bold">
-                <Globe className="w-4 h-4 text-saffron-foreground" /> Try Command Center
+              <Link to="/command-center" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 transition font-black text-sm">
+                <Globe className="w-4 h-4 text-amber-400" /> Try Command Center
               </Link>
             </div>
           </div>
 
           {/* Right Column: Video & Stats Tabs below it */}
           <div className="lg:col-span-5 flex flex-col gap-5 self-start w-full">
-            <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden rounded-3xl bg-slate-950 shadow-2xl border border-white/20 ring-1 ring-white/10 hover:ring-saffron/40 transition-all duration-300">
+            <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden rounded-3xl bg-slate-950 shadow-2xl border border-white/20 ring-1 ring-white/10 hover:ring-amber-400/40 transition-all duration-300">
               <video
                 src={netraVideo}
                 autoPlay
@@ -232,23 +228,23 @@ function Landing() {
               />
             </div>
 
-            {/* Stats Tabs (Single Line, 4 Tabs with Solid Colors) */}
+            {/* Stats Tabs (Single Line, 4 Tabs with Solid Light Cards) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full">
-              <div className="rounded-xl bg-[#113a5f] text-white p-2.5 flex flex-col items-center justify-center text-center shadow-sm border border-black/5">
-                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase">Trains</span>
-                <span className="text-sm sm:text-base font-bold mt-0.5">{summary?.pillar_b_summary?.total_trains || 500}+</span>
+              <div className="rounded-xl bg-white text-slate-900 p-2.5 flex flex-col items-center justify-center text-center shadow-md border border-slate-200">
+                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase text-blue-700">Trains</span>
+                <span className="text-sm sm:text-base font-black mt-0.5 text-slate-900">{summary?.pillar_b_summary?.total_trains || 500}+</span>
               </div>
-              <div className="rounded-xl bg-[#d97706] text-white p-2.5 flex flex-col items-center justify-center text-center shadow-sm border border-black/5">
-                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase">Saved</span>
-                <span className="text-sm sm:text-base font-bold mt-0.5">₹16.4Cr</span>
+              <div className="rounded-xl bg-white text-slate-900 p-2.5 flex flex-col items-center justify-center text-center shadow-md border border-slate-200">
+                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase text-amber-700">Saved</span>
+                <span className="text-sm sm:text-base font-black mt-0.5 text-slate-900">₹16.4Cr</span>
               </div>
-              <div className="rounded-xl bg-[#059669] text-white p-2.5 flex flex-col items-center justify-center text-center shadow-sm border border-black/5">
-                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase">Pillars</span>
-                <span className="text-sm sm:text-base font-bold mt-0.5">4 Active</span>
+              <div className="rounded-xl bg-white text-slate-900 p-2.5 flex flex-col items-center justify-center text-center shadow-md border border-slate-200">
+                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase text-emerald-700">Pillars</span>
+                <span className="text-sm sm:text-base font-black mt-0.5 text-slate-900">4 Active</span>
               </div>
-              <div className="rounded-xl bg-[#e11d48] text-white p-2.5 flex flex-col items-center justify-center text-center shadow-sm border border-black/5">
-                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase">Alerts</span>
-                <span className="text-sm sm:text-base font-bold mt-0.5">{summary?.pillar_c_summary?.anomalies_detected || 111}</span>
+              <div className="rounded-xl bg-white text-slate-900 p-2.5 flex flex-col items-center justify-center text-center shadow-md border border-slate-200">
+                <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase text-rose-700">Alerts</span>
+                <span className="text-sm sm:text-base font-black mt-0.5 text-slate-900">{summary?.pillar_c_summary?.anomalies_detected || 111}</span>
               </div>
             </div>
           </div>
@@ -318,8 +314,8 @@ function Landing() {
                         <p.icon className="w-4 h-4" />
                       </div>
                     </div>
-                    <h3 className={`text-base font-display font-bold transition-colors ${p.textColor}`}>{p.title}</h3>
-                    <p className="mt-1.5 text-xs text-white/85 leading-relaxed">{p.desc}</p>
+                    <h3 className={`text-base font-display font-black transition-colors ${p.textColor}`}>{p.title}</h3>
+                    <p className={`mt-1.5 text-xs leading-relaxed ${p.descColor}`}>{p.desc}</p>
                   </div>
                   
                   <div className={`mt-4 inline-flex items-center gap-1 text-xs font-bold group-hover:underline ${p.actionColor}`}>
@@ -414,18 +410,18 @@ function Landing() {
     </section>
 
       {/* Why it matters & Ribbon */}
-      <section className="relative bg-[#0b1329] border-t border-slate-800 text-white py-12">
+      <section className="relative bg-[#0b1329] border-t border-white/10 text-white py-12">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { i: Zap, t: "Sub-second decisions", d: "Edge inference and JSSP heuristics resolve precedence in under 800 ms.", c: "from-saffron/20 to-saffron/5", ic: "text-saffron-foreground" },
-              { i: Shield, t: "Zero-touch safety", d: "IMU anomalies trigger drone audits and slow zones without a human in the loop.", c: "from-emerald/20 to-emerald/5", ic: "text-emerald" },
-              { i: Brain, t: "Self-improving", d: "Evolutionary heuristics + AKNN vector indexing learn from every run.", c: "from-violet/20 to-violet/5", ic: "text-violet" },
+              { i: Zap, t: "Sub-second decisions", d: "Edge inference and JSSP heuristics resolve precedence in under 800 ms.", c: "bg-white/10 border-white/20", ic: "text-amber-400" },
+              { i: Shield, t: "Zero-touch safety", d: "IMU anomalies trigger drone audits and slow zones without a human in the loop.", c: "bg-white/10 border-white/20", ic: "text-emerald-400" },
+              { i: Brain, t: "Self-improving", d: "Evolutionary heuristics + AKNN vector indexing learn from every run.", c: "bg-white/10 border-white/20", ic: "text-violet-400" },
             ].map((x) => (
-              <div key={x.t} className="rounded-2xl border border-white/10 bg-[#121c38]/60 p-5 shadow-lg">
-                <div className={`w-10 h-10 rounded-xl bg-white/10 grid place-items-center mb-3 ${x.ic} shadow-sm`}><x.i className="w-5 h-5" /></div>
-                <div className="font-display font-bold text-white">{x.t}</div>
-                <p className="text-sm text-slate-300 mt-1">{x.d}</p>
+              <div key={x.t} className="rounded-2xl border border-white/15 bg-[#121c38]/80 p-5 shadow-lg backdrop-blur-md">
+                <div className={`w-10 h-10 rounded-xl grid place-items-center mb-3 ${x.c} ${x.ic} shadow-sm`}><x.i className="w-5 h-5" /></div>
+                <div className="font-display font-extrabold text-white text-base">{x.t}</div>
+                <p className="text-sm text-slate-300 font-medium mt-1">{x.d}</p>
               </div>
             ))}
           </div>

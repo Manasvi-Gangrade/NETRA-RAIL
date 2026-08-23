@@ -237,32 +237,32 @@ function PillarB() {
       <section className="mx-auto max-w-7xl px-6 mt-8 grid lg:grid-cols-12 gap-5">
         {/* LEFT: heuristic engine + radar */}
         <div className="lg:col-span-3 space-y-4">
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-saffron/15 to-white p-5">
-            <div className="flex items-center justify-between">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1.5"><Brain className="w-3.5 h-3.5 text-saffron-foreground" /> LLM Heuristic Engine</div>
-              <span className="text-[11px] flex items-center gap-1.5 text-emerald font-semibold"><span className="live-dot" /> ACTIVE</span>
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold flex items-center gap-1.5"><Brain className="w-4 h-4 text-amber-600" /> LLM Heuristic Engine</div>
+              <span className="text-[11px] flex items-center gap-1.5 text-emerald-600 font-bold"><span className="live-dot" /> ACTIVE</span>
             </div>
-            <div className="mt-4 space-y-1.5 max-h-72 overflow-hidden">
+            <div className="mt-3.5 space-y-2 max-h-72 overflow-y-auto">
               {logs.map((l, i) => (
-                <div key={i} className="animate-slide-up text-[11px] font-mono text-foreground/85 border-l-2 border-saffron pl-2">
-                  <span className="text-muted-foreground">{new Date().toLocaleTimeString("en-IN", { hour12: false })}</span> {l}
+                <div key={i} className="animate-slide-up text-[11px] font-mono text-slate-800 font-semibold bg-slate-50 border-l-3 border-amber-500 p-2 rounded-r-lg">
+                  <span className="text-slate-400 font-bold">{new Date().toLocaleTimeString("en-IN", { hour12: false })}</span> {l}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
-            <div className="flex items-center justify-between">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Multi-objective Score</div>
-              <Sigma className="w-4 h-4 text-primary" />
+          <div className="rounded-2xl border border-slate-200 bg-white text-slate-900 p-5 shadow-sm">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+              <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold">Multi-objective Score</div>
+              <Sigma className="w-4 h-4 text-blue-600" />
             </div>
-            <div className="h-48 mt-1">
+            <div className="h-48 mt-2">
               <ResponsiveContainer>
                 <RadarChart data={radarData}>
-                  <PolarGrid stroke="oklch(0.92 0.01 250)" />
-                  <PolarAngleAxis dataKey="k" tick={{ fontSize: 9 }} />
+                  <PolarGrid stroke="#cbd5e1" />
+                  <PolarAngleAxis dataKey="k" tick={{ fontSize: 10, fill: "#0f172a", fontWeight: "bold" }} />
                   <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
-                  <Radar dataKey="v" stroke="oklch(0.34 0.08 250)" fill="oklch(0.6 0.2 295 / 0.35)" strokeWidth={2} />
+                  <Radar dataKey="v" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.25} strokeWidth={2} />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
@@ -270,24 +270,24 @@ function PillarB() {
         </div>
 
         {/* CENTER: corridor sim - 3 lanes */}
-        <div className="lg:col-span-6 rounded-2xl border border-border bg-gradient-to-b from-white to-cream-bg p-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+        <div className="lg:col-span-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 border-b border-slate-100 pb-3">
             <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Live Corridor Simulation</div>
-              <div className="text-sm font-display font-semibold">Western Dedicated Freight Corridor · KM 100–250</div>
+              <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold">Live Corridor Simulation</div>
+              <div className="text-sm font-display font-bold text-slate-800">Western Dedicated Freight Corridor · KM 100–250</div>
             </div>
-            <span className="text-[11px] self-start sm:self-center flex items-center gap-1.5 text-emerald font-semibold"><span className="live-dot" /> LIVE</span>
+            <span className="text-[11px] self-start sm:self-center flex items-center gap-1.5 text-emerald-600 font-bold"><span className="live-dot" /> LIVE</span>
           </div>
 
           {/* Interactive controls bar */}
-          <div className="flex flex-wrap gap-2 mb-4 p-2 bg-muted/40 rounded-xl border border-border/50">
+          <div className="flex flex-wrap gap-2.5 mb-4 p-2.5 bg-slate-100 rounded-xl border border-slate-200">
             <button
               onClick={handlePrecedenceOverride}
               disabled={overrideActive}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition ${
+              className={`px-4 py-2 rounded-lg text-xs font-extrabold flex items-center gap-2 transition active:scale-95 ${
                 overrideActive
-                  ? "bg-saffron/20 text-saffron-foreground border border-saffron/30 cursor-not-allowed"
-                  : "bg-primary text-white hover:bg-primary/90 shadow-sm"
+                  ? "bg-amber-100 text-amber-800 border border-amber-300 cursor-not-allowed"
+                  : "bg-blue-600 text-white hover:bg-blue-700 shadow-md"
               }`}
             >
               <Zap className="w-3.5 h-3.5" />
@@ -296,10 +296,10 @@ function PillarB() {
             <button
               onClick={handleSimulateAnomaly}
               disabled={isAnomalyActive}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition ${
+              className={`px-4 py-2 rounded-lg text-xs font-extrabold flex items-center gap-2 transition active:scale-95 ${
                 isAnomalyActive
-                  ? "bg-destructive/20 text-destructive border border-destructive/30 cursor-not-allowed"
-                  : "bg-destructive text-white hover:bg-destructive/95 shadow-sm"
+                  ? "bg-rose-100 text-rose-800 border border-rose-300 cursor-not-allowed"
+                  : "bg-rose-600 text-white hover:bg-rose-700 shadow-md"
               }`}
             >
               <AlertTriangle className="w-3.5 h-3.5" />
@@ -314,57 +314,57 @@ function PillarB() {
           <CorridorLane label="LOOP LINE B" trains={trains.filter((t) => t.lane === 2)} />
 
           <div className="mt-5 grid sm:grid-cols-2 gap-3">
-            <div className={`rounded-xl border p-3 text-sm flex items-start gap-3 transition-all ${overrideActive ? "bg-saffron/10 border-saffron/40" : "bg-saffron/5 border-saffron/20"}`}>
-              <AlertTriangle className="w-4 h-4 text-saffron-foreground mt-0.5" />
+            <div className={`rounded-xl border p-3 text-sm flex items-start gap-3 transition-all ${overrideActive ? "bg-amber-100/80 border-amber-300 text-amber-900" : "bg-amber-50 border-amber-200 text-amber-900"}`}>
+              <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
               <div>
-                <div className="font-semibold text-saffron-foreground">FRT #EXP-22 → LOOP LINE A</div>
-                <div className="text-muted-foreground text-xs">VB #VB-12 priority pass · clearance 3.4s · delay avoided: 11 min</div>
+                <div className="font-extrabold text-amber-950">FRT #EXP-22 → LOOP LINE A</div>
+                <div className="text-amber-800 text-xs font-semibold">VB #VB-12 priority pass · clearance 3.4s · delay avoided: 11 min</div>
               </div>
             </div>
-            <div className="rounded-xl bg-emerald/10 border border-emerald/30 p-3 text-sm flex items-start gap-3">
-              <GitBranch className="w-4 h-4 text-emerald mt-0.5" />
+            <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-3 text-sm flex items-start gap-3 text-emerald-950">
+              <GitBranch className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
               <div>
-                <div className="font-semibold text-emerald">JSSP Solver · iteration #4827</div>
-                <div className="text-muted-foreground text-xs">Makespan reduced 6.2 min · 0 conflicts · convergence ✓</div>
+                <div className="font-extrabold text-emerald-950">JSSP Solver · iteration #4827</div>
+                <div className="text-emerald-800 text-xs font-semibold">Makespan reduced 6.2 min · 0 conflicts · convergence ✓</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT: slow zones */}
-        <div className="lg:col-span-3">
-          <div className="rounded-2xl border border-white/10 bg-slate-900/90 text-white p-5 shadow-xl">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-3">Slow Zone Alerts</div>
+        <div className="lg:col-span-3 space-y-4">
+          <div className="rounded-2xl border border-slate-200 bg-white text-slate-900 p-5 shadow-sm">
+            <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold mb-3 border-b border-slate-100 pb-2">Slow Zone Alerts</div>
             <div className="space-y-3">
               {slowZonesList.map((s) => (
-                <div key={s.section} className={`rounded-xl border p-3 ${s.active ? "border-destructive/30 bg-destructive/5" : "border-emerald/30 bg-emerald/5"}`}>
+                <div key={s.section} className={`rounded-xl border p-3.5 ${s.active ? "border-rose-300 bg-rose-50" : "border-emerald-300 bg-emerald-50"}`}>
                   <div className="flex items-center justify-between">
-                    <div className="text-sm font-semibold">{s.section}</div>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${s.active ? "bg-destructive text-white" : "bg-emerald text-white"}`}>
+                    <div className="text-xs font-extrabold text-slate-900">{s.section}</div>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${s.active ? "bg-rose-600 text-white" : "bg-emerald-600 text-white"}`}>
                       {s.active ? "● ACTIVE" : "● CLEARED"}
                     </span>
                   </div>
-                  <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                    <div>Trigger: <span className="text-foreground">{s.trigger}</span></div>
-                    <div>Limit: <span className="text-foreground font-mono">{s.limit}</span></div>
-                    <div>Age: <span className="text-foreground font-mono">{s.age}</span></div>
+                  <div className="mt-2 grid grid-cols-2 gap-1.5 text-xs text-slate-700 font-semibold">
+                    <div>Trigger: <span className="text-slate-900 font-bold">{s.trigger}</span></div>
+                    <div>Limit: <span className="text-slate-900 font-bold font-mono">{s.limit}</span></div>
+                    <div>Age: <span className="text-slate-900 font-bold font-mono">{s.age}</span></div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-4 rounded-2xl border border-border bg-white p-5">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Section Load · live</div>
-            <div className="mt-3 space-y-2">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold border-b border-slate-100 pb-2">Section Load · Live</div>
+            <div className="mt-3 space-y-2.5">
               {sections.map((s) => (
                 <div key={s.n}>
-                  <div className="flex justify-between text-[11px]">
+                  <div className="flex justify-between text-[11px] font-bold text-slate-800">
                     <span className="truncate">{s.n}</span>
-                    <span className={`font-mono ${s.status === "SLOW ZONE" ? "text-destructive" : s.status === "PEAK" ? "text-saffron-foreground" : "text-emerald"}`}>{s.load}%</span>
+                    <span className={`font-mono font-black ${s.status === "SLOW ZONE" ? "text-rose-600" : s.status === "PEAK" ? "text-amber-600" : "text-emerald-600"}`}>{s.load}%</span>
                   </div>
-                  <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-                    <div className={`h-full transition-all duration-700 ${s.status === "SLOW ZONE" ? "bg-destructive/70" : s.status === "PEAK" ? "bg-saffron" : "bg-emerald"}`} style={{ width: `${s.load}%` }} />
+                  <div className="h-2 rounded-full bg-slate-100 overflow-hidden mt-1 border border-slate-200">
+                    <div className={`h-full transition-all duration-700 ${s.status === "SLOW ZONE" ? "bg-rose-600" : s.status === "PEAK" ? "bg-amber-500" : "bg-emerald-600"}`} style={{ width: `${s.load}%` }} />
                   </div>
                 </div>
               ))}
@@ -375,15 +375,15 @@ function PillarB() {
 
       {/* THROUGHPUT GRAPH */}
       <section className="mx-auto max-w-7xl px-6 mt-8 grid lg:grid-cols-3 gap-5">
-        <div className="lg:col-span-2 rounded-2xl border border-border bg-white p-5">
-          <div className="flex items-center justify-between mb-2">
+        <div className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex items-center justify-between mb-2 border-b border-slate-100 pb-2">
             <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Throughput · NETRA-RAIL vs Baseline</div>
-              <div className="text-sm font-display font-semibold">trains / hour · 60 min window</div>
+              <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold">Throughput · NETRA-RAIL vs Baseline</div>
+              <div className="text-xs font-bold text-slate-600">trains / hour · 60 min window</div>
             </div>
-            <div className="flex gap-3 text-[11px]">
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-primary" /> NETRA-RAIL</span>
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm bg-muted-foreground/40" /> Baseline</span>
+            <div className="flex gap-3 text-[11px] font-bold">
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-blue-600" /> NETRA-RAIL</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-slate-400" /> Baseline</span>
             </div>
           </div>
           <div className="h-64">
@@ -391,25 +391,25 @@ function PillarB() {
               <AreaChart data={series}>
                 <defs>
                   <linearGradient id="th1" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="oklch(0.34 0.08 250)" stopOpacity={0.5} />
-                    <stop offset="100%" stopColor="oklch(0.34 0.08 250)" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#2563eb" stopOpacity={0.4} />
+                    <stop offset="100%" stopColor="#2563eb" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="t" hide />
-                <YAxis tick={{ fontSize: 10 }} />
-                <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8 }} />
-                <Area type="monotone" dataKey="throughput" stroke="oklch(0.34 0.08 250)" fill="url(#th1)" strokeWidth={2.5} />
-                <Line type="monotone" dataKey="baseline" stroke="oklch(0.5 0.02 250)" strokeDasharray="4 4" strokeWidth={1.5} dot={false} />
+                <YAxis tick={{ fontSize: 10, fill: "#0f172a", fontWeight: "bold" }} />
+                <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, background: "#ffffff", color: "#0f172a", border: "1px solid #cbd5e1" }} />
+                <Area type="monotone" dataKey="throughput" stroke="#2563eb" fill="url(#th1)" strokeWidth={2.5} />
+                <Line type="monotone" dataKey="baseline" stroke="#64748b" strokeDasharray="4 4" strokeWidth={1.5} dot={false} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-white to-saffron/10 p-5">
-          <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">JSSP Solver</div>
-          <div className="mt-3 text-4xl font-display font-bold gradient-brand">4,827</div>
-          <div className="text-xs text-muted-foreground">iterations / minute</div>
-          <div className="mt-4 space-y-2 text-xs">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="text-xs uppercase tracking-wider text-slate-900 font-extrabold border-b border-slate-100 pb-2">JSSP Solver Engine</div>
+          <div className="mt-3 text-4xl font-display font-black text-blue-600">4,827</div>
+          <div className="text-xs text-slate-500 font-bold">iterations / minute</div>
+          <div className="mt-4 space-y-2.5 text-xs">
             {[
               ["Population", "256"],
               ["Crossover rate", "0.85"],
@@ -417,9 +417,9 @@ function PillarB() {
               ["Fitness Δ", "+12.6%"],
               ["Convergence", "PASSED ✓"],
             ].map(([k, v]) => (
-              <div key={k} className="flex justify-between border-b border-border/60 pb-1.5">
-                <span className="text-muted-foreground">{k}</span>
-                <span className="font-mono font-semibold">{v}</span>
+              <div key={k} className="flex justify-between border-b border-slate-100 pb-1.5 font-bold">
+                <span className="text-slate-600">{k}</span>
+                <span className="font-mono text-slate-900">{v}</span>
               </div>
             ))}
           </div>

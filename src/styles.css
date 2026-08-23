@@ -45,20 +45,20 @@
 
 :root {
   --radius: 0.85rem;
-  --background: #0b1329;
+  --background: #f8fafc;
   --cream: oklch(0.985 0.005 90);
-  --foreground: oklch(0.98 0.01 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.04 250);
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
   --primary: oklch(0.34 0.08 250);
   --primary-foreground: oklch(0.99 0 0);
   --rail: oklch(0.34 0.08 250);
   --secondary: oklch(0.96 0.01 90);
-  --secondary-foreground: oklch(0.22 0.04 250);
+  --secondary-foreground: #0f172a;
   --muted: oklch(0.97 0.005 90);
-  --muted-foreground: oklch(0.5 0.02 250);
+  --muted-foreground: #475569;
   --accent: oklch(0.95 0.02 80);
   --accent-foreground: oklch(0.34 0.08 250);
   --saffron: oklch(0.78 0.16 70);
@@ -72,16 +72,16 @@
   --sun: oklch(0.85 0.16 95);
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.01 250);
-  --input: oklch(0.92 0.01 250);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: oklch(0.34 0.08 250);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
   html, body {
-    background: #0b1329;
-    color: #f8fafc;
+    background: #f8fafc;
+    color: #0f172a;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;

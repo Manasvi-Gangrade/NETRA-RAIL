@@ -227,7 +227,7 @@ function PillarA() {
             <span className="text-xs flex items-center gap-1.5 text-emerald"><span className="live-dot" /> LIVE</span>
           </div>
           {ports.map((p) => (
-            <div key={p.name} className="card-hover rounded-2xl border border-white/10 bg-slate-900/90 text-white overflow-hidden shadow-xl">
+            <div key={p.name} className="card-hover rounded-2xl border border-slate-200 bg-white text-slate-900 overflow-hidden shadow-sm">
               <div className="relative h-24">
                 <img
                   src={p.img}
