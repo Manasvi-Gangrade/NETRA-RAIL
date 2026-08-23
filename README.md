@@ -7,7 +7,7 @@
 
 <div align="center">
 
-### 🏆 Submitted To: Far Away Hackathon 2026 — Theme: Railways
+![Hackathon Banner](https://img.shields.io/badge/Submitted%20To-Far%20Away%20Hackathon%202026%20%7C%20Theme%3A%20Railways-1a3a5c?style=for-the-badge)  
 **Team Name:** Japan Buddies  
 **Team Members:** Manasvi Gangrade (Team Lead), Navneet Kaur, Suhani Sharma, Muskan Lodhi  
 **Institution:** Indore Institute of Science and Technology (IIST), Indore
@@ -36,66 +36,65 @@
 
 ---
 
-## 📸 System Media & Visual Screenshots Gallery
+![Media Header](https://img.shields.io/badge/System%20Media%20%26%20Visual%20Screenshots%20Gallery-1a3a5c?style=for-the-badge)
 
 <div align="center">
 
-| 🌐 NETRA-RAIL Deployed Web Platform | 📲 NETRA-RAIL Live Mobile Platform |
-| :---: | :---: |
-| [![Web Platform](./Images/GitHub/Web%20Platform.png)](https://netra-rail.vercel.app/) | [![Mobile App](./Images/GitHub/Mobile%20App.png)](https://netra-rail-mobile.vercel.app/) |
-| **[👉 Launch Web App (netra-rail.vercel.app)](https://netra-rail.vercel.app/)** | **[👉 Launch Mobile App (netra-rail-mobile.vercel.app)](https://netra-rail-mobile.vercel.app/)** |
-
-| 📊 Official Presentation Pitch Deck | 📄 ResearchGate Academic Publication |
-| :---: | :---: |
-| [![Presentation Deck](./Images/GitHub/Presentation.png)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) | [![Research Paper](./Images/GitHub/Research.png)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) |
-| **[👉 Open Presentation Pitch Deck](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true)** | **[👉 Read Published Paper on ResearchGate](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid)** |
-
-| ⚡ Interactive FastAPI Swagger API Specs | 👩‍💻 Team Japan Buddies — IIST Indore |
-| :---: | :---: |
-| [![API Documentation](./Images/GitHub/API%20Documentation.png)](https://netra-rail-backend.onrender.com/docs) | [![Team Japan Buddies](./Images/GitHub/Team.jpeg)](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
-| **[👉 Explore OpenAPI Documentation](https://netra-rail-backend.onrender.com/docs)** | **[Team Japan Buddies — Manasvi, Navneet, Suhani, Muskan](https://github.com/Manasvi-Gangrade/NETRA-RAIL)** |
-
-</div>
-
----
-
-## 🎥 Video Demonstrations & Pitch Showcase
-
-<div align="center">
-
-| 🎥 Team Japan Buddies Pitch Video | 🎬 MVP Walkthrough & System Explanation | 🎞️ Animated System Architecture Video |
+| NETRA-RAIL Deployed Web Platform | NETRA-RAIL Live Mobile Platform | Presentation Pitch Deck |
 | :---: | :---: | :---: |
-| [![Pitch Video](https://img.shields.io/badge/PITCH%20VIDEO-Team%20Japan%20Buddies-DC2626?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) | [![MVP Video](https://img.shields.io/badge/MVP%20VIDEO-System%20Explanation-7C3AED?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) | [![Animated Video](https://img.shields.io/badge/ANIMATION-System%20Architecture-2563EB?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
-| **[👉 Watch Pitch Video](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing)** | **[👉 Watch MVP Video](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing)** | **[👉 Watch Animation Video](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing)** |
+| [![Web Platform](./Images/GitHub/Web%20Platform.png)](https://netra-rail.vercel.app/) | [![Mobile App](./Images/GitHub/Mobile%20App.png)](https://netra-rail-mobile.vercel.app/) | [![Presentation Deck](./Images/GitHub/Presentation.png)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
+| [![Web Pill](https://img.shields.io/badge/Launch-Web%20App-000000?style=for-the-badge&logo=vercel)](https://netra-rail.vercel.app/) | [![Mobile Pill](https://img.shields.io/badge/Launch-Mobile%20App-10B981?style=for-the-badge&logo=vercel)](https://netra-rail-mobile.vercel.app/) | [![Presentation Pill](https://img.shields.io/badge/Open-Pitch%20Deck-F59E0B?style=for-the-badge&logo=google-slides)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
+
+| ResearchGate Academic Paper | Interactive FastAPI Swagger Specs | NETRA-RAIL System Documentation |
+| :---: | :---: | :---: |
+| [![Research Paper](./Images/GitHub/Research.png)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) | [![API Documentation](./Images/GitHub/API%20Documentation.png)](https://netra-rail-backend.onrender.com/docs) | [![Detailed System Doc](./Images/GitHub/Detailed%20Doc.jpeg)](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
+| [![Research Pill](https://img.shields.io/badge/Read-Research%20Paper-00CCBB?style=for-the-badge&logo=researchgate)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) | [![API Pill](https://img.shields.io/badge/Explore-Swagger%20Docs-009688?style=for-the-badge&logo=fastapi)](https://netra-rail-backend.onrender.com/docs) | [![System Doc Pill](https://img.shields.io/badge/View-System%20Docs-34A853?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
+
+| Mobile Documentation | Technical Implementation Report | Team Japan Buddies — IIST Indore |
+| :---: | :---: | :---: |
+| [![Mobile Doc](./Images/GitHub/Mobile%20Doc.jpeg)](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) | [![Technical Report](./Images/GitHub/Technical%20Report.jpeg)](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) | [![Team Japan Buddies](./Images/GitHub/Team.jpeg)](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
+| [![Mobile Doc Pill](https://img.shields.io/badge/View-Mobile%20Docs-7C3AED?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) | [![Technical Pill](https://img.shields.io/badge/View-Technical%20Report-DC2626?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) | [![Team Pill](https://img.shields.io/badge/Team-Japan%20Buddies-1a3a5c?style=for-the-badge&logo=github)](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
 
 </div>
 
 ---
 
-## 🔗 Official Deliverables & Resources Matrix
+![Video Header](https://img.shields.io/badge/Video%20Demonstrations%20%26%20Pitch%20Showcase-DC2626?style=for-the-badge)
+
+<div align="center">
+
+| Team Japan Buddies Pitch Video | MVP Walkthrough & System Explanation | Animated System Architecture Video |
+| :---: | :---: | :---: |
+| [![Pitch Video](https://img.shields.io/badge/Watch-Pitch%20Video-DC2626?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) | [![MVP Video](https://img.shields.io/badge/Watch-MVP%20Explanation-7C3AED?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) | [![Animated Video](https://img.shields.io/badge/Watch-Animation%20Video-2563EB?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
+
+</div>
+
+---
+
+![Links Header](https://img.shields.io/badge/Official%20Deliverables%20%26%20Resources%20Matrix-10B981?style=for-the-badge)
 
 | Category | Deliverable Resource | Direct Link |
 | :--- | :--- | :--- |
-| 📄 **Academic Research** | **Official NETRA-RAIL Research Paper** | [View on ResearchGate](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) |
-| 🌐 **Web Platform** | **Live Deployed Web Application** | [netra-rail.vercel.app](https://netra-rail.vercel.app/) |
-| 🐙 **Web Codebase** | **NETRA-RAIL Main GitHub Repository** | [GitHub: NETRA-RAIL](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
-| ⚡ **AI Engine Backend** | **Live FastAPI Backend Service** | [netra-rail-backend.onrender.com](https://netra-rail-backend.onrender.com) |
-| 📚 **API Documentation** | **Interactive Swagger API Specs** | [OpenAPI Docs (Port 8000)](https://netra-rail-backend.onrender.com/docs) |
-| 📲 **Mobile App** | **Live Deployed Mobile Application** | [netra-rail-mobile.vercel.app](https://netra-rail-mobile.vercel.app/) |
-| 📱 **Mobile Codebase** | **NETRA-RAIL Mobile GitHub Repository** | [GitHub: NETRA-RAIL-Mobile](https://github.com/Manasvi-Gangrade/NETRA-RAIL-Mobile) |
-| 📊 **Presentation** | **Official Presentation Pitch Deck** | [View Google Slides / PPT](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
-| 🎥 **Pitch Video** | **Team Japan Buddies Pitch Video** | [Watch Pitch Video](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) |
-| 🎬 **Demonstration** | **MVP Explanation & Walkthrough Video** | [Watch MVP Video](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) |
-| 🎞️ **Concept Animation** | **System Architecture Animated Video** | [Watch Animation](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
-| 📑 **System Docs** | **NETRA-RAIL Detailed Documentation** | [Download PDF / View Drive](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
-| 📑 **Mobile Docs** | **Mobile Platform Detailed Documentation** | [Download PDF / View Drive](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) |
-| 📋 **Technical Report** | **Full Technical Implementation Report** | [Download PDF / View Drive](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) |
-| 📁 **Drive Folder** | **Additional Project Documents Folder** | [Browse Google Drive](https://drive.google.com/drive/folders/1M2ZGIU9P-UsU3-AdsrlVHBr-sPi52W4q?usp=sharing) |
-| 💾 **Assets Folder** | **Datasets & Media Assets Drive Folder** | [Browse Datasets Folder](https://drive.google.com/drive/folders/1TU3SeWIb6gRzmvRQ3dnolC_EAaqHiAUF?usp=sharing) |
+| **Academic Research** | **Official NETRA-RAIL Research Paper** | [View on ResearchGate](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) |
+| **Web Platform** | **Live Deployed Web Application** | [netra-rail.vercel.app](https://netra-rail.vercel.app/) |
+| **Web Codebase** | **NETRA-RAIL Main GitHub Repository** | [GitHub: NETRA-RAIL](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
+| **AI Engine Backend** | **Live FastAPI Backend Service** | [netra-rail-backend.onrender.com](https://netra-rail-backend.onrender.com) |
+| **API Documentation** | **Interactive Swagger API Specs** | [OpenAPI Docs (Port 8000)](https://netra-rail-backend.onrender.com/docs) |
+| **Mobile App** | **Live Deployed Mobile Application** | [netra-rail-mobile.vercel.app](https://netra-rail-mobile.vercel.app/) |
+| **Mobile Codebase** | **NETRA-RAIL Mobile GitHub Repository** | [GitHub: NETRA-RAIL-Mobile](https://github.com/Manasvi-Gangrade/NETRA-RAIL-Mobile) |
+| **Presentation** | **Official Presentation Pitch Deck** | [View Google Slides / PPT](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
+| **Pitch Video** | **Team Japan Buddies Pitch Video** | [Watch Pitch Video](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) |
+| **Demonstration** | **MVP Explanation & Walkthrough Video** | [Watch MVP Video](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) |
+| **Concept Animation** | **System Architecture Animated Video** | [Watch Animation](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
+| **System Docs** | **NETRA-RAIL Detailed Documentation** | [Download PDF / View Drive](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
+| **Mobile Docs** | **Mobile Platform Detailed Documentation** | [Download PDF / View Drive](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) |
+| **Technical Report** | **Full Technical Implementation Report** | [Download PDF / View Drive](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) |
+| **Drive Folder** | **Additional Project Documents Folder** | [Browse Google Drive](https://drive.google.com/drive/folders/1M2ZGIU9P-UsU3-AdsrlVHBr-sPi52W4q?usp=sharing) |
+| **Assets Folder** | **Datasets & Media Assets Drive Folder** | [Browse Datasets Folder](https://drive.google.com/drive/folders/1TU3SeWIb6gRzmvRQ3dnolC_EAaqHiAUF?usp=sharing) |
 
 ---
 
-## 📌 Table of Contents
+![TOC Header](https://img.shields.io/badge/Table%20of%20Contents-7C3AED?style=for-the-badge)
 
 - [Overview — What is NETRA-RAIL?](#overview--what-is-netra-rail)
 - [The Problem — Indian Railways Challenge](#the-problem--indian-railways-challenge)
@@ -115,7 +114,7 @@
 
 ---
 
-## 🚀 Overview — What is NETRA-RAIL?
+![Overview Header](https://img.shields.io/badge/Overview%20--%20What%20is%20NETRA--RAIL%3F-10B981?style=for-the-badge)
 
 Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains daily**, and transports **1.4 billion tonnes of freight annually** — yet its operational intelligence remains fragmented, reactive, and dangerously manual.
 
@@ -128,11 +127,11 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 | **Micro-Sensing** | **Pillar C — IMU Telemetry Node** | Cost-prohibitive infrastructure monitoring via passenger phones |
 | **Ground-Execution** | **Pillar D — Garun CV Auditor** | Hazardous manual track inspections via autonomous drones |
 
-> 💡 **This is not 4 isolated solutions. It is a single self-healing autonomous ecosystem.**
+> **This is not 4 isolated solutions. It is a single self-healing autonomous ecosystem.**
 
 ---
 
-## ⚠️ The Problem — Indian Railways Challenge
+![Problem Header](https://img.shields.io/badge/The%20Problem%20--%20Indian%20Railways%20Challenge-DC2626?style=for-the-badge)
 
 ```
 +------------------+-------------------------------------------------------------+
@@ -154,10 +153,10 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 ---
 
-## 🏛️ Architecture — The 4-Pillar System
+![Architecture Header](https://img.shields.io/badge/Architecture%20--%20The%204--Pillar%20System-1a3a5c?style=for-the-badge)
 
-### ⚓ Pillar A: Intermodal Supply-Chain Synchroniser
-> **Solving:** SIH25209 | Ministry of Steel & Logistics
+![PillarA Header](https://img.shields.io/badge/Pillar%20A%20--%20Intermodal%20Supply--Chain%20Synchroniser-1a3a5c?style=for-the-badge)
+![SIH Pill](https://img.shields.io/badge/Solving-SIH25209%20%7C%20Ministry%20of%20Steel-64748b?style=flat-square)
 
 ```
 [Vessel ETA Feed] --> [RL Routing Optimizer] --> [Wagon Dispatch Queue]
@@ -176,8 +175,8 @@ Indian Railways operates over **68,000 route kilometres**, runs **13,000+ trains
 
 ---
 
-### 🚅 Pillar B: Real-Time Section Throughput Maximiser
-> **Solving:** SIH25022 | Ministry of Railways
+![PillarB Header](https://img.shields.io/badge/Pillar%20B%20--%20Real--Time%20Section%20Throughput%20Maximiser-F59E0B?style=for-the-badge)
+![SIH Pill](https://img.shields.io/badge/Solving-SIH25022%20%7C%20Ministry%20of%20Railways-64748b?style=flat-square)
 
 ```
 [Mixed-Speed Train Network]
@@ -202,8 +201,8 @@ Subject to collision avoidance, passenger precedence, loop-line limits, and mono
 
 ---
 
-### 📱 Pillar C: Crowdsourced IMU Sensor Telemetry Node
-> **Solving:** SIH25177 | ISRO & Telemetry
+![PillarC Header](https://img.shields.io/badge/Pillar%20C%20--%20Crowdsourced%20IMU%20Sensor%20Telemetry%20Node-7C3AED?style=for-the-badge)
+![SIH Pill](https://img.shields.io/badge/Solving-SIH25177%20%7C%20ISRO%20%26%20Telemetry-64748b?style=flat-square)
 
 ```
 [Passenger Smartphones] --> [3-Axis IMU Stream (Accel + Gyro)]
@@ -224,8 +223,8 @@ Subject to collision avoidance, passenger precedence, loop-line limits, and mono
 
 ---
 
-### 🛸 Pillar D: Garun CV Structural Auditor
-> **Solving:** SIH25021 | Ministry of Railways
+![PillarD Header](https://img.shields.io/badge/Pillar%20D%20--%20Garun%20CV%20Structural%20Auditor-10B981?style=for-the-badge)
+![SIH Pill](https://img.shields.io/badge/Solving-SIH25021%20%7C%20Ministry%20of%20Railways-64748b?style=flat-square)
 
 ```
 [Pillar C Anomaly Flag] --> [Autonomous Drone Dispatch]
@@ -242,7 +241,7 @@ Subject to collision avoidance, passenger precedence, loop-line limits, and mono
 
 ---
 
-## 🔄 The Autonomous Flywheel Cycle
+![Flywheel Header](https://img.shields.io/badge/The%20Autonomous%20Flywheel%20Cycle-F59E0B?style=for-the-badge)
 
 ```
                  +---------------------+
@@ -275,7 +274,7 @@ Subject to collision avoidance, passenger precedence, loop-line limits, and mono
 ---------------------------------------------------
 ```
 
-### ⏱️ Live System Execution Log
+![Log Header](https://img.shields.io/badge/Live%20System%20Execution%20Log-1a3a5c?style=flat-square)
 ```log
 14:23:07  [Pillar A] Vessel MV Himalaya ETA updated --> 14:45
 14:23:08  [Pillar A] Freight dispatch queue recalculated (Savings: ₹42 Lakhs)
@@ -291,7 +290,7 @@ Subject to collision avoidance, passenger precedence, loop-line limits, and mono
 
 ---
 
-## 🌐 Multilingual Intelligence (230+ Languages)
+![Multilingual Header](https://img.shields.io/badge/Multilingual%20Intelligence%20(230%2B%20Languages)-7C3AED?style=for-the-badge)
 
 ```
 +-------------------------------------------------------+
@@ -317,7 +316,7 @@ Powered by **IndicTrans2** and BCP-47 text-to-speech locale mapping, enabling se
 
 ---
 
-## 💻 Tech Stack & Architecture
+![Tech Stack Header](https://img.shields.io/badge/Tech%20Stack%20%26%20Architecture-1a3a5c?style=for-the-badge)
 
 ```
 +-------------------------------------------------------+
@@ -350,7 +349,7 @@ Powered by **IndicTrans2** and BCP-47 text-to-speech locale mapping, enabling se
 
 ---
 
-## 📁 Project Directory Structure
+![Structure Header](https://img.shields.io/badge/Project%20Directory%20Structure-10B981?style=for-the-badge)
 
 ```
 NETRA-RAIL/
@@ -397,6 +396,9 @@ NETRA-RAIL/
 │       ├── Presentation.png
 │       ├── Research.png
 │       ├── API Documentation.png
+│       ├── Detailed Doc.jpeg
+│       ├── Mobile Doc.jpeg
+│       ├── Technical Report.jpeg
 │       └── Team.jpeg
 │
 ├── 📁 Datasets/                   # Real-time Telemetry & Freight CSV Datasets
@@ -407,7 +409,7 @@ NETRA-RAIL/
 
 ---
 
-## 🛠️ Setup & Local Installation
+![Setup Header](https://img.shields.io/badge/Setup%20%26%20Local%20Installation-1a3a5c?style=for-the-badge)
 
 ### Prerequisites
 - Python >= 3.10
@@ -448,7 +450,7 @@ npm run dev
 
 ---
 
-## 📑 API Reference
+![API Header](https://img.shields.io/badge/API%20Reference-F59E0B?style=for-the-badge)
 
 | Endpoint | Method | Pillar | Description |
 | :--- | :---: | :---: | :--- |
@@ -464,7 +466,7 @@ npm run dev
 
 ---
 
-## 🔬 Research Foundation & Past Deployments
+![Research Header](https://img.shields.io/badge/Research%20Foundation%20%26%20Past%20Deployments-7C3AED?style=for-the-badge)
 
 NETRA-RAIL is backed by original academic research and production-proven software deployments by the team:
 
@@ -477,7 +479,7 @@ NETRA-RAIL is backed by original academic research and production-proven softwar
 
 ---
 
-## 👩‍💻 Team Japan Buddies
+![Team Header](https://img.shields.io/badge/Team%20Japan%20Buddies-F59E0B?style=for-the-badge)
 
 <div align="center">
 
@@ -494,10 +496,10 @@ NETRA-RAIL is backed by original academic research and production-proven softwar
 
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=F59E0B&center=true&vCenter=true&width=600&lines=NETRA-RAIL+%7C+Far+Away+Hackathon+2026;Theme%3A+Railways+%7C+Build+Boldly.+Ship+Something+Real.;Top+5+%E2%86%92+Fully+Sponsored+Japan+Trip+%F0%9F%87%AF%F0%9F%87%B5)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=F59E0B&center=true&vCenter=true&width=600&lines=NETRA-RAIL+%7C+Far+Away+Hackathon+2026;Theme%3A+Railways+%7C+Build+Boldly.+Ship+Something+Real.;Top+5+%E2%86%92+Fully+Sponsored+Japan+Trip)
 
 [![Star](https://img.shields.io/github/stars/Manasvi-Gangrade/NETRA-RAIL?style=social)](https://github.com/Manasvi-Gangrade/NETRA-RAIL)
 
-*Made with ❤️ by Team Japan Buddies for Indian Railways*
+*Developed by Team Japan Buddies for Indian Railways*
 
 </div>
