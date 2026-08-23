@@ -36,7 +36,43 @@
 
 ---
 
-## 🔗 Quick Deliverables & Official Links Hub
+## 📸 System Media & Visual Screenshots Gallery
+
+<div align="center">
+
+| 🌐 NETRA-RAIL Deployed Web Platform | 📲 NETRA-RAIL Live Mobile Platform |
+| :---: | :---: |
+| [![Web Platform](./Images/GitHub/Web%20Platform.png)](https://netra-rail.vercel.app/) | [![Mobile App](./Images/GitHub/Mobile%20App.png)](https://netra-rail-mobile.vercel.app/) |
+| **[👉 Launch Web App (netra-rail.vercel.app)](https://netra-rail.vercel.app/)** | **[👉 Launch Mobile App (netra-rail-mobile.vercel.app)](https://netra-rail-mobile.vercel.app/)** |
+
+| 📊 Official Presentation Pitch Deck | 📄 ResearchGate Academic Publication |
+| :---: | :---: |
+| [![Presentation Deck](./Images/GitHub/Presentation.png)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) | [![Research Paper](./Images/GitHub/Research.png)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) |
+| **[👉 Open Presentation Pitch Deck](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true)** | **[👉 Read Published Paper on ResearchGate](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid)** |
+
+| ⚡ Interactive FastAPI Swagger API Specs | 👩‍💻 Team Japan Buddies — IIST Indore |
+| :---: | :---: |
+| [![API Documentation](./Images/GitHub/API%20Documentation.png)](https://netra-rail-backend.onrender.com/docs) | [![Team Japan Buddies](./Images/GitHub/Team.jpeg)](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
+| **[👉 Explore OpenAPI Documentation](https://netra-rail-backend.onrender.com/docs)** | **[Team Japan Buddies — Manasvi, Navneet, Suhani, Muskan](https://github.com/Manasvi-Gangrade/NETRA-RAIL)** |
+
+</div>
+
+---
+
+## 🎥 Video Demonstrations & Pitch Showcase
+
+<div align="center">
+
+| 🎥 Team Japan Buddies Pitch Video | 🎬 MVP Walkthrough & System Explanation | 🎞️ Animated System Architecture Video |
+| :---: | :---: | :---: |
+| [![Pitch Video](https://img.shields.io/badge/PITCH%20VIDEO-Team%20Japan%20Buddies-DC2626?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) | [![MVP Video](https://img.shields.io/badge/MVP%20VIDEO-System%20Explanation-7C3AED?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) | [![Animated Video](https://img.shields.io/badge/ANIMATION-System%20Architecture-2563EB?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
+| **[👉 Watch Pitch Video](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing)** | **[👉 Watch MVP Video](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing)** | **[👉 Watch Animation Video](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing)** |
+
+</div>
+
+---
+
+## 🔗 Official Deliverables & Resources Matrix
 
 | Category | Deliverable Resource | Direct Link |
 | :--- | :--- | :--- |
@@ -56,24 +92,6 @@
 | 📋 **Technical Report** | **Full Technical Implementation Report** | [Download PDF / View Drive](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) |
 | 📁 **Drive Folder** | **Additional Project Documents Folder** | [Browse Google Drive](https://drive.google.com/drive/folders/1M2ZGIU9P-UsU3-AdsrlVHBr-sPi52W4q?usp=sharing) |
 | 💾 **Assets Folder** | **Datasets & Media Assets Drive Folder** | [Browse Datasets Folder](https://drive.google.com/drive/folders/1TU3SeWIb6gRzmvRQ3dnolC_EAaqHiAUF?usp=sharing) |
-
----
-
-## 📸 System Visual Gallery & Visual Assets
-
-<div align="center">
-
-| Railway Operations & Telemetry | Track Inspection & Inspection Drone |
-| :---: | :---: |
-| ![Freight Logistics](./Images/img1.jpeg) | ![Track Inspection](./Images/img2.jpeg) |
-| **Pillar A: Intermodal Freight Dispatch** | **Pillar D: Garun CV Autonomous Drone Audit** |
-
-| Structural Maintenance & Rail Grid | IMU Telemetry & Sensor Analytics |
-| :---: | :---: |
-| ![Rail Infrastructure](./Images/img3.jpeg) | ![Sensors & Telemetry](./Images/img4.jpeg) |
-| **Pillar B: Section Throughput JSSP Scheduling** | **Pillar C: Passenger Crowdsourced IMU Sensing** |
-
-</div>
 
 ---
 
@@ -372,11 +390,14 @@ NETRA-RAIL/
 │   ├── 📁 routes/                 # App Routes (Index, Flywheel, Radar, Pillars)
 │   └── main.tsx                   # React Entrypoint
 │
-├── 📁 Images/                     # System Visual Assets & Screenshots
-│   ├── img1.jpeg
-│   ├── img2.jpeg
-│   ├── img3.jpeg
-│   └── img4.jpeg
+├── 📁 Images/
+│   └── 📁 GitHub/                 # Official README Visual Assets
+│       ├── Web Platform.png
+│       ├── Mobile App.png
+│       ├── Presentation.png
+│       ├── Research.png
+│       ├── API Documentation.png
+│       └── Team.jpeg
 │
 ├── 📁 Datasets/                   # Real-time Telemetry & Freight CSV Datasets
 ├── requirements.txt               # Python Dependencies
