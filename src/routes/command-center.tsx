@@ -180,7 +180,7 @@ export function CommandCenter({ noShell = false, dark = false }: { noShell?: boo
                 return updated;
               });
 
-              setLastRemoteNotice(syncData.latest_transaction?.action_triggered || "Remote Operator Directive Synced");
+              setLastRemoteNotice((syncData as any)?.latest_transaction?.action_triggered || "Remote Operator Directive Synced");
               setTimeout(() => setLastRemoteNotice(null), 4000);
             }
             return syncData.history;
