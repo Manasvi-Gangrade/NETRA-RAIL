@@ -1,15 +1,5 @@
 <div align="center">
 
-![Team Badge](https://img.shields.io/badge/Team%20Japan%20Buddies-Far%20Away%20Hackathon%202026%20%7C%20Theme%3A%20Railways-1a3a5c?style=for-the-badge&logo=github)
-
-### Team Roster — Indore Institute of Science and Technology (IIST), Indore
-
-| Team Lead & AI Architecture | Backend & Agent Orchestration | Data & Spatial Analytics | Frontend & Design Systems |
-| :---: | :---: | :---: | :---: |
-| **Manasvi Gangrade** | **Navneet Kaur** | **Suhani Sharma** | **Muskan Lodhi** |
-
----
-
 # NETRA-RAIL
 ### National Enterprise Traffic, Routing & Autonomous Rail-Grid
 **India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
@@ -34,36 +24,69 @@
 
 ---
 
-![Media Header](https://img.shields.io/badge/System%20Media%20%26%20Visual%20Screenshots%20Gallery-1a3a5c?style=for-the-badge)
+![Team Header](https://img.shields.io/badge/Team%20Japan%20Buddies%20--%20Far%20Away%20Hackathon%202026-1a3a5c?style=for-the-badge&logo=github)
 
 <div align="center">
 
-| NETRA-RAIL Deployed Web Platform | NETRA-RAIL Live Mobile Platform | Presentation Pitch Deck |
-| :---: | :---: | :---: |
-| [![Web Platform](./Images/GitHub/Web%20Platform.png)](https://netra-rail.vercel.app/) | [![Mobile App](./Images/GitHub/Mobile%20App.png)](https://netra-rail-mobile.vercel.app/) | [![Presentation Deck](./Images/GitHub/Presentation.png)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
-| [![Web Pill](https://img.shields.io/badge/Launch-Web%20App-000000?style=for-the-badge&logo=vercel)](https://netra-rail.vercel.app/) | [![Mobile Pill](https://img.shields.io/badge/Launch-Mobile%20App-10B981?style=for-the-badge&logo=vercel)](https://netra-rail-mobile.vercel.app/) | [![Presentation Pill](https://img.shields.io/badge/Open-Pitch%20Deck-F59E0B?style=for-the-badge&logo=google-slides)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) |
+### Indore Institute of Science and Technology (IIST), Indore
 
-| ResearchGate Academic Paper | Interactive FastAPI Swagger Specs | NETRA-RAIL System Documentation |
-| :---: | :---: | :---: |
-| [![Research Paper](./Images/GitHub/Research.png)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) | [![API Documentation](./Images/GitHub/API%20Documentation.png)](https://netra-rail-backend.onrender.com/docs) | [![Detailed System Doc](./Images/GitHub/Detailed%20Doc.jpeg)](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
-| [![Research Pill](https://img.shields.io/badge/Read-Research%20Paper-00CCBB?style=for-the-badge&logo=researchgate)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) | [![API Pill](https://img.shields.io/badge/Explore-Swagger%20Docs-009688?style=for-the-badge&logo=fastapi)](https://netra-rail-backend.onrender.com/docs) | [![System Doc Pill](https://img.shields.io/badge/View-System%20Docs-34A853?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) |
+[![Team Photo](./Images/GitHub/Team.jpeg)](https://github.com/Manasvi-Gangrade/NETRA-RAIL)
 
-| Mobile Documentation | Technical Implementation Report | Team Japan Buddies — IIST Indore |
-| :---: | :---: | :---: |
-| [![Mobile Doc](./Images/GitHub/Mobile%20Doc.jpeg)](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) | [![Technical Report](./Images/GitHub/Technical%20Report.jpeg)](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) | [![Team Japan Buddies](./Images/GitHub/Team.jpeg)](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
-| [![Mobile Doc Pill](https://img.shields.io/badge/View-Mobile%20Docs-7C3AED?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) | [![Technical Pill](https://img.shields.io/badge/View-Technical%20Report-DC2626?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) | [![Team Pill](https://img.shields.io/badge/Team-Japan%20Buddies-1a3a5c?style=for-the-badge&logo=github)](https://github.com/Manasvi-Gangrade/NETRA-RAIL) |
+| Team Lead & AI Architecture | Backend & Agent Orchestration | Data & Spatial Analytics | Frontend & Design Systems |
+| :---: | :---: | :---: | :---: |
+| **Manasvi Gangrade** | **Navneet Kaur** | **Suhani Sharma** | **Muskan Lodhi** |
 
 </div>
 
 ---
 
-![Video Header](https://img.shields.io/badge/Video%20Demonstrations%20%26%20Pitch%20Showcase-DC2626?style=for-the-badge)
+![Platforms Header](https://img.shields.io/badge/Deployed%20Platforms%20%26%20Live%20Interfaces-10B981?style=for-the-badge)
+
+<div align="center">
+
+| NETRA-RAIL Deployed Web Platform | NETRA-RAIL Live Mobile Platform | Interactive FastAPI Swagger Specs |
+| :---: | :---: | :---: |
+| [![Web Platform](./Images/GitHub/Web%20Platform.png)](https://netra-rail.vercel.app/) | [![Mobile App](./Images/GitHub/Mobile%20App.png)](https://netra-rail-mobile.vercel.app/) | [![API Documentation](./Images/GitHub/API%20Documentation.png)](https://netra-rail-backend.onrender.com/docs) |
+| [![Web Pill](https://img.shields.io/badge/Launch-Web%20App-000000?style=for-the-badge&logo=vercel)](https://netra-rail.vercel.app/) | [![Mobile Pill](https://img.shields.io/badge/Launch-Mobile%20App-10B981?style=for-the-badge&logo=vercel)](https://netra-rail-mobile.vercel.app/) | [![API Pill](https://img.shields.io/badge/Explore-Swagger%20Docs-009688?style=for-the-badge&logo=fastapi)](https://netra-rail-backend.onrender.com/docs) |
+
+</div>
+
+---
+
+![Research & Docs Header](https://img.shields.io/badge/Academic%20Research%2C%20Pitch%20Deck%20%26%20System%20Docs-F59E0B?style=for-the-badge)
+
+<div align="center">
+
+| ResearchGate Academic Paper | Official Presentation Pitch Deck | NETRA-RAIL System Documentation | Mobile Platform Documentation |
+| :---: | :---: | :---: | :---: |
+| [![Research Paper](./Images/GitHub/Research.png)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) | [![Presentation Deck](./Images/GitHub/Presentation.png)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) | [![Detailed System Doc](./Images/GitHub/Detailed%20Doc.jpeg)](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) | [![Mobile Doc](./Images/GitHub/Mobile%20Doc.jpeg)](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) |
+| [![Research Pill](https://img.shields.io/badge/Read-Research%20Paper-00CCBB?style=for-the-badge&logo=researchgate)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid) | [![Presentation Pill](https://img.shields.io/badge/Open-Pitch%20Deck-F59E0B?style=for-the-badge&logo=google-slides)](https://docs.google.com/presentation/d/1NYo0DYLXW0K5yYJa68ajNObCHS-Pbh28/edit?usp=sharing&ouid=106668008141851340749&rtpof=true&sd=true) | [![System Doc Pill](https://img.shields.io/badge/View-System%20Docs-34A853?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1f_9iGGxTVMP1aWLTsCIgZVzA4Chx9tTl/view?usp=sharing) | [![Mobile Doc Pill](https://img.shields.io/badge/View-Mobile%20Docs-7C3AED?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1oaInPgCIC4bmj1km_1ekqU2LOPCNW_pA/view?usp=sharing) |
+
+</div>
+
+---
+
+![Technical & Assets Header](https://img.shields.io/badge/Technical%20Reports%20%26%20Project%20Drive%20Folders-7C3AED?style=for-the-badge)
+
+<div align="center">
+
+| Technical Implementation Report | Additional Documents Drive | Datasets & Media Assets Drive |
+| :---: | :---: | :---: |
+| [![Technical Report](./Images/GitHub/Technical%20Report.jpeg)](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) | [![Additional Docs](./Images/GitHub/Additional%20Docs.jpeg)](https://drive.google.com/drive/folders/1M2ZGIU9P-UsU3-AdsrlVHBr-sPi52W4q?usp=sharing) | [![Datasets Drive](./Images/GitHub/Datasets.jpeg)](https://drive.google.com/drive/folders/1TU3SeWIb6gRzmvRQ3dnolC_EAaqHiAUF?usp=sharing) |
+| [![Technical Pill](https://img.shields.io/badge/View-Technical%20Report-DC2626?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1jMRtR-ZaZuFKUbl4KQ0bz7A4aAUeWpnp/view?usp=sharing) | [![Docs Drive Pill](https://img.shields.io/badge/Browse-Documents%20Drive-34A853?style=for-the-badge&logo=google-drive)](https://drive.google.com/drive/folders/1M2ZGIU9P-UsU3-AdsrlVHBr-sPi52W4q?usp=sharing) | [![Assets Drive Pill](https://img.shields.io/badge/Access-Telemetry%20Datasets-EA4335?style=for-the-badge&logo=google-drive)](https://drive.google.com/drive/folders/1TU3SeWIb6gRzmvRQ3dnolC_EAaqHiAUF?usp=sharing) |
+
+</div>
+
+---
+
+![Video Header](https://img.shields.io/badge/Video%20Demonstrations%20%26%20Pitch%20Walkthroughs-DC2626?style=for-the-badge)
 
 <div align="center">
 
 | Team Japan Buddies Pitch Video | MVP Walkthrough & System Explanation | Animated System Architecture Video |
 | :---: | :---: | :---: |
-| [![Pitch Video](https://img.shields.io/badge/Watch-Pitch%20Video-DC2626?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) | [![MVP Video](https://img.shields.io/badge/Watch-MVP%20Explanation-7C3AED?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) | [![Animated Video](https://img.shields.io/badge/Watch-Animation%20Video-2563EB?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
+| [![Pitch Video](./Images/GitHub/Video.jpeg)](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) | [![MVP Video](./Images/GitHub/MVP.jpeg)](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) | [![Animated Video](./Images/GitHub/Animated.jpeg)](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
+| [![Pitch Video Pill](https://img.shields.io/badge/Watch-Pitch%20Video-DC2626?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1R9E-1vcXqS20iqk7A6oJL_xdBe-wFvNo/view?usp=sharing) | [![MVP Video Pill](https://img.shields.io/badge/Watch-MVP%20Explanation-7C3AED?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1NMADT7SHeiZWvHsdfXJ0bxiMMUkG7TT0/view?usp=sharing) | [![Animated Video Pill](https://img.shields.io/badge/Watch-Animation%20Video-2563EB?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1_3v_emz57zLhMmDDoCc79pb1x67Ytoec/view?usp=sharing) |
 
 </div>
 
@@ -388,7 +411,7 @@ NETRA-RAIL/
 │   └── main.tsx                   # React Entrypoint
 │
 ├── 📁 Images/
-│   └── 📁 GitHub/                 # Official README Visual Assets
+│   └── 📁 GitHub/                 # Official README Visual Assets (14 Assets)
 │       ├── Web Platform.png
 │       ├── Mobile App.png
 │       ├── Presentation.png
@@ -397,6 +420,11 @@ NETRA-RAIL/
 │       ├── Detailed Doc.jpeg
 │       ├── Mobile Doc.jpeg
 │       ├── Technical Report.jpeg
+│       ├── Additional Docs.jpeg
+│       ├── Datasets.jpeg
+│       ├── Video.jpeg
+│       ├── MVP.jpeg
+│       ├── Animated.jpeg
 │       └── Team.jpeg
 │
 ├── 📁 Datasets/                   # Real-time Telemetry & Freight CSV Datasets
@@ -474,21 +502,6 @@ NETRA-RAIL is backed by original academic research and production-proven softwar
 | **INDRA Platform** | Bharat Mandapam, New Delhi | System-wide command center & multilingual interface |
 | **India Post Routing Optimizer** | Ministry of Telecom (SIH 2024 Grand Finalist) | **Pillar A** — Multimodal freight routing optimization |
 | **RAG Urban Intelligence** | Indore Smart City (3M+ Citizens) | Command Center RAG query engine |
-
----
-
-![Team Header](https://img.shields.io/badge/Team%20Japan%20Buddies-F59E0B?style=for-the-badge)
-
-<div align="center">
-
-| Name | Role | Institution |
-| :--- | :--- | :--- |
-| **Manasvi Gangrade** | **Team Lead** — AI Research & System Architecture | Indore Institute of Science and Technology |
-| **Navneet Kaur** | **Backend Lead** — Agentic Orchestration & Algorithms | Indore Institute of Science and Technology |
-| **Suhani Sharma** | **Data Lead** — Telemetry Pipelines & Spatial Analytics | Indore Institute of Science and Technology |
-| **Muskan Lodhi** | **Frontend Lead** — UX Engineering & Design Systems | Indore Institute of Science and Technology |
-
-</div>
 
 ---
 
