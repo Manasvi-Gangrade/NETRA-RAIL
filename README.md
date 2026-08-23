@@ -1,16 +1,20 @@
-# NETRA-RAIL
-### National Enterprise Traffic, Routing & Autonomous Rail-Grid
+<div align="center">
 
-**India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
+![Team Badge](https://img.shields.io/badge/Team%20Japan%20Buddies-Far%20Away%20Hackathon%202026%20%7C%20Theme%3A%20Railways-1a3a5c?style=for-the-badge&logo=github)
+
+### Team Roster — Indore Institute of Science and Technology (IIST), Indore
+
+| Team Lead & AI Architecture | Backend & Agent Orchestration | Data & Spatial Analytics | Frontend & Design Systems |
+| :---: | :---: | :---: | :---: |
+| **Manasvi Gangrade** | **Navneet Kaur** | **Suhani Sharma** | **Muskan Lodhi** |
 
 ---
 
-<div align="center">
+# NETRA-RAIL
+### National Enterprise Traffic, Routing & Autonomous Rail-Grid
+**India's First Closed-Loop Autonomous Multi-Agent Intelligence Platform for Indian Railways**
 
-![Hackathon Banner](https://img.shields.io/badge/Submitted%20To-Far%20Away%20Hackathon%202026%20%7C%20Theme%3A%20Railways-1a3a5c?style=for-the-badge)  
-**Team Name:** Japan Buddies  
-**Team Members:** Manasvi Gangrade (Team Lead), Navneet Kaur, Suhani Sharma, Muskan Lodhi  
-**Institution:** Indore Institute of Science and Technology (IIST), Indore
+---
 
 [![Research Paper](https://img.shields.io/badge/ResearchGate-Research%20Paper-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://www.researchgate.net/publication/412909876_NETRA-RAIL_National_Enterprise_Traffic_Routing_Autonomous_Rail-Grid)
 [![Web Deployment](https://img.shields.io/badge/Vercel-Live%20Web%20App-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://netra-rail.vercel.app/)
@@ -23,12 +27,6 @@
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-10B981?style=for-the-badge)]()
 [![Languages](https://img.shields.io/badge/Languages%20Supported-230%2B-F59E0B?style=for-the-badge)]()
 [![Pillars](https://img.shields.io/badge/Autonomous%20Pillars-4-blue?style=for-the-badge)]()
-
-</div>
-
----
-
-<div align="center">
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=1a3a5c&center=true&vCenter=true&width=700&lines=Logistics+%E2%86%92+Traffic+%E2%86%92+Sensors+%E2%86%92+Drones;The+Autonomous+Flywheel+%E2%80%94+Zero+Human+Intervention;68%2C000+Route+KM+%7C+13%2C000%2B+Trains+%7C+4+Pillars;Build+Boldly.+Ship+Something+Real.)
 
