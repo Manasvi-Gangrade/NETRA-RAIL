@@ -12,29 +12,11 @@
 [![Backend Engine](https://img.shields.io/badge/Render-FastAPI%20Backend-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://netra-rail-backend.onrender.com)
 [![Swagger API Docs](https://img.shields.io/badge/FastAPI-Live%20API%20Docs-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://netra-rail-backend.onrender.com/docs)
 
-[![Far Away Hackathon](https://img.shields.io/badge/Far%20Away%20Hackathon%202026-Theme%3A%20Railways-1a3a5c?style=for-the-badge)](https://unstop.com)
-[![Round 2 Challenge 279](https://img.shields.io/badge/Round%202%20Challenge%20%23279-Non--Disruptive%20Live%20Update-10B981?style=for-the-badge)]()
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-10B981?style=for-the-badge)]()
 [![Languages](https://img.shields.io/badge/Languages%20Supported-230%2B-F59E0B?style=for-the-badge)]()
 [![Pillars](https://img.shields.io/badge/Autonomous%20Pillars-4-blue?style=for-the-badge)]()
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=1a3a5c&center=true&vCenter=true&width=700&lines=Logistics+%E2%86%92+Traffic+%E2%86%92+Sensors+%E2%86%92+Drones;The+Autonomous+Flywheel+%E2%80%94+Zero+Human+Intervention;68%2C000+Route+KM+%7C+13%2C000%2B+Trains+%7C+4+Pillars;Build+Boldly.+Ship+Something+Real.)
-
-</div>
-
----
-
-![Team Header](https://img.shields.io/badge/Team%20Japan%20Buddies%20--%20Far%20Away%20Hackathon%202026-1a3a5c?style=for-the-badge&logo=github)
-
-<div align="center">
-
-### Indore Institute of Science and Technology (IIST), Indore
-
-[![Team Photo](./Images/GitHub/Team.jpeg)](https://github.com/Manasvi-Gangrade/NETRA-RAIL)
-
-| Team Lead & AI Architecture | Backend & Agent Orchestration | Data & Spatial Analytics | Frontend & Design Systems |
-| :---: | :---: | :---: | :---: |
-| **Manasvi Gangrade** | **Navneet Kaur** | **Suhani Sharma** | **Muskan Lodhi** |
 
 </div>
 
