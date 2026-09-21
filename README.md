@@ -507,6 +507,4 @@ NETRA-RAIL is backed by original academic research and production-proven softwar
 
 [![Star](https://img.shields.io/github/stars/Manasvi-Gangrade/NETRA-RAIL?style=social)](https://github.com/Manasvi-Gangrade/NETRA-RAIL)
 
-*Developed by Team Japan Buddies for Indian Railways*
-
 </div>
